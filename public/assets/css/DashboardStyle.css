@@ -1,0 +1,53 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+  background: #2a2c30;
+  padding-top: 50px;
+}
+
+.footer .footer-logo .navbar-brand {
+  color: #fff;
+  display: inline-block;
+  float: none;
+  font-family: "Philosopher", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  height: 100%;
+  letter-spacing: 0.2em;
+  padding-left: 0;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+
+.footer .footer-logo p {
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  
+}
+
+.footer .list-menu>h4 {
+  color: #fff;
+  padding-bottom: 15px;
+  
+}
+
+.footer .list-menu>p {
+  font-size: 13px;
+  color: #fff;
+  padding-right: 20%;
+  text-align: justify;
+}
+
+
+
+.footer .list-menu ul li a {
+  color: #fff;
+  font-size: 15px;
+  padding-left: 15px;
+  padding-top: 0;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+ 
