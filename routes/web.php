@@ -17,6 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/homepage', function () {
+    return view('homepage');
+});
+
+Route::get('/inner-page1', function () {
+    return view('inner-page1');
+});
+Route::get('/inner-page2', function () {
+    return view('inner-page2');
+});
+Route::get('/inner-page3', function () {
+    return view('inner-page3');
+});
+
 Route::get('/AdminDashboard', function () {
     return view('AdminDashboard');
 });
