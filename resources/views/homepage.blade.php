@@ -116,6 +116,163 @@
       </div>
 
     </section><!-- End Get Started Section -->
+    
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="padd-section">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Contact</h2>
+ <!--     <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="bi bi-geo-alt"></i>
+                <p>HF4C+JG4, Ibbagamuwa<br>Melsiripura</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <p>info@example.com</p>
+              </div>
+
+              <div>
+                <i class="bi bi-phone"></i>
+                <p>0372259591</p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://web.facebook.com/jayan.upasara" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/jayan_upasara/?fbclid=IwAR21tbzjWGuPf2QL1leJVNSuNf902THMhD0w1LmK5xaHB3XNRFUFfZaC4zo" class="instagram"><i class="bi bi-instagram"></i></a>
+             </div>
+
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+
+          <div class="map">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15388.101470517378!2d80.46300781133513!3d7.555924528057077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae349bde11c0d2b%3A0xdc7540f759f96dc3!2sRanger%20Forest%20Office%20-Melsiripura!5e1!3m2!1sen!2slk!4v1694149665826!5m2!1sen!2slk" width="100%" height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section><!-- End Contact Section -->
+
+
+
+  </main><!-- End #main -->
+
+
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">Forest Department,<br>Melsiripura.</a>
+            <p> HF4C+JG4, Ibbagamuwa, <br> Melsiripura.<br>
+                info@example.com<br>
+                0372259591</p>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 col-lg-4">
+          <div class="list-menu">
+
+            <h4>About Us</h4>
+
+         <p>In our island's forests, we enjoy nature's gifts: fresh air, pure water,diverse life, and vital ecosystem services. The Forest Department diligently safeguards these invaluable landscapes. It also serves the public at headquarters and in the field. Together, we nurture our natural treasures for all to cherish.</p>
+          </div>
+        
+        </div>
+
+
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Quick Links</h4>
+        
+            <ul class="list-unstyled">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Sign in</a></li>
+              <li><a href="#">My Account</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      
+        
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Follow Us</h4>
+        
+            <ul class="list-unstyled">
+              <li><a href="#" class="twitter"><i class="bi bi-twitter"></i></a></li>
+              <li> <a href="#" class="facebook"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#" class="instagram"><i class="bi bi-instagram"></i></a></li>
+              <li><a href="#" class="gmail"><i class="bi bi-google"></i></a></li>
+            </ul>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    
+
+  </footer><!-- End  Footer -->
+
   </main><!-- End #main -->
 
   <!-- Vendor JS Files -->
