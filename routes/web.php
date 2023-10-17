@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,18 @@ Route::get('/UserDashboard', function () {
 Route::get('/UserLogout', function () {
     return view('UserLogout');
 });
+
+
+Route::get('/index', [RegistrationController::class, 'index'])->name('registration.index');;
+Route::get('/register', [RegistrationController::class, 'register'])->name('registration.register');
+Route::post('/index', [RegistrationController::class, 'store'])->name('registration.store');
+Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->name('registration.edit');
+Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('registration.update');
+Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('registration.destroy');
+
+Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');
+Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
+Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');;
 
 
 
