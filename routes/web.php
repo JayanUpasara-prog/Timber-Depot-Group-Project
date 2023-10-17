@@ -30,6 +30,26 @@ Route::get('/inner-page3', function () {
     return view('inner-page3');
 });
 
+
+Route::get('/inner-page4', function () {
+    return view('inner-page4');
+});
+Route::get('/inner-page5', function () {
+    return view('inner-page5');
+});
+Route::get('/inner-page6', function () {
+    return view('inner-page6');
+});
+Route::get('/inner-page7', function () {
+    return view('inner-page7');
+});
+Route::get('/inner-page8', function () {
+    return view('inner-page8');
+});
+Route::get('/inner-page9', function () {
+    return view('inner-page9');
+});
+
 Route::get('/AdminDashboard', function () {
     return view('AdminDashboard');
 });

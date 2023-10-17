@@ -44,7 +44,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#Services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#features">Services</a></li>
           <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">English</a></li>
@@ -116,6 +116,78 @@
       </div>
 
     </section><!-- End Get Started Section -->
+
+    <!-- ======= services Section ======= -->
+    <section id="features" class="padd-section text-center">
+
+<div class="container" data-aos="fade-up">
+    <div class="section-title text-center">
+        <h2>Services.</h2>
+        <p class="separator">Discover Our Services For Sustainable Forest Management</p>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+                <img src="assets\pic\sawmill1.png" alt="carpentry">
+                <h4>SAWMILL</h4>
+                <p>Sawmill(Only for Sawing)</p>
+                <p>mobile timber sawmill(Only for Sawing)</p>
+                <a href="inner-page4">More info</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+                <img src="assets\pic\Timber.png" alt="img">
+                <h4>TIMBER SALES OUTLET</h4>
+                <p>only for sale of timber and machines cannot be Used</p>
+                <a href="inner-page5">More info</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+                <img src="assets\pic\furniture.jpg" alt="img">
+                <h4>TIMBER SEASONING OR PROCESSING FACTORY </h4>
+                <p>sawing of logs and sale of timber not permitted</p>
+                <a href="inner-page6">More info</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+                <img src="assets\pic\wood chips1.jpg" alt="img">
+                <h4>CARPENTRY SHED</h4>
+                <p>storing of logs and sale of timber not permited</p>
+                <a href="inner-page7">More info</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+                <img src="assets\pic\wood storage.jpg" alt="img">
+                <h4>TIMBER FURNITURE SHOP</h4>
+                <p>only for the sale of finished furniture. Use of machines not permitted</p>
+                <a href="inner-page8">More info</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+                <img src="assets\pic\fire-wood-campfire-log-bonfire-cartoon-flat-set-isolated-white_97231-960.jpg" alt="img">
+                <h4>FIRE WOOD SHED</h4>
+                <a href="inner-page9">More info</a>
+            </div>
+        </div>
+
+
+      
+    </div>
+ 
+</div>
+</section>
     
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="padd-section">
