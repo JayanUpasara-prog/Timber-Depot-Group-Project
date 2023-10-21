@@ -93,6 +93,14 @@ Route::get('/Renew', function () {
 Route::get('/StockBookUpdate', function () {
     return view('StockBookUpdate');
 });
+
+Route::get('/SBU_LogsTimber', function () {
+    return view('SBU_LogsTimber');
+});
+Route::get('/SBU_SawnTimber', function () {
+    return view('SBU_SawnTimber');
+});
+
 Route::get('/UserDashboard', function () {
     return view('UserDashboard');
 });
