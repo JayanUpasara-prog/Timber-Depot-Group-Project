@@ -116,221 +116,259 @@
 
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="container">
-          <div class="p-2 mb-2 bg-success text-white text-center "> <h2>Registration Part A</h2>
-      </div>
-   
-    <form action="/action_page.php" enctype="multypart/form-data">
-    <div id="reg1">
-      
-      <div class="mb-3 mt-3">
-          <label for="fname">Full Name:</label>
-          <input type="text" class="form-control" id="fname" name="fname">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="address">Serial Address:</label>
-          <input type="text" class="form-control" id="address" name="address">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="idno">National Id Number:</label>
-          <input type="text" class="form-control" id="idno" name="idno" >
-  
-          
-            Image Of NIC<br>
-            <input type="file" name="fnic" id="fnic">
-            <input type="submit" value="Upload Front image File"><br><br>
-          
-            <input type="file" name="bnic" id="bnic">
-            <input type="submit" value="Upload Back image File">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="wsadd">The address where the wood shed is located:</label>
-          <input type="text" class="form-control" id="wsadd" name="wsadd" >
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="nland">Name of the land:</label>
-          <input type="text"  class="form-control" id="nland" name="nland" >
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="ownerofland">The owner of the land:</label>
-          <input type="text" class="form-control" id="ownerofland" name="ownerofland" >
-  
-         
-          Copies of relevant land deed/tax deed<br>
-            <input type="file" name="deed" id="deed">
-            <input type="submit" value="Upload File"><br><br>
-  
-          Image of plan(පිඹුර)<br>
-            <input type="file" name="plan" id="plan">
-            <input type="submit" value="Upload File"><br><br>
-          
-          Affidavit taken to confirm authority if the land is not owned by you<br>
-            <input type="file" name="Confirm" id="Confirm">
-            <input type="submit" value="Upload File">
-          
-      </div>
-  
-     
-  
-      
-  </div><br>
-  
-      <div id="reg2">
-      <div class="p-2 mb-2 bg-success text-white text-center"> <h2>Registration Part B</h2></div>
+      <div class="container mt-3">
+        
+  <!--{{$errors}}-->
 
-      <div class="mb-3 mt-3">
+  <!--@if($errors->any())
+    @foreach($errors->all() as $err)
+      <li>{{$err}}</li>
+    @endforeach
+  @endif-->
+
+  <form action="/CheckReg" method="POST" enctype="multypart/form-data" class="was-validated">
+  {{csrf_field()}}
+  <div id="reg1">
+
+  <div class="mb-2 bg-success text-white text-center"> <h2>Personal Details</h2>
+    </div>
+    
+    <div class="mb-3 mt-3">
+        <label for="fname">Full Name:</label>
+        <input type="text" class="form-control" id="fname" name="fname">
+        <!--<span style="color:red">@error('fname'){{$message}}@enderror</span>-->
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="address">Serial Address:</label>
+        <input type="text" class="form-control" id="address" name="address" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="idno">National Id Number:</label>
+        <input type="text" class="form-control" id="idno" name="idno" >
+
+        
+          Image Of NIC<br>
+          <input type="file" name="fnic" id="fnic">
+          <!--<input type="submit" value="Upload Front image File" >--><br><br>
+        
+          <input type="file" name="bnic" id="bnic">
+          <!--<input type="submit" value="Upload Back image File">-->
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="address">Contact Number:</label>
+        <input type="text" class="form-control" id="contact" name="contact" >
+    </div>
+
+  
+    
+</div><br>
+
+    <div id="reg2">
+    <div class="mb-2 bg-success text-white text-center"> <h2>The Nature Of The Wood Shed</h2></div>
+
+    <p><b>Choose the nature of your wood shed:</b></p>
+
+    
+    <table>
+    <ol type="I">
+      <tr>
+        <td>1.sawmill</td>
+      </tr>
+
+      <tr>    
+        <td><li><label for="MTsawmill">Mobile timber sawmill (Only for Sawing)</label></li></td>
+        <td><input type="checkbox" id="MTsawmill" data-name="Mobile timber sawmill (Only for Sawing)" value="10" class="checkbox-group1"></td>
+      </tr>
+
+      <tr>
+        <td><li><label for="sawmill">Sawmill (Only for Sawing)</label></li></td>
+        <td><input type="checkbox" id="sawmill" data-name="Sawmill (Only for Sawing)" value="20" class="checkbox-group"></td>
+      </tr>
+    </ol>
+      
+      <tr>
+        <td><label for="vehicle3">2.Timber sales outlet(only for sale of timber and machines cannot be Used)</label></td>
+        <td><input type="checkbox" id="TSOutlet" data-name="Timber sales outlet(only for sale of timber and machines cannot be Used)" value="30" class="checkbox-group"></td>
+      </tr>  
+
+      <tr>
+        <td> <label for="seasoning">3.Seatimbersoning or processing factory(sawing of logs and sale of timber not permitted)</label></td>
+        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning or processing factory(sawing of logs and sale of timber not permitted)" value="40" class="checkbox-group"></td>
+      </tr> 
+
+      <tr>
+        <td><label for="Cshed">4.carpentry shed(storing of logs and sale of timber not permitted)</label></td>
+        <td> <input type="checkbox" id="Cshed" data-name="Carpentry shed(storing of logs and sale of timber not permitted)" value="50" class="checkbox-group"></td>
+      </tr>  
+
+      <tr>
+        <td><label for="furniture">5.Timber furniture shop(only for the sale of finished furniture. Use of machines not permitted)</label></td>
+        <td><input type="checkbox" id="furniture" data-name="Timber furniture shop(only for the sale of finished furniture. Use of machines not permitted)" value="60" class="checkbox-group"></td>
+      </tr>
+
+      <tr>
+        <td> <label for="FWshed">6.Fire wood shed</label></td>
+        <td> <input type="checkbox" id="FWshed" data-name="Fire wood shed" value="70" class="checkbox-group"></td>
+      </tr>
+       
+  </table>
+
+</div><br>
+
+
+<div id="reg3" class="hidden">
+    <div class="mb-2 bg-success text-white text-center"> <h2>To Register New Timber Businesses</h2></div><br>
+
+    <p><b>Details of the location of the woodshed</b></p>
+
+    <div class="mb-3 mt-3">
+        <label for="wsadd">The address where the wood shed is located:</label>
+        <input type="text" class="form-control" id="wsadd" name="wsadd" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="nland">Name of the land:</label>
+        <input type="text"  class="form-control" id="nland" name="nland" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="ownerofland">The owner of the land:</label>
+        <input type="text" class="form-control" id="ownerofland" name="ownerofland" >
+
+       
+        Copies of relevant land deed/tax deed<br>
+          <input type="file" name="deed" id="deed" >
+          <!--<input type="submit" value="Upload File" >--><br><br>
+
+        Image of plan(පිඹුර)<br>
+          <input type="file" name="plan" id="plan" >
+          <!--<input type="submit" value="Upload File" >--><br><br>
+        
+        Affidavit taken to confirm authority if the land is not owned by you<br>
+          <input type="file" name="Confirm" id="Confirm" >
+          <!--<input type="submit" value="Upload File" >-->
+        
+    </div>
+
+    <div class="mb-3 mt-3">
         <label for="nameofwshed">Name of woodshed:</label>
         <input type="text" class="form-control" id="nameofwshed" name="nameofwshed" >
     </div>
-  
-      <p>The nature of the wood shed</p>
-      <p><b>Choose the nature of your wood shed:</b></p>
-  
-      
-      <table>
-      <ol type="I">
-        <tr>
-          <td>1.sawmill</td>
-        </tr>
-        <tr>
-          <td><li><label for="sawmill">Sawmill (Only for Sawing)</label></li></td>
-          <td><input type="checkbox" id="sawmill" name="sawmill" value="sawmill"></td>
-        </tr>
-  
-        <tr>    
-          <td><li><label for="MTsawmill">Mobile timber sawmill (Only for Sawing)</label></li></td>
-          <td><input type="checkbox" id="MTsawmill" name="MTsawmill" value="MTsawmill"></td>
-        </tr> 
-      </ol>
-        
-        <tr>
-          <td><label for="vehicle3">2.Timber sales outlet(only for sale of timber and machines cannot be Used)</label></td>
-          <td><input type="checkbox" id="TSOutlet" name="TSOutlet" value="TSOutlet"></td>
-        </tr>  
-  
-        <tr>
-          <td> <label for="seasoning">3. timber seasoning or processing factory(sawing of logs and sale of timber not permitted)</label></td>
-          <td><input type="checkbox" id="seasoning" name="seasoning" value="seasoning"></td>
-        </tr> 
-  
-        <tr>
-          <td><label for="Cshed">4.carpentry shed(storing of logs and sale of timber not permitted)</label></td>
-          <td> <input type="checkbox" id="Cshed" name="Cshed" value="Cshed"></td>
-        </tr>  
-  
-        <tr>
-          <td><label for="furniture">5.Timber furniture shop(only for the sale of finished furniture. Use of machines not permitted)</label></td>
-          <td><input type="checkbox" id="furniture" name="furniture" value="furniture"></td>
-        </tr>
-  
-        <tr>
-          <td> <label for="FWshed">6.Fire wood shed</label></td>
-          <td> <input type="checkbox" id="FWshed" name="FWshed" value="FWshed"></td>
-        </tr>
-         
-    </table>
-  
-   
-  </div><br>
-  
-  <div id="reg3">
-      <div class="p-2 mb-2 bg-success text-white text-center"> <h2>Registration Part C</h2></div><br>
-  
-      <p>Details of the location of the woodshed</p><br>
-  
-      <div class="mb-3 mt-3">
-          <label for="distric">District:</label>
-          <input type="text" class="form-control" id="district" name="district">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="DSsection">Divisional Secretary Section:</label>
-          <input type="text" class="form-control" id="DSsection" name="DSsection">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="gnKottasaya">Grama Niladari Kottasa:</label>
-          <input type="text" class="form-control" id="gnKottasaya" name="gnKottasaya" >
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="wsadd">The address where the wood shed is located:</label>
-          <input type="text" class="form-control" id="wsadd" name="wsadd" >
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="Lgovernment">Local Government:</label>
-          <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" >
-      </div>
-  
-      
-  
-  </div><br>
-  
-  <div id="reg4">
-      <div class="p-2 mb-2 bg-success text-white text-center"> <h2>Registration Part D</h2></div><br>
-  
-      <p>In the case of a mobile timber sawmill;</p>
-  
-      <div class="mb-3 mt-3">
-          <label for="RegNoT">Registration No. of the hand tractor:</label>
-          <input type="text" class="form-control" id="RegNoT" name="RegNoT">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="RegNot">Divisional Secretary Section:Registration No. of the trailer:<br>(Copy of the Certificate of Registration and Revenue License should be attached)</label>
-          <input type="text" class="form-control" id="RegNot" name="RegNot">
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="MTS">The Divisional Secretary's Division where the mobile timber sawmill is to be used:</label>
-          <input type="text" class="form-control" id="MTS" name="MTS" >
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="StDate">The date on which the business was started or is to be started :</label>
-          <input type="text" class="form-control" id="StDate" name="StDate" >
-      </div>
-  
-      <div class="mb-3 mt-3">
-          <label for="Vtime">Validity period of the Environmental Protection License(Please attach a copy)</label>
-          <input type="text"  class="form-control" id="Vtime" name="Vtime" >
-      </div>
-  
-     
-  </div><br>
-  
-  <div id="reg5">
-      <div class="p-2 mb-2 bg-success text-white text-center"> <h2>Registration Part E</h2></div><br>
-  
-      Recommendation of Divisional Secretary<br>
-          <input type="file" name="recom" id="recom">
-          <input type="submit" value="Upload File"><br><br>
-          Payment<br>
-          <input type="file" name="recom" id="recom">
-          <input type="submit" value="Upload File"><br><br>
-  
-          <table>
-      <tr>
-          <td>
-  
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <input type="submit" value="Submit">
-              </div>
-          </td>
+
+
+    <div class="mb-3 mt-3">
+        <label for="distric">District:</label>
+        <input type="text" class="form-control" id="district" name="district" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="DSsection">Divisional Secretary Section:</label>
+        <input type="text" class="form-control" id="DSsection" name="DSsection" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="gnKottasaya">Grama Niladari Kottasa:</label>
+        <input type="text" class="form-control" id="gnKottasaya" name="gnKottasaya" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="Lgovernment">Local Government:</label>
+        <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" >
+    </div>
+
+    Recommendation of Divisional Secretary<br>
+        <input type="file" name="recom" id="recom" >
+        <!--<input type="submit" value="Upload File" >--><br><br>
+</div>      
+       
+
+<div id="reg4" class="hidden">
+    <div class="mb-2 bg-success text-white text-center"> <h2>To Register The Mobile Sawmill</h2></div><br>
+    <p><b>In the case of a mobile timber sawmill;</b></p>
+
+<div class="mb-3 mt-3">
+    <label for="RegNoT">Registration No. of the hand tractor:</label>
+    <input type="text" class="form-control" id="RegNoT" name="RegNoT" >
+</div>
+
+<div class="mb-3 mt-3">
+    <label for="RegNot">Divisional Secretary Section:Registration No. of the trailer:<br>(Copy of the Certificate of Registration and Revenue License should be Uploaded)</label>
+    <input type="text" class="form-control" id="RegNotrailer" name="RegNotrailer" ><br>
+
+    <input type="file" name="CopyReg" id="CopyReg" >
+    <!--<input type="submit" value="Upload image File" >--><br><br>
+</div>
+
+<div class="mb-3 mt-3">
+    <label for="MTS">The Divisional Secretary's Division where the mobile timber sawmill is to be used:</label>
+    <input type="text" class="form-control" id="MTS" name="MTS" >
+</div>
+
+<div class="mb-3 mt-3">
+    <label for="StDate">The date on which the business was started or is to be started :</label>
+    <input type="date" class="form-control" id="StDate" name="StDate" >
+</div>
+
+<div class="mb-3 mt-3">
+    <label for="Vtime">Validity period of the Environmental Protection License(Please Upload a copy)</label>
+    <input type="text"  class="form-control" id="Vtime" name="Vtime" ><br>
+
+    <input type="file" name="license" id="license" >
+    <!--<input type="submit" value="Upload image File" >--><br>
+</div>
+
+    Recommendation of Divisional Secretary<br>
+    <input type="file" name="recomd" id="recomd" >
+    <!--<input type="submit" value="Upload File" >--><br><br>
+</div>    
+
+  <div id="reg5" class="hidden">
+  <div class="mb-2 bg-success text-white text-center"> <h2>Payment</h2></div>
+
+  <table id="selectedItemsTable">
+    <thead>
+      <tr class="a1">
+        <th class="a2">Choosed the nature of your wood shed</th>
+        <th class="a2">Amount</th>
       </tr>
+    </thead>
+    <tbody></tbody>
   </table>
-  </div>
+
+  <div style="background-color: aqua;text-align: center;">Total Amount: Rs.<span id="totalAmount">0</span></div><br>
+
   
-    </form>
+    <input type="file" name="payment" id="payment" >
+    <!--<input type="submit" value="Upload File" >--><br><br>
+  
+
+    
+      <table> 
+      <tr>
+        <td>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="submit" value="Submit" >
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
+
+  </form>
+
+  
+
+
       </main>
+
+      
   </div>
 </div>
+
 
 
 <!-- <div class="container mt-5">
@@ -441,6 +479,81 @@
   
 
 </footer><!-- End  Footer -->
+
+<script>
+  
+  const MTsawmill = document.getElementById('MTsawmill');
+  const checkboxes = document.querySelectorAll('.checkbox-group');
+  const checkboxes2 = document.querySelectorAll('checkbox-group1');
+  const reg5 = document.getElementById('reg5');
+  const checkboxes1 = document.querySelectorAll('.checkbox-group, .checkbox-group1');
+  const reg3 = document.getElementById('reg3');
+  const reg4 = document.getElementById('reg4');
+  const totalAmountElement = document.getElementById('totalAmount');
+  const selectedItemsTableBody = document.querySelector('#selectedItemsTable tbody');
+
+  
+
+   MTsawmill.addEventListener('change', function() {
+    reg4.classList.toggle('hidden', !MTsawmill.checked);
+    reg5.classList.toggle('hidden', !MTsawmill.checked);
+   });
+
+    // Add event listener to each checkbox
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+        // Check if any checkbox is checked
+        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        // Check if all checkboxes are checked
+        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+        // Show/hide elements based on checkbox states
+        reg3.classList.toggle('hidden', !anyChecked);
+        reg5.classList.toggle('hidden',!anyChecked);
+      });
+    });
+
+    // Function to calculate individual amounts based on checked checkboxes
+    function calculateAmount() {
+      let amount = 0;
+      selectedItemsTableBody.innerHTML = '';
+
+      checkboxes1.forEach(function(checkbox) {
+        if (checkbox.checked) {
+          const itemName = checkbox.getAttribute('data-name');
+          const itemAmount = parseInt(checkbox.value);
+          amount += itemAmount;
+
+          // Add the selected item to the table
+          const newRow = selectedItemsTableBody.insertRow();
+          const cell1 = newRow.insertCell(0);
+          const cell2 = newRow.insertCell(1);
+          cell1.textContent = itemName;
+          cell2.textContent = `Rs.${itemAmount}`;
+        }
+      });
+
+      return amount;
+    }
+
+    // Function to update the total amount element
+    function updateTotalAmount() {
+      const totalAmount = calculateAmount();
+      totalAmountElement.textContent = totalAmount;
+    }
+
+    // Add event listeners to checkboxes
+    checkboxes1.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+        updateTotalAmount();
+      });
+    });
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 </html>
