@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Registration;
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\MobileSawmillController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +67,8 @@ Route::get('/UserDashboard', function () {
 Route::get('/UserLogout', function () {
     return view('UserLogout');
 });
+
+Route::post('/CheckReg',[RegisterUserController::class,'stores']);
 
 
 
