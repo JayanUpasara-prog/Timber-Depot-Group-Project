@@ -135,13 +135,13 @@
     
     <div class="mb-3 mt-3">
         <label for="fname">Full Name:</label>
-        <input type="text" class="form-control" id="fname" name="fname">
+        <input type="text" class="form-control" id="fname" name="fname" oninput="convertToUppercase()" required>
         <!--<span style="color:red">@error('fname'){{$message}}@enderror</span>-->
     </div>
 
     <div class="mb-3 mt-3">
         <label for="address">Serial Address:</label>
-        <input type="text" class="form-control" id="address" name="address" >
+        <input type="text" class="form-control" id="address" name="address" oninput="convertToUppercase()" required>
     </div>
 
     <div class="mb-3 mt-3">
@@ -161,6 +161,12 @@
         <label for="address">Contact Number:</label>
         <input type="text" class="form-control" id="contact" name="contact" >
     </div>
+
+    <div class="mb-3 mt-3">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" >
+    </div>
+
 
   
     
@@ -185,33 +191,33 @@
 
       <tr>
         <td><li><label for="sawmill">Sawmill (Only for Sawing)</label></li></td>
-        <td><input type="checkbox" id="sawmill" data-name="Sawmill (Only for Sawing)" value="20" class="checkbox-group"></td>
+        <td><input type="checkbox" id="sawmill" data-name="Sawmill" value="20" class="checkbox-group"></td>
       </tr>
     </ol>
       
       <tr>
         <td><label for="vehicle3">2.Timber sales outlet(only for sale of timber and machines cannot be Used)</label></td>
-        <td><input type="checkbox" id="TSOutlet" data-name="Timber sales outlet(only for sale of timber and machines cannot be Used)" value="30" class="checkbox-group"></td>
+        <td><input type="checkbox" id="TSOutlet" data-name="Timber_sales_outlet" value="30" class="checkbox-group"></td>
       </tr>  
 
       <tr>
         <td> <label for="seasoning">3.Seatimbersoning or processing factory(sawing of logs and sale of timber not permitted)</label></td>
-        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning or processing factory(sawing of logs and sale of timber not permitted)" value="40" class="checkbox-group"></td>
+        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning_or_processing_factory" value="40" class="checkbox-group"></td>
       </tr> 
 
       <tr>
         <td><label for="Cshed">4.carpentry shed(storing of logs and sale of timber not permitted)</label></td>
-        <td> <input type="checkbox" id="Cshed" data-name="Carpentry shed(storing of logs and sale of timber not permitted)" value="50" class="checkbox-group"></td>
+        <td> <input type="checkbox" id="Cshed" data-name="Carpentry_shed" value="50" class="checkbox-group"></td>
       </tr>  
 
       <tr>
         <td><label for="furniture">5.Timber furniture shop(only for the sale of finished furniture. Use of machines not permitted)</label></td>
-        <td><input type="checkbox" id="furniture" data-name="Timber furniture shop(only for the sale of finished furniture. Use of machines not permitted)" value="60" class="checkbox-group"></td>
+        <td><input type="checkbox" id="furniture" data-name="Timber_furniture_shop" value="60" class="checkbox-group"></td>
       </tr>
 
       <tr>
         <td> <label for="FWshed">6.Fire wood shed</label></td>
-        <td> <input type="checkbox" id="FWshed" data-name="Fire wood shed" value="70" class="checkbox-group"></td>
+        <td> <input type="checkbox" id="FWshed" data-name="Fire_wood_shed" value="70" class="checkbox-group"></td>
       </tr>
        
   </table>
@@ -226,17 +232,17 @@
 
     <div class="mb-3 mt-3">
         <label for="wsadd">The address where the wood shed is located:</label>
-        <input type="text" class="form-control" id="wsadd" name="wsadd" >
+        <input type="text" class="form-control" id="wsadd" name="wsadd" oninput="convertToUppercase()" >
     </div>
 
     <div class="mb-3 mt-3">
         <label for="nland">Name of the land:</label>
-        <input type="text"  class="form-control" id="nland" name="nland" >
+        <input type="text"  class="form-control" id="nland" name="nland" oninput="convertToUppercase()" >
     </div>
 
     <div class="mb-3 mt-3">
         <label for="ownerofland">The owner of the land:</label>
-        <input type="text" class="form-control" id="ownerofland" name="ownerofland" >
+        <input type="text" class="form-control" id="ownerofland" name="ownerofland" oninput="convertToUppercase()">
 
        
         Copies of relevant land deed/tax deed<br>
@@ -255,28 +261,28 @@
 
     <div class="mb-3 mt-3">
         <label for="nameofwshed">Name of woodshed:</label>
-        <input type="text" class="form-control" id="nameofwshed" name="nameofwshed" >
+        <input type="text" class="form-control" id="nameofwshed" name="nameofwshed" oninput="convertToUppercase()" >
     </div>
 
 
     <div class="mb-3 mt-3">
         <label for="distric">District:</label>
-        <input type="text" class="form-control" id="district" name="district" >
+        <input type="text" class="form-control" id="district" name="district" oninput="convertToUppercase()" >
     </div>
 
     <div class="mb-3 mt-3">
         <label for="DSsection">Divisional Secretary Section:</label>
-        <input type="text" class="form-control" id="DSsection" name="DSsection" >
+        <input type="text" class="form-control" id="DSsection" name="DSsection" oninput="convertToUppercase()"  >
     </div>
 
     <div class="mb-3 mt-3">
         <label for="gnKottasaya">Grama Niladari Kottasa:</label>
-        <input type="text" class="form-control" id="gnKottasaya" name="gnKottasaya" >
+        <input type="text" class="form-control" id="gnKottasaya" name="gnKottasaya" oninput="convertToUppercase()" >
     </div>
 
     <div class="mb-3 mt-3">
         <label for="Lgovernment">Local Government:</label>
-        <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" >
+        <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" oninput="convertToUppercase()" >
     </div>
 
     Recommendation of Divisional Secretary<br>
@@ -295,7 +301,7 @@
 </div>
 
 <div class="mb-3 mt-3">
-    <label for="RegNot">Divisional Secretary Section:Registration No. of the trailer:<br>(Copy of the Certificate of Registration and Revenue License should be Uploaded)</label>
+    <label for="RegNot">Registration No. of the trailer:<br>(Copy of the Certificate of Registration and Revenue License should be Uploaded)</label>
     <input type="text" class="form-control" id="RegNotrailer" name="RegNotrailer" ><br>
 
     <input type="file" name="CopyReg" id="CopyReg" >
@@ -304,7 +310,7 @@
 
 <div class="mb-3 mt-3">
     <label for="MTS">The Divisional Secretary's Division where the mobile timber sawmill is to be used:</label>
-    <input type="text" class="form-control" id="MTS" name="MTS" >
+    <input type="text" class="form-control" id="MTS" name="MTS" oninput="convertToUppercase()" >
 </div>
 
 <div class="mb-3 mt-3">
@@ -549,6 +555,14 @@
         updateTotalAmount();
       });
     });
+
+    //relavant field must be only block letters
+    function convertToUppercase() {
+            var inputFields = document.querySelectorAll(".form-control");
+            inputFields.forEach(function(input) {
+                input.value = input.value.toUpperCase();
+            });
+        }
 
 
 </script>
