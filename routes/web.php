@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Registration;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\MobileSawmillController;
+
+use App\Http\Controllers\RegistrationController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +19,42 @@ use App\Http\Controllers\MobileSawmillController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/homepage', function () {
+    return view('homepage');
+});
+
+Route::get('/inner-page1', function () {
+    return view('inner-page1');
+});
+Route::get('/inner-page2', function () {
+    return view('inner-page2');
+});
+Route::get('/inner-page3', function () {
+    return view('inner-page3');
+});
+
+
+Route::get('/inner-page4', function () {
+    return view('inner-page4');
+});
+Route::get('/inner-page5', function () {
+    return view('inner-page5');
+});
+Route::get('/inner-page6', function () {
+    return view('inner-page6');
+});
+Route::get('/inner-page7', function () {
+    return view('inner-page7');
+});
+Route::get('/inner-page8', function () {
+    return view('inner-page8');
+});
+Route::get('/inner-page9', function () {
+    return view('inner-page9');
 });
 
 Route::get('/AdminDashboard', function () {
@@ -61,6 +99,14 @@ Route::get('/Renew', function () {
 Route::get('/StockBookUpdate', function () {
     return view('StockBookUpdate');
 });
+
+Route::get('/SBU_LogsTimber', function () {
+    return view('SBU_LogsTimber');
+});
+Route::get('/SBU_SawnTimber', function () {
+    return view('SBU_SawnTimber');
+});
+
 Route::get('/UserDashboard', function () {
     return view('UserDashboard');
 });
@@ -69,6 +115,21 @@ Route::get('/UserLogout', function () {
 });
 
 Route::post('/CheckReg',[RegisterUserController::class,'stores']);
+
+
+Route::get('/index', [RegistrationController::class, 'index'])->name('registration.index');;
+Route::get('/register', [RegistrationController::class, 'register'])->name('registration.register');
+Route::post('/index', [RegistrationController::class, 'store'])->name('registration.store');
+Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->name('registration.edit');
+Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('registration.update');
+Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('registration.destroy');
+
+Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');
+Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
+Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');;
+
+Route::post('/CheckReg',[Registration::class,'store']);
+
 
 
 
