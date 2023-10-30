@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Registration;
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\MobileSawmillController;
+
 use App\Http\Controllers\RegistrationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +113,8 @@ Route::get('/UserDashboard', function () {
 Route::get('/UserLogout', function () {
     return view('UserLogout');
 });
+
+Route::post('/CheckReg',[RegisterUserController::class,'stores']);
 
 
 Route::get('/index', [RegistrationController::class, 'index'])->name('registration.index');;
