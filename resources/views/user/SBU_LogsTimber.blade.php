@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin Dashboard</title>
+  <title>StockBook Update-LogsOfTimber</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,6 @@
     background: #aaa;
   }
   </style> -->
-  <!-- Template Main CSS File -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -25,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="homepage">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -72,42 +71,42 @@
           <div class="position-sticky">
               <ul class="nav flex-column nav-pills nav-stacked">
                   <li class="nav-item">
-                      <a class="nav-link bg-success active" href="AdminDashboard">
+                      <a class="nav-link" href="UserDashboard">
                           Dashboard/My Profile
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="CheckRegistration">
-                          Check Registration
+                      <a class="nav-link" href="Registration">
+                          Registration
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="CheckRenew">
-                          Check Renew
+                      <a class="nav-link" href="Renew">
+                          Renew
                       </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="CheckOwnershipChange">
-                        Check Ownership Change
+                    <a class="nav-link" href="OwnershipChange">
+                        Ownership Change
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="CheckPermitRequest">
-                      Check Permit Request
+                    <a class="nav-link" href="PermitRequest">
+                        Permit Request
                     </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="CheckStockBookUpdate">
-                          Check StockBook Update
+                     <a class="nav-link bg-success active" href="StockBookUpdate">
+                        StockBook Update
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="CustomerSupport">
-                         Customer Support
+                    <a class="nav-link" href="Help">
+                        Help
                     </a>
                  </li>
                  <li class="nav-item">
-                  <a class="nav-link" href="Logout">
+                  <a class="nav-link" href="UserLogout">
                        Logout
                   </a>
                </li>
@@ -117,54 +116,83 @@
 
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container">
+          <div class="p-3 mb-2 bg-success text-white">
+            <h2>StockBook Update</h2>
+          </div>
+          </br>
         
+          <!-- ====== logs of timber Update section ====== -->
+            <div class="d-flex p-2 bg-light" style="height:85px;">  
+                <div class="p-3"><img src="logs_of_timber.png" alt="img" width="51" height="auto"></div>
+                <div class="p-4"><h4 class="text-black-50">Update Logs Of Timber : </h4></div>                
+            </div>
+            <br>
 
-      <div class="container mt-2">
-          <form>
-              <div class="row">
-                  <div class="col-md-4">
-                      <div class="card">
-                          <img src="assets/images/dashboardImg/face.jpg" alt="User Profile" class="card-img-top">
-                          <div class="card-body text-center">
-                              <h5 class="card-title">John Doe</h5>
-                              <p class="card-text">TD-XXXX</p>
-                              <button type="button" class="btn btn-primary">Edit Profile</button>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-8">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">User Information</h5>
-                              <div class="mb-3">
-                                  <label for="fullName" class="form-label">Full Name</label>
-                                  <input type="text" class="form-control" id="fullName" value="John Doe" readonly>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="email" value="john@example.com" readonly>
-                              </div>
-                              <div class="mb-3">
-                                <label for="nic" class="form-label">NIC Number</label>
-                                <input type="text" class="form-control" id="nic" value="99xxxxxxxv" readonly>
-                              </div>
-                              <div class="mb-3">
-                                <label for="contact" class="form-label">Contact</label>
-                                <input type="text" class="form-control" id="contact" value="0712345678" readonly>
-                              </div>
-                              <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" value="Srilanka" readonly>
-                              </div>
-                              <!-- Add more user data fields here as needed -->
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </form>
-      </div>
+            <div class="table-responsive"> 
+                <table class="table table-bordered" style="text-align:center; ">
+                <thead class="table-success" style="border:1px solid white;">
+                    <tr>
+                        <th rowspan="2">Date</th>
+                        <th colspan="3">Opening Stock (logs)</th>
+                        <th colspan="3">Volume of Logs Received</th>
+                        <th rowspan="2">The Source of logs</th>
+                        <th colspan="3">The volume of logs sold</th>
+                        <th colspan="3">Closing stock (logs)</th>
+                    </tr>
+                    <tr>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>No. of logs</th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>No. of logs</th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>No. of</th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>No. of</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2022/12/10</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>
+                        <td>permit No.112</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>                        
+                    </tr>
+                    <tr>
+                        <td>2023/10/12</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                        <td>permit No.79</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
 
-
+          <!-- ====== logs of timber Update section ***END*** ====== -->
 
       </main>
   </div>

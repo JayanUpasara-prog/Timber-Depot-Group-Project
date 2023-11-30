@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>StockBook Update</title>
+  <title>StockBook Update-SawnTimber</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="homepage">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -122,35 +122,74 @@
           </div>
           </br>
         
-          <!-- ====== logs of timber & sawn timber buttons ====== -->
-          <div class="container mt-3">          
-            <div class="d-flex justify-content-center">
-              <div class="row">
-                <div class="col">
-                  <div class="card bg-light" style="width:300px;">
-                    <img class="card-img-top" src="logs_of_timber.png" alt="Card image" style="width:75%; height:auto; padding-left:25%;">                            
-                    <div class="card-body" style="text-align:center;">
-                      <h4 class="card-title">Logs of Timber</h4>
-                      <a href="SBU_LogsTimber" class="btn btn-outline-success">View</a>
-                      <a href="SBU_LogsTimber" class="btn btn-outline-success">Update Status</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card bg-light" style="width:300px;">
-                    <img class="card-img-top" src="sawn_timber.png" alt="Card image" style="width:75%; height:auto; padding-left:25%;">                            
-                    <div class="card-body" style="text-align:center;">
-                      <h4 class="card-title">Sawn Timber</h4>
-                      <a href="SBU_SawnTimber" class="btn btn-outline-success">View</a>
-                      <a href="SBU_SawnTimber" class="btn btn-outline-success">Update Status</a>
-                    </div>
-                  </div>
-                </div>              
-              </div>            
-            </div><!-- === === === end of button section === === ===  -->
+          <!-- ====== sawn timber Update section ====== -->
+            <div class="d-flex p-2 bg-light" style="height:85px;">  
+                <div class="p-3"><img src="sawn_timber.png" alt="img" width="51" height="auto"></div>
+                <div class="p-4"><h4 class="text-black-50">Update Sawn Timber : </h4></div>                
+            </div>
+            <br>
 
-          </div>
-          <!-- ====== container logs of timber & sawn timber buttons ***END*** ====== -->
+            <div class="table-responsive"> 
+                <table class="table table-bordered" style="text-align:center; ">
+                <thead class="table-success" style="border:1px solid white;">
+                    <tr>
+                        <th rowspan="3">Date</th>
+                        <th rowspan="2" colspan="2">Opening Stock</th>
+                        <th colspan="5">Sawn timber Received</th>
+                        <th rowspan="2" colspan="2">Sawn timber sold</th>
+                        <th rowspan="2" colspan="2">Balance stock</th>                        
+                    </tr>
+                    <tr>
+                        <th colspan="2">From outside</th>
+                        <th rowspan="2">The source of logs</th>
+                        <th colspan="2">Conversion by sawing</th>                        
+                    </tr>
+                    <tr>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                        <th>Species</th>
+                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2022/12/10</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>
+                        <td>permit No.112</td>
+                        <td>Jack</td>
+                        <td>188.5</td>
+                        <td>08</td>
+                        <td>Jack</td>                        
+                    </tr>
+                    <tr>
+                        <td>2023/10/12</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                        <td>permit No.79</td>
+                        <td>Kaluwara</td>
+                        <td>314.75</td>
+                        <td>11</td>
+                        <td>Kaluwara</td>                        
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+          <!-- ====== sawn timber Update section ***END*** ====== -->
 
       </main>
   </div>
@@ -232,7 +271,7 @@
           <h4>Quick Links</h4>
       
           <ul class="list-unstyled">
-            <li><a href="homepage">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Sign in</a></li>
             <li><a href="#">My Account</a></li>

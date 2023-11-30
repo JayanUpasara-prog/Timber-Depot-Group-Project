@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>StockBook Update-SawnTimber</title>
+  <title>Ownership Change</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="homepage">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -86,7 +86,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="OwnershipChange">
+                    <a class="nav-link bg-success active" href="OwnershipChange">
                         Ownership Change
                     </a>
                   </li>
@@ -96,12 +96,12 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link bg-success active" href="StockBookUpdate">
+                     <a class="nav-link" href="StockBookUpdate">
                         StockBook Update
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Help">
+                    <a class="nav-link" href="help">
                         Help
                     </a>
                  </li>
@@ -118,79 +118,125 @@
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="container">
           <div class="p-3 mb-2 bg-success text-white">
-            <h2>StockBook Update</h2>
+            <h2>Ownership Change</h2>
           </div>
           </br>
+
+          <!--start from here main division of form-->
+          <div id="main_div">
+            <div class="d-flex p-2 bg-light">  
+              <div class="p-6">
+                <h4 class="text-black-50">Make a Ownership Change Request : </h4>
+              </div>
+            </div>
+          <br>
+
+          <div class="container mt-3">
+
+            <form action="/action_page.php" class="was-validated" target="_blank" method="POST">
+              <h5 class="text-black-50">Registered Owner</h5>
+
+              <div class="mb-3 mt-3">
+                <label for="fullname">Full Name : </label>                
+                <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="uname" required>
+              </div>
+
+              <div class="mb-3 mt-3">
+                <div class="row">
+                  <div class="col">
+                    <label for="reg_no.">Timber Depot Registration No. : </label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter Registration No." name="uname" required>
+                  </div>
+                  <div class="col">
+                    <label for="user_id">User ID : </label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter User ID" name="uname" required>
+                  </div>
+                  <div class="col">
+                    <label for="nic_no.">National Identity Card No. : </label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter National Identity Card No." name="uname" required>
+                  </div>
+                </div>
+              </div>            
+
+              <div class="mb-3 mt-3">
+                <label for="address">Address : </label>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Home No." required>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Address Line 1,Address Line 2">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="City">
+                  </div>
+                </div>
+              </div>          
+              <br>
+
+              <h5 class="text-black-50">Prospective Owner</h5>
+
+              <div class="mb-3 mt-3">
+                <label for="fullname">Full Name : </label>                
+                <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="uname" required>
+              </div>
+
+              <div class="mb-3 mt-3">
+                <div class="row">                  
+                  <div class="col">
+                    <label for="user_id">User ID : </label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter User ID" name="uname" required>
+                  </div>
+                  <div class="col">
+                    <label for="nic_no.">National Identity Card No. : </label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter National Identity Card No." name="uname" required>
+                  </div>
+                </div>
+              </div>              
+
+              <div class="mb-3 mt-3">
+                <label for="address">Address : </label>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Home No." required>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Address Line 1,Address Line 2">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="City">
+                  </div>
+                </div>
+              </div>    
+              
+              <p class="text-muted">Prospective Owner's Statement about StockBook Records : </p>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+                <label class="form-check-label" for="radio1">I checked StockBook and there is no issues on it.</label>            
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2" data-bs-toggle="collapse" data-bs-target="#demo" checked>
+                <label class="form-check-label" for="radio2">I checked StockBook and there are some issues on it.</label>
+                <div id="demo" class="collapse">
+                  <div class="input-group mb-3 mt-3">                
+                    <label for="statement">Statement of Prospective Owner : </label>                  
+                    <textarea name="text" id="comment" cols="120" rows="4"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <button type="submit" class="btn btn-outline-success">Send Request</button>
+              <br>
+
+              <!-- <div class="alert alert-success">
+                <strong>Success!</strong> This alert box could indicate a successful or positive action.
+              </div> -->
+
+            </form>
+          </div>
+        </div>
         
-          <!-- ====== sawn timber Update section ====== -->
-            <div class="d-flex p-2 bg-light" style="height:85px;">  
-                <div class="p-3"><img src="sawn_timber.png" alt="img" width="51" height="auto"></div>
-                <div class="p-4"><h4 class="text-black-50">Update Sawn Timber : </h4></div>                
-            </div>
-            <br>
-
-            <div class="table-responsive"> 
-                <table class="table table-bordered" style="text-align:center; ">
-                <thead class="table-success" style="border:1px solid white;">
-                    <tr>
-                        <th rowspan="3">Date</th>
-                        <th rowspan="2" colspan="2">Opening Stock</th>
-                        <th colspan="5">Sawn timber Received</th>
-                        <th rowspan="2" colspan="2">Sawn timber sold</th>
-                        <th rowspan="2" colspan="2">Balance stock</th>                        
-                    </tr>
-                    <tr>
-                        <th colspan="2">From outside</th>
-                        <th rowspan="2">The source of logs</th>
-                        <th colspan="2">Conversion by sawing</th>                        
-                    </tr>
-                    <tr>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2022/12/10</td>
-                        <td>Jack</td>
-                        <td>188.5</td>
-                        <td>08</td>
-                        <td>Jack</td>
-                        <td>188.5</td>
-                        <td>08</td>
-                        <td>permit No.112</td>
-                        <td>Jack</td>
-                        <td>188.5</td>
-                        <td>08</td>
-                        <td>Jack</td>                        
-                    </tr>
-                    <tr>
-                        <td>2023/10/12</td>
-                        <td>Kaluwara</td>
-                        <td>314.75</td>
-                        <td>11</td>
-                        <td>Kaluwara</td>
-                        <td>314.75</td>
-                        <td>11</td>
-                        <td>permit No.79</td>
-                        <td>Kaluwara</td>
-                        <td>314.75</td>
-                        <td>11</td>
-                        <td>Kaluwara</td>                        
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-          <!-- ====== sawn timber Update section ***END*** ====== -->
-
       </main>
   </div>
 </div>
@@ -271,7 +317,7 @@
           <h4>Quick Links</h4>
       
           <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
+            <li><a href="homepage">Home</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Sign in</a></li>
             <li><a href="#">My Account</a></li>
