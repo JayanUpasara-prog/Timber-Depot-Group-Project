@@ -12,8 +12,39 @@ use App\Models\Sawmill;
 
 class RegisterUserController extends Controller
 {
+    
     public function stores(Request $req){
         //dd($req->all());
+
+        $req->validate([
+            'idno' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    // Check if the ID number has 10 digits and starts with a non-zero digit and ends with 'v'
+                    if (!preg_match('/^[1-9][0-9]{8}v$/i', $value)) {
+                        // Check if the ID number has 12 digits and all digits are numbers
+                        if (!preg_match('/^[0-9]{12}$/', $value)) {
+                            $fail("The NIC Number format is invalid. Please enter a valid format.");
+                        }
+                    }
+                },
+            ],
+            'contact' => 'required|regex:/^0[0-9]{9}$/',
+            'email' => 'required|email|unique:users',
+            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the allowed file types and maximum size as needed
+            'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
+    // Other validation rules go here...
+        ], [
+            'contact.regex' => 'The Contact Number format is invalid. Please enter a valid format.',
+            'fnic.required' => 'Please upload the Front Image of NIC.',
+            'bnic.required' => 'Please upload the Back Image of NIC.',
+            'fnic.file' => 'The Front Image of NIC must be a file.',
+            'bnic.file' => 'The Back Image of NIC must be a file.',
+            'fnic.mimes' => 'Upload the Front Image of NIC correctly. (Allowed types: jpeg, png, jpg, gif)',
+            'bnic.mimes' => 'Upload the Back Image of NIC correctly. (Allowed types: jpeg, png, jpg, gif)',
+            'fnic.max' => 'The Front Image of NIC should not exceed 2048 KB in size.',
+            'bnic.max' => 'The Back Image of NIC should not exceed 2048 KB in size',
+        ]);
 
         $persanolinfo =new persanolinfo;
         $persanolinfo->idno=$req->idno;
@@ -34,6 +65,7 @@ class RegisterUserController extends Controller
         $MobileSawmill->Vtime=$req->Vtime;
         $MobileSawmill->license=$req->license;
         $MobileSawmill->recomd=$req->recomd;
+       
 
         $Sawmill =new Sawmill;
         $Sawmill->idno=$req->idno;
@@ -49,13 +81,7 @@ class RegisterUserController extends Controller
         $Sawmill->gnKottasaya=$req->gnKottasaya;
         $Sawmill->Lgovernment=$req->Lgovernment;
         $Sawmill->recom=$req->recom;
-        //$Sawmill->sawmill=$req->Sawmill;
-       // $Sawmill->TSOutlet=$req->Timber_sales_outlet;
-        //$Sawmill->seasoning=$req->Seatimbersoning_or_processing_factory;
-        //$Sawmill->Cshed=$req->Carpentry_shed;
-        //$Sawmill->furniture=$req->Timber_furniture_shop;
-        //$Sawmill->FWshed=$req->Fire_wood_shed;
-
+        $Sawmill->nature_value=json_encode($req->nature);
 
         $persanolinfo->save();
         $MobileSawmill->save();

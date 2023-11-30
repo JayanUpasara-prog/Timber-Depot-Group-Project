@@ -122,7 +122,7 @@ Route::delete('/destroy/{registration}', [RegistrationController::class, 'destro
 
 Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');
 Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
-Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');;
+//Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');;
 
 Route::post('/CheckReg',[Registration::class,'store']);
 

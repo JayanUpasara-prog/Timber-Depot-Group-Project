@@ -24,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="homepage">
+    <a class="navbar-brand" href="#">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -126,45 +126,55 @@
     @endforeach
   @endif-->
 
-  <form action="/CheckReg" method="POST" enctype="multypart/form-data" class="was-validated">
+  <form action="/CheckReg" method="POST" enctype="multypart/form-data" class="was-validated ">
   {{csrf_field()}}
-  <div id="reg1">
+  <div id="reg1" class="row g-3">
 
-  <div class="mb-2 bg-success text-white text-center"> <h2>Personal Details</h2>
+  <div class="mb-2 bg-success text-white text-center "> <h2>Personal Details</h2>
     </div>
     
-    <div class="mb-3 mt-3">
+    <div class="col-md-6 ">
         <label for="fname">Full Name:</label>
         <input type="text" class="form-control" id="fname" name="fname" oninput="convertToUppercase()" required>
         <!--<span style="color:red">@error('fname'){{$message}}@enderror</span>-->
     </div>
 
-    <div class="mb-3 mt-3">
+    <div class="col-md-6">
         <label for="address">Serial Address:</label>
         <input type="text" class="form-control" id="address" name="address" oninput="convertToUppercase()" required>
     </div>
 
-    <div class="mb-3 mt-3">
+    <div class="col-md-6">
         <label for="idno">National Id Number:</label>
-        <input type="text" class="form-control" id="idno" name="idno" >
+        <input type="text" class="form-control" id="idno" name="idno" required>
+        <span style="color:red">@error('idno'){{$message}}@enderror</span>
+    </div><br>
+          
+    <div class="col-md-3">
+        Front Image Of NIC<br>
+        <input type="file" name="fnic" id="fnic" required>
+        <span style="color:red">@error('fnic'){{$message}}@enderror</span>
+    </div>
+          <!--<input type="submit" value="Upload Front image File" >-->
 
-        
-          Image Of NIC<br>
-          <input type="file" name="fnic" id="fnic">
-          <!--<input type="submit" value="Upload Front image File" >--><br><br>
-        
-          <input type="file" name="bnic" id="bnic">
+    <div class="col-md-2">
+        Back Image Of NIC<br>
+        <input type="file" name="bnic" id="bnic" required>
+        <span style="color:red">@error('bnic'){{$message}}@enderror</span>
+    </div>
           <!--<input type="submit" value="Upload Back image File">-->
-    </div>
+    
 
-    <div class="mb-3 mt-3">
+    <div class="col-md-6">
         <label for="address">Contact Number:</label>
-        <input type="text" class="form-control" id="contact" name="contact" >
+        <input type="text" class="form-control" id="contact" name="contact" required>
+        <span style="color:red">@error('contact'){{$message}}@enderror</span>
     </div>
 
-    <div class="mb-3 mt-3">
+    <div class="col-md-6">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" >
+        <input type="email" class="form-control" id="email" name="email" required>
+        <span style="color:red">@error('email'){{$message}}@enderror</span>
     </div>
 
 
@@ -181,43 +191,43 @@
     <table>
     <ol type="I">
       <tr>
-        <td>1.sawmill</td>
+        <td>1.Sawmill</td>
       </tr>
 
       <tr>    
-        <td><li><label for="MTsawmill">Mobile timber sawmill (Only for Sawing)</label></li></td>
-        <td><input type="checkbox" id="MTsawmill" data-name="Mobile timber sawmill (Only for Sawing)" value="10" class="checkbox-group1"></td>
+        <td><li><label for="MTsawmill">Mobile Timber Sawmill (Only for sawing)</label></li></td>
+        <td><input type="checkbox" id="MTsawmill" data-name="Mobile timber sawmill (Only for Sawing)" name="nature[]" value="10" class="checkbox-group1" onchange="handleCheckboxChange(this)"></td>
       </tr>
 
       <tr>
-        <td><li><label for="sawmill">Sawmill (Only for Sawing)</label></li></td>
-        <td><input type="checkbox" id="sawmill" data-name="Sawmill" value="20" class="checkbox-group"></td>
+        <td><li><label for="sawmill">Sawmill (Only for sawing)</label></li></td>
+        <td><input type="checkbox" id="sawmill" data-name="Sawmill" name="nature[]" value="20" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>
     </ol>
       
       <tr>
-        <td><label for="vehicle3">2.Timber sales outlet(only for sale of timber and machines cannot be Used)</label></td>
-        <td><input type="checkbox" id="TSOutlet" data-name="Timber_sales_outlet" value="30" class="checkbox-group"></td>
+        <td><label for="vehicle3">2.Timber Sales Outlet(only for sale of timber and machines cannot be used)</label></td>
+        <td><input type="checkbox" id="TSOutlet" data-name="Timber_sales_outlet" name="nature[]" value="30" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>  
 
       <tr>
-        <td> <label for="seasoning">3.Seatimbersoning or processing factory(sawing of logs and sale of timber not permitted)</label></td>
-        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning_or_processing_factory" value="40" class="checkbox-group"></td>
+        <td> <label for="seasoning">3.Seasoning or Processing Factory(sawing of logs and sale of timber not permitted)</label></td>
+        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning_or_processing_factory" name="nature[]" value="40" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr> 
 
       <tr>
-        <td><label for="Cshed">4.carpentry shed(storing of logs and sale of timber not permitted)</label></td>
-        <td> <input type="checkbox" id="Cshed" data-name="Carpentry_shed" value="50" class="checkbox-group"></td>
+        <td><label for="Cshed">4.Carpentry Shed(storing of logs and sale of timber not permitted)</label></td>
+        <td> <input type="checkbox" id="Cshed" data-name="Carpentry_shed" name="nature[]" value="50" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>  
 
       <tr>
-        <td><label for="furniture">5.Timber furniture shop(only for the sale of finished furniture. Use of machines not permitted)</label></td>
-        <td><input type="checkbox" id="furniture" data-name="Timber_furniture_shop" value="60" class="checkbox-group"></td>
+        <td><label for="furniture">5.Timber Furniture Shop(only for the sale of finished furniture. Use of machines not permitted)</label></td>
+        <td><input type="checkbox" id="furniture" data-name="Timber_furniture_shop" name="nature[]" value="60" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>
 
       <tr>
-        <td> <label for="FWshed">6.Fire wood shed</label></td>
-        <td> <input type="checkbox" id="FWshed" data-name="Fire_wood_shed" value="70" class="checkbox-group"></td>
+        <td> <label for="FWshed">6.Fire Wood Shed</label></td>
+        <td> <input type="checkbox" id="FWshed" data-name="Fire_wood_shed" name="nature[]" value="70" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>
        
   </table>
@@ -225,119 +235,136 @@
 </div><br>
 
 
-<div id="reg3" class="hidden">
+<div id="reg3" class="div3 hidden ">
     <div class="mb-2 bg-success text-white text-center"> <h2>To Register New Timber Businesses</h2></div><br>
 
     <p><b>Details of the location of the woodshed</b></p>
 
-    <div class="mb-3 mt-3">
-        <label for="wsadd">The address where the wood shed is located:</label>
-        <input type="text" class="form-control" id="wsadd" name="wsadd" oninput="convertToUppercase()" >
-    </div>
+      <div class="row g-3">
+        <div class="col-md-6">
+            <label for="wsadd">The address where the wood shed is located:</label>
+            <input type="text" class="form-control" id="wsadd" name="wsadd" oninput="convertToUppercase()">
+        </div>
 
-    <div class="mb-3 mt-3">
-        <label for="nland">Name of the land:</label>
-        <input type="text"  class="form-control" id="nland" name="nland" oninput="convertToUppercase()" >
-    </div>
+        <div class="col-md-6">
+            <label for="nland">Name of the land:</label>
+            <input type="text"  class="form-control" id="nland" name="nland" oninput="convertToUppercase()" >
+        </div>
 
-    <div class="mb-3 mt-3">
-        <label for="ownerofland">The owner of the land:</label>
-        <input type="text" class="form-control" id="ownerofland" name="ownerofland" oninput="convertToUppercase()">
+        <div class="col-md-6">
+            <label for="ownerofland">The owner of the land:</label>
+            <input type="text" class="form-control" id="ownerofland" name="ownerofland" oninput="convertToUppercase()">
+        </div>
 
+        <div class="col-md-6">
+            <label for="nameofwshed">Name of woodshed:</label>
+            <input type="text" class="form-control" id="nameofwshed" name="nameofwshed" oninput="convertToUppercase()" >
+        </div>
+
+        <div class="col-md-4">   
+            Copies of relevant land deed/tax deed<br>
+              <input type="file" name="deed" id="deed" >
+        </div>
+              <!--<input type="submit" value="Upload File" >-->
+
+        <div class="col-md-3">   
+            Image of plan(පිඹුර)<br>
+              <input type="file" name="plan" id="plan" >
+        </div>
+              <!--<input type="submit" value="Upload File" >-->
+
+        <div class="col-md-5">    
+            Affidavit taken to confirm authority if the land is not owned by you<br>
+              <input type="file" name="Confirm" id="Confirm" >
+              <!--<input type="submit" value="Upload File" >-->
+        </div>
+
+        <div class="col-md-4">
+            <label for="distric">District:</label>
+            <input type="text" class="form-control" id="district" name="district" oninput="convertToUppercase()" >
+        </div>
+
+        <div class="col-md-4">
+            <label for="DSsection">Divisional Secretary Section:</label>
+            <input type="text" class="form-control" id="DSsection" name="DSsection" oninput="convertToUppercase()"  >
+        </div>
+
+        <div class="col-md-4">
+            <label for="gnKottasaya">Grama Niladari Kottasa:</label>
+            <input type="text" class="form-control" id="gnKottasaya" name="gnKottasaya" oninput="convertToUppercase()" >
+        </div>
+
+        <div class="col-md-6">
+            <label for="Lgovernment">Local Government:</label>
+            <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" oninput="convertToUppercase()" >
+        </div>
+
+        <div class="col-md-4">
+            Recommendation of Divisional Secretary<br>
+            <input type="file" name="recom" id="recom" >
+            <!--<input type="submit" value="Upload File" >--><br><br>
+        </div>  
+      </div>
+</div>   
        
-        Copies of relevant land deed/tax deed<br>
-          <input type="file" name="deed" id="deed" >
-          <!--<input type="submit" value="Upload File" >--><br><br>
 
-        Image of plan(පිඹුර)<br>
-          <input type="file" name="plan" id="plan" >
-          <!--<input type="submit" value="Upload File" >--><br><br>
-        
-        Affidavit taken to confirm authority if the land is not owned by you<br>
-          <input type="file" name="Confirm" id="Confirm" >
-          <!--<input type="submit" value="Upload File" >-->
-        
+<div id="reg4" class="div4 hidden">
+    <div class="mb-2 bg-success text-white text-center"> <h2>To Register The Mobile Sawmill</h2></div>
+    <p><b>In the case of a Mobile Timber Sawmill;</b></p>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+        <label for="RegNoT">Registration No. of the hand tractor:</label>
+        <input type="text" class="form-control" id="RegNoT" name="RegNoT">
     </div>
 
-    <div class="mb-3 mt-3">
-        <label for="nameofwshed">Name of woodshed:</label>
-        <input type="text" class="form-control" id="nameofwshed" name="nameofwshed" oninput="convertToUppercase()" >
+    <div class="col-md-6">
+        <label for="RegNot">Registration No. of the trailer:</label>
+        <input type="text" class="form-control" id="RegNotrailer" name="RegNotrailer" >
     </div>
 
-
-    <div class="mb-3 mt-3">
-        <label for="distric">District:</label>
-        <input type="text" class="form-control" id="district" name="district" oninput="convertToUppercase()" >
+    <div class="col-md-6">
+    <label for="CopyReg">Copy of the Certificate of Registration and Revenue License should be Uploaded:</label><br><br>
+        <input type="file" name="CopyReg" id="CopyReg" >
+        <!--<input type="submit" value="Upload image File" >-->
     </div>
 
-    <div class="mb-3 mt-3">
-        <label for="DSsection">Divisional Secretary Section:</label>
-        <input type="text" class="form-control" id="DSsection" name="DSsection" oninput="convertToUppercase()"  >
+    <div class="col-md-6">
+        <label for="MTS">The Divisional Secretary's Division where the mobile timber sawmill is to be used:</label>
+        <input type="text" class="form-control" id="MTS" name="MTS" oninput="convertToUppercase()" >
     </div>
 
-    <div class="mb-3 mt-3">
-        <label for="gnKottasaya">Grama Niladari Kottasa:</label>
-        <input type="text" class="form-control" id="gnKottasaya" name="gnKottasaya" oninput="convertToUppercase()" >
+    <div class="col-md-3">
+        <label for="StDate">The date on which the business was started or is to be started:</label><br>
+        <input type="date" class="form-control" id="StDate" name="StDate" >
     </div>
 
-    <div class="mb-3 mt-3">
-        <label for="Lgovernment">Local Government:</label>
-        <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" oninput="convertToUppercase()" >
+    <div class="col-md-3">
+        <label for="Vtime">Validity period of the Environmental Protection License:</label>
+        <input type="text"  class="form-control" id="Vtime" name="Vtime" >
     </div>
 
-    Recommendation of Divisional Secretary<br>
-        <input type="file" name="recom" id="recom" >
-        <!--<input type="submit" value="Upload File" >--><br><br>
-</div>      
-       
+    <div class="col-md-3">
+        Please Upload a copy:<br><br>
+        <input type="file" name="license" id="license" >
+        <!--<input type="submit" value="Upload image File" >-->
+    </div>
 
-<div id="reg4" class="hidden">
-    <div class="mb-2 bg-success text-white text-center"> <h2>To Register The Mobile Sawmill</h2></div><br>
-    <p><b>In the case of a mobile timber sawmill;</b></p>
+    <div class="col-md-3">
+        Recommendation of Divisional Secretary:<br>
+        <input type="file" name="recomd" id="recomd" >
+        <!--<input type="submit" value="Upload File" >-->
+    </div>
+  </div>
+</div><br> 
 
-<div class="mb-3 mt-3">
-    <label for="RegNoT">Registration No. of the hand tractor:</label>
-    <input type="text" class="form-control" id="RegNoT" name="RegNoT" >
-</div>
-
-<div class="mb-3 mt-3">
-    <label for="RegNot">Registration No. of the trailer:<br>(Copy of the Certificate of Registration and Revenue License should be Uploaded)</label>
-    <input type="text" class="form-control" id="RegNotrailer" name="RegNotrailer" ><br>
-
-    <input type="file" name="CopyReg" id="CopyReg" >
-    <!--<input type="submit" value="Upload image File" >--><br><br>
-</div>
-
-<div class="mb-3 mt-3">
-    <label for="MTS">The Divisional Secretary's Division where the mobile timber sawmill is to be used:</label>
-    <input type="text" class="form-control" id="MTS" name="MTS" oninput="convertToUppercase()" >
-</div>
-
-<div class="mb-3 mt-3">
-    <label for="StDate">The date on which the business was started or is to be started :</label>
-    <input type="date" class="form-control" id="StDate" name="StDate" >
-</div>
-
-<div class="mb-3 mt-3">
-    <label for="Vtime">Validity period of the Environmental Protection License(Please Upload a copy)</label>
-    <input type="text"  class="form-control" id="Vtime" name="Vtime" ><br>
-
-    <input type="file" name="license" id="license" >
-    <!--<input type="submit" value="Upload image File" >--><br>
-</div>
-
-    Recommendation of Divisional Secretary<br>
-    <input type="file" name="recomd" id="recomd" >
-    <!--<input type="submit" value="Upload File" >--><br><br>
-</div>    
-
-  <div id="reg5" class="hidden">
+  <div id="reg5" class="div5 hidden">
   <div class="mb-2 bg-success text-white text-center"> <h2>Payment</h2></div>
 
   <table id="selectedItemsTable">
     <thead>
       <tr class="a1">
-        <th class="a2">Choosed the nature of your wood shed</th>
+        <th class="a2">Choosed the Nature of Your Wood Shed</th>
         <th class="a2">Amount</th>
       </tr>
     </thead>
@@ -347,7 +374,7 @@
   <div style="background-color: aqua;text-align: center;">Total Amount: Rs.<span id="totalAmount">0</span></div><br>
 
   
-    <input type="file" name="payment" id="payment" >
+    Uplord Bank Slip:<br><input type="file" name="payment" id="payment" >
     <!--<input type="submit" value="Upload File" >--><br><br>
   
 
@@ -488,37 +515,38 @@
 
 <script>
   
-  const MTsawmill = document.getElementById('MTsawmill');
-  const checkboxes = document.querySelectorAll('.checkbox-group');
-  const checkboxes2 = document.querySelectorAll('checkbox-group1');
-  const reg5 = document.getElementById('reg5');
   const checkboxes1 = document.querySelectorAll('.checkbox-group, .checkbox-group1');
-  const reg3 = document.getElementById('reg3');
-  const reg4 = document.getElementById('reg4');
   const totalAmountElement = document.getElementById('totalAmount');
   const selectedItemsTableBody = document.querySelector('#selectedItemsTable tbody');
 
-  
+    function handleCheckboxChange(checkbox) {
+      // Check which checkboxes are selected
+      const checkbox1 = document.querySelector('.checkbox-group1');
+      const otherCheckboxes = document.querySelectorAll('.checkbox-group:checked');
 
-   MTsawmill.addEventListener('change', function() {
-    reg4.classList.toggle('hidden', !MTsawmill.checked);
-    reg5.classList.toggle('hidden', !MTsawmill.checked);
-   });
+      // Hide all divs initially
+      document.querySelector('.div3').style.display = 'none';
+      document.querySelector('.div4').style.display = 'none';
+      document.querySelector('.div5').style.display = 'none';
 
-    // Add event listener to each checkbox
-    checkboxes.forEach(function(checkbox) {
-      checkbox.addEventListener('change', function() {
-        // Check if any checkbox is checked
-        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+      // Check the conditions and show the corresponding divs
+      if (checkbox1.checked && otherCheckboxes.length > 0) {
+        // 1st checkbox and any other checkbox are checked
+        document.querySelector('.div4').style.display = 'block';
+        document.querySelector('.div3').style.display = 'block';
+      } else if (checkbox1.checked) {
+        // 1st checkbox is checked
+        document.querySelector('.div4').style.display = 'block';
+      } else if (otherCheckboxes.length > 0) {
+        // Any other checkbox is checked
+        document.querySelector('.div3').style.display = 'block';
+      }
 
-        // Check if all checkboxes are checked
-        const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-
-        // Show/hide elements based on checkbox states
-        reg3.classList.toggle('hidden', !anyChecked);
-        reg5.classList.toggle('hidden',!anyChecked);
-      });
-    });
+      // Show Div 3 if any checkbox is checked
+      if (checkbox1.checked || otherCheckboxes.length > 0) {
+        document.querySelector('.div5').style.display = 'block';
+      }
+    }
 
     // Function to calculate individual amounts based on checked checkboxes
     function calculateAmount() {
@@ -562,7 +590,7 @@
             inputFields.forEach(function(input) {
                 input.value = input.value.toUpperCase();
             });
-        }
+        }        
 
 
 </script>
