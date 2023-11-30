@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Check Permit Request</title>
+  <title>Help</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="homepage">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -71,42 +71,42 @@
           <div class="position-sticky">
               <ul class="nav flex-column nav-pills nav-stacked">
                   <li class="nav-item">
-                      <a class="nav-link" href="AdminDashboard">
+                      <a class="nav-link" href="UserDashboard">
                           Dashboard/My Profile
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="CheckRegistration">
-                          Check Registration
+                      <a class="nav-link" href="Registration">
+                          Registration
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="CheckRenew">
-                          Check Renew
+                      <a class="nav-link" href="Renew">
+                          Renew
                       </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="CheckOwnershipChange">
-                        Check Ownership Change
+                    <a class="nav-link" href="OwnershipChange">
+                        Ownership Change
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-success active" href="CheckPermitRequest">
-                      Check Permit Request
+                    <a class="nav-link" href="PermitRequest">
+                        Permit Request
                     </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="CheckStockBookUpdate">
-                          Check StockBook Update
+                     <a class="nav-link" href="StockBookUpdate">
+                        StockBook Update
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="CustomerSupport">
-                         Customer Support
+                    <a class="nav-link bg-success active" href="help">
+                        Help
                     </a>
                  </li>
                  <li class="nav-item">
-                  <a class="nav-link" href="Logout">
+                  <a class="nav-link" href="UserLogout">
                        Logout
                   </a>
                </li>

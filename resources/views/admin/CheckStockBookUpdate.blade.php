@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Check Ownership Change</title>
+  <title>Check StockBook Update</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="homepage">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -71,7 +71,7 @@
           <div class="position-sticky">
               <ul class="nav flex-column nav-pills nav-stacked">
                   <li class="nav-item">
-                      <a class="nav-link " href="AdminDashboard">
+                      <a class="nav-link" href="AdminDashboard">
                           Dashboard/My Profile
                       </a>
                   </li>
@@ -86,7 +86,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-success active" href="CheckOwnershipChange">
+                    <a class="nav-link" href="CheckOwnershipChange">
                         Check Ownership Change
                     </a>
                   </li>
@@ -96,7 +96,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="CheckStockBookUpdate">
+                     <a class="nav-link bg-success active" href="CheckStockBookUpdate">
                           Check StockBook Update
                      </a>
                   </li>

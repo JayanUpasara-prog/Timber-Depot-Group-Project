@@ -56,60 +56,60 @@ Route::get('/inner-page9', function () {
 });
 
 Route::get('/AdminDashboard', function () {
-    return view('AdminDashboard');
+    return view('admin.AdminDashboard');
 });
 Route::get('/CheckOwnershipChange', function () {
-    return view('CheckOwnershipChange');
+    return view('admin.CheckOwnershipChange');
 });
 Route::get('/CheckPermitRequest', function () {
-    return view('CheckPermitRequest');
+    return view('admin.CheckPermitRequest');
 });
 Route::get('/CheckRegistration', function () {
-    return view('CheckRegistration');
+    return view('admin.CheckRegistration');
 });
 Route::get('/CheckRenew', function () {
-    return view('CheckRenew');
+    return view('admin.CheckRenew');
 });
 Route::get('/CheckStockBookUpdate', function () {
-    return view('CheckStockBookUpdate');
+    return view('admin.CheckStockBookUpdate');
 });
 Route::get('/CustomerSupport', function () {
-    return view('CustomerSupport');
+    return view('admin.CustomerSupport');
 });
 Route::get('/Help', function () {
-    return view('Help');
+    return view('user.Help');
 });
 Route::get('/Logout', function () {
-    return view('Logout');
+    return view('admin.Logout');
 });
 Route::get('/OwnershipChange', function () {
-    return view('OwnershipChange');
+    return view('user.OwnershipChange');
 });
 Route::get('/PermitRequest', function () {
-    return view('PermitRequest');
+    return view('user.PermitRequest');
 });
 Route::get('/Registration', function () {
-    return view('Registration');
+    return view('user.Registration');
 });
 Route::get('/Renew', function () {
-    return view('Renew');
+    return view('user.Renew');
 });
 Route::get('/StockBookUpdate', function () {
-    return view('StockBookUpdate');
+    return view('user.StockBookUpdate');
 });
 
 Route::get('/SBU_LogsTimber', function () {
-    return view('SBU_LogsTimber');
+    return view('user.SBU_LogsTimber');
 });
 Route::get('/SBU_SawnTimber', function () {
-    return view('SBU_SawnTimber');
+    return view('user.SBU_SawnTimber');
 });
 
 Route::get('/UserDashboard', function () {
-    return view('UserDashboard');
+    return view('user.UserDashboard');
 });
 Route::get('/UserLogout', function () {
-    return view('UserLogout');
+    return view('user.UserLogout');
 });
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Check Registration</title>
+  <title>User Dashboard</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="homepage">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -68,113 +68,104 @@
   <div class="row">
       <!-- Side Navigation Bar -->
       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-        <div class="position-sticky">
-            <ul class="nav flex-column nav-pills nav-stacked">
-                <li class="nav-item">
-                    <a class="nav-link " href="AdminDashboard">
-                        Dashboard/My Profile
+          <div class="position-sticky">
+              <ul class="nav flex-column nav-pills nav-stacked">
+                  <li class="nav-item">
+                      <a class="nav-link bg-warning active" href="UserDashboard">
+                          Dashboard/My Profile
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="Registration">
+                          Registration
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="Renew">
+                          Renew
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="OwnershipChange">
+                        Ownership Change
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link bg-success active" href="CheckRegistration">
-                        Check Registration
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="PermitRequest">
+                        Permit Request
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="CheckRenew">
-                        Check Renew
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="StockBookUpdate">
+                        StockBook Update
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="help">
+                        Help
                     </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="CheckOwnershipChange">
-                      Check Ownership Change
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="CheckPermitRequest">
-                    Check Permit Request
-                  </a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link" href="CheckStockBookUpdate">
-                        Check StockBook Update
-                   </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="CustomerSupport">
-                       Customer Support
+                 </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="UserLogout">
+                       Logout
                   </a>
                </li>
-               <li class="nav-item">
-                <a class="nav-link" href="Logout">
-                     Logout
-                </a>
-             </li>
-            </ul>
-        </div>
-    </nav>
+              </ul>
+          </div>
+      </nav>
 
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="container">
-          <div class="p mb-2 bg-success text-white text-center"> <h2>Check Registration</h2>
-      </div>
-  
-      <div>
-          <table class="table table-bordered border-primary">
-              <tr>
-                  <th>No.</th>
-                  <th>NIC No.</th>
-                  <th>Name</th>
-                  <th>Check</th>
-              </tr>
-          </table>
-      </div>
-      </main>
-  </div>
-</div>
-
-
-<!-- <div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3 class="mt-4">Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <hr class="d-sm-none">
+      
+        
+      <div class="container mt-2">
+        <form>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets/images/dashboardImg/face.jpg" alt="User Profile" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">TD-XXXX</p>
+                            <button type="button" class="btn btn-primary">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">User Information</h5>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" value="John Doe" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" value="john@example.com" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label for="nic" class="form-label">NIC Number</label>
+                              <input type="text" class="form-control" id="nic" value="99xxxxxxxv" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label for="contact" class="form-label">Contact</label>
+                              <input type="text" class="form-control" id="contact" value="0712345678" readonly>
+                            </div>
+                            <div class="mb-3">
+                              <label for="address" class="form-label">Address</label>
+                              <input type="text" class="form-control" id="address" value="Srilanka" readonly>
+                            </div>
+                            <!-- Add more user data fields here as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="col-sm-8">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2020</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  </main>
+ </div>
+</div>  
 
-      <h2 class="mt-5">TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2020</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-  </div>
-</div> -->
 
 <!-- ======= Footer ======= -->
 <footer class="footer mt-2">
