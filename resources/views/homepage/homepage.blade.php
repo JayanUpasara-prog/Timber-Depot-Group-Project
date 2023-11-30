@@ -128,7 +128,7 @@
 
     <div class="row" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-4">
             <div class="feature-block">
                 <img src="assets\pic\sawmill1.png" alt="carpentry">
                 <h4>SAWMILL</h4>
@@ -138,7 +138,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-4">
             <div class="feature-block">
                 <img src="assets\pic\Timber.png" alt="img">
                 <h4>TIMBER SALES OUTLET</h4>
@@ -147,7 +147,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-4">
             <div class="feature-block">
                 <img src="assets\pic\furniture.jpg" alt="img">
                 <h4>TIMBER SEASONING OR PROCESSING FACTORY </h4>
@@ -156,7 +156,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-4">
             <div class="feature-block">
                 <img src="assets\pic\wood chips1.jpg" alt="img">
                 <h4>CARPENTRY SHED</h4>
@@ -165,7 +165,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-4">
             <div class="feature-block">
                 <img src="assets\pic\wood storage.jpg" alt="img">
                 <h4>TIMBER FURNITURE SHOP</h4>
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-4">
             <div class="feature-block">
                 <img src="assets\pic\fire-wood-campfire-log-bonfire-cartoon-flat-set-isolated-white_97231-960.jpg" alt="img">
                 <h4>FIRE WOOD SHED</h4>
