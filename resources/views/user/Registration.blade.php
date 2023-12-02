@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  </style> -->
+    <!-- <style>
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+    </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -126,7 +126,7 @@
     @endforeach
   @endif-->
 
-  <form action="/CheckReg" method="POST" enctype="multypart/form-data" class="was-validated ">
+  <form action="/CheckReg" method="POST" enctype="multipart/form-data" class="was-validated ">
   {{csrf_field()}}
   <div id="reg1" class="row g-3">
 
@@ -135,7 +135,7 @@
     
     <div class="col-md-6 ">
         <label for="fname">Full Name:</label>
-        <input type="text" class="form-control" id="fname" name="fname" oninput="convertToUppercase()" required>
+        <input type="text" class="form-control" id="fname" name="fname" oninput="convertToUppercase()" required pattern="[A-Za-z\s]+" required title="Name should contain only alphabetic characters and spaces.">
         <!--<span style="color:red">@error('fname'){{$message}}@enderror</span>-->
     </div>
 
@@ -173,8 +173,8 @@
 
     <div class="col-md-6">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-        <span style="color:red">@error('email'){{$message}}@enderror</span>
+        <input type="email" class="form-control" id="Email" name="Email" required>
+        <span style="color:red">@error('Email'){{$message}}@enderror</span>
     </div>
 
 
