@@ -14,24 +14,19 @@ return new class extends Migration
         Schema::create('sawmills', function (Blueprint $table) {
             $table->id();
             $table->string('idno');
-            $table->string('wsadd');
-            $table->string('nland');
-            $table->string('ownerofland');
-            $table->binary('deed');
-            $table->binary('plan');
-            $table->binary('Confirm');
-            $table->string('nameofwshed');
-            $table->string('district');
-            $table->string('DSsection');
-            $table->string('gnKottasaya');
-            $table->string('Lgovernment');
-            $table->binary('recom');
-            $table->boolean('sawmill')->default(0);
-            $table->boolean('TSOutlet')->default(0);
-            $table->boolean('seasoning')->default(0);
-            $table->boolean('Cshed')->default(0);
-            $table->boolean('furniture')->default(0);
-            $table->boolean('FWshed')->default(0);
+            $table->string('wsadd')->nullable();;
+            $table->string('nland')->nullable();;
+            $table->string('ownerofland')->nullable();;
+            $table->string('deed')->nullable();;
+            $table->string('plan')->nullable();;
+            $table->string('Confirm')->nullable();;
+            $table->string('nameofwshed')->nullable();;
+            $table->string('district')->nullable();;
+            $table->string('DSsection')->nullable();;
+            $table->string('gnKottasaya')->nullable();;
+            $table->string('Lgovernment')->nullable();;
+            $table->string('recom')->nullable();;
+            $table->string('nature_value')->nullable();;
         
             $table->timestamps();
         });

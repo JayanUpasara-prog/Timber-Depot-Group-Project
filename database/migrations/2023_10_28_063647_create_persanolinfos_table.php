@@ -15,10 +15,10 @@ return new class extends Migration
             $table->string('idno');
             $table->string('fname');
             $table->string('address');
-            $table->binary('fnic');
-            $table->binary('bnic');
+            $table->string('fnic');
+            $table->string('bnic');
             $table->string('contact');
-            $table->string('email');
+            $table->string('Email');
             $table->timestamps();
         });
     }

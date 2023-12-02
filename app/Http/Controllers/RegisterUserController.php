@@ -12,6 +12,11 @@ use App\Models\Sawmill;
 
 class RegisterUserController extends Controller
 {
+
+    public function create()
+    {
+        return view('upload');
+    }
     
     public function stores(Request $req){
         //dd($req->all());
@@ -30,11 +35,15 @@ class RegisterUserController extends Controller
                 },
             ],
             'contact' => 'required|regex:/^0[0-9]{9}$/',
-            'email' => 'required|email|unique:users',
-            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the allowed file types and maximum size as needed
-            'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
+            'Email' => 'required|email|unique:persanolinfos',
+            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', // Adjust the allowed file types and maximum size as needed
+            'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096',
     // Other validation rules go here...
-        ], [
+        ]
+
+        
+        
+        , [
             'contact.regex' => 'The Contact Number format is invalid. Please enter a valid format.',
             'fnic.required' => 'Please upload the Front Image of NIC.',
             'bnic.required' => 'Please upload the Back Image of NIC.',
@@ -46,14 +55,23 @@ class RegisterUserController extends Controller
             'bnic.max' => 'The Back Image of NIC should not exceed 2048 KB in size',
         ]);
 
-        $persanolinfo =new persanolinfo;
-        $persanolinfo->idno=$req->idno;
-        $persanolinfo->fname=$req->fname;
-        $persanolinfo->address=$req->address;
-        $persanolinfo->fnic=$req->fnic;
-        $persanolinfo->bnic=$req->bnic;
-        $persanolinfo->contact=$req->contact;
-        $persanolinfo->email=$req->email;
+   // Validate and store fnic image
+$fnicPath = $req->file('fnic')->store('uploads', 'public');
+
+// Validate and store bnic image
+$bnicPath = $req->file('bnic')->store('uploads', 'public');
+
+$personalinfo = new Persanolinfo([
+    'idno' => $req->input('idno'),
+    'fname' => $req->input('fname'),
+    'address' => $req->input('address'),
+    'fnic' => $fnicPath, // Store the file path
+    'bnic' => $bnicPath, // Store the file path
+    'contact' => $req->input('contact'),
+    'Email' => $req->input('Email'),
+]);
+
+// ... rest of your code ...
 
         $MobileSawmill =new MobileSawmill;
         $MobileSawmill->idno=$req->idno;
@@ -83,9 +101,14 @@ class RegisterUserController extends Controller
         $Sawmill->recom=$req->recom;
         $Sawmill->nature_value=json_encode($req->nature);
 
-        $persanolinfo->save();
+        $personalinfo->save();
         $MobileSawmill->save();
         $Sawmill->save();
+
+
+     
+
+        return redirect()->back()->with('success', 'Image uploaded successfully.');
 
         return redirect()->back();
 

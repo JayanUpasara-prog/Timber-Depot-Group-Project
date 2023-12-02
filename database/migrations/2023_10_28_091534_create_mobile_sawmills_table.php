@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('idno');
             $table->string('RegNoT')->nullable();
             $table->string('RegNotrailer')->nullable();
-            $table->binary('CopyReg')->nullable();
+            $table->string('CopyReg')->nullable();
             $table->string('MTS')->nullable();
             $table->string('StDate')->nullable();
             $table->string('Vtime')->nullable();
-            $table->binary('license')->nullable();
-            $table->binary('recomd')->nullable();
+            $table->string('license')->nullable();
+            $table->string('recomd')->nullable();
         
             $table->timestamps();
         });
