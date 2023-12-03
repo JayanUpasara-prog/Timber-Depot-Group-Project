@@ -54,6 +54,9 @@ Route::get('/inner-page8', function () {
 Route::get('/inner-page9', function () {
     return view('homepage.inner-page9');
 });
+Route::get('/faq', function () {
+    return view('homepage.faq');
+});
 
 Route::get('/AdminDashboard', function () {
     return view('admin.AdminDashboard');

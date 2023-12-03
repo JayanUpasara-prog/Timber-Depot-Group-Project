@@ -311,10 +311,10 @@
             <h4>Quick Links</h4>
         
             <ul class="list-unstyled">
+              <li><a href="faq">faq</a></li>
               <li><a href="#">Home</a></li>
-              <li><a href="#">Services</a></li>
               <li><a href="#">Sign in</a></li>
-              <li><a href="#">My Account</a></li>
+              <li><a href="#features">Services</a></li>
             </ul>
 
           </div>
