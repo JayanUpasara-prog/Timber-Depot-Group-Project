@@ -243,7 +243,7 @@
                 </h5>
             </div>
 
-            <div id="collapse" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+            <div id="collapse10" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
                 <div class="card-body">
                 For detailed information on environmental regulations governing timber depots, you can refer to the environmental compliance section on our website or contact our environmental affairs department. They can provide guidance on ensuring your timber operations meet the required standards.
                 </div>
