@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <style>
-    .fakeimg {
-      height: 200px;
-      background: #aaa;
-    }
-    </style> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -126,7 +124,7 @@
     @endforeach
   @endif-->
 
-  <form action="/CheckReg" method="POST" enctype="multipart/form-data" class="was-validated ">
+  <form id="myForm" action="/CheckReg" method="POST" enctype="multipart/form-data" class="was-validated ">
   {{csrf_field()}}
   <div id="reg1" class="row g-3">
 
@@ -384,7 +382,7 @@
         <td>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <input type="submit" value="Submit" >
+            <button type="button" onclick="showConfirmation()">Submit</button>
             </div>
         </td>
     </tr>
@@ -509,7 +507,6 @@
     </div>
   </div>
 
-  
 
 </footer><!-- End  Footer -->
 
@@ -590,12 +587,45 @@
             inputFields.forEach(function(input) {
                 input.value = input.value.toUpperCase();
             });
-        }        
+        }   
+        
+
+        
+        function showConfirmation() {
+    // Show a confirmation message using SweetAlert
+    Swal.fire({
+        title: "Are you sure to submit this?",
+        text: "You won't be able to revert this submission",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, submit it!"
+    }).then((result) => {
+        // If the user clicks "Yes," proceed with form submission
+        if (result.isConfirmed) {
+            // Trigger your form submission logic here
+            document.getElementById('myForm').submit();
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            // Handle the case where the user clicks "Cancel" or closes the dialog
+            Swal.fire("Submission Cancelled", "Your form submission has been cancelled.", "info");
+        } else {
+            // If the user neither clicked "Yes" nor "Cancel," show the confirmation again
+            showConfirmation();
+        }
+    });
+}
+
+
+
+
+
 
 
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
