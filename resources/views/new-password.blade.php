@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Reset Password</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 
     <style>
@@ -48,10 +48,12 @@
                 <div class="card" style="background-color: rgba(255, 255, 255, 0.9);">
                     <div class="card-header"
                         style="text-align: center; font-size: 20px; background-color: #2c9845; color: white;">
-                        Login
+                        Reset Your Password
                     </div>
+
                     <div class="card-body">
-                        <form id="loginForm" method="post" action="{{route('log.check')}}">
+
+                        <form id="loginForm" method="post" action="{{route('reset.password.post')}}">
                             @if(Session::has('success'))
                             <div class="alert alert-success">{{Session::get('success')}}</div>
                             @endif
@@ -61,39 +63,29 @@
                             @csrf
                             @method('post')
 
-
+                            <input type="text" name="token" hidden value="{{$token}}">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="loginEmail" name="email"
-                                    placeholder="Enter email" value="{{old('email')}}" required>
+                                <input type="email" class="form-control" id="loginEmail" name="email" required>
                                 <span class="text-danger">@error('email') {{$message}} @enderror</span>
                             </div>
+
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password" required>
+                                <label for="loginPassword" class="form-label">Enter New Password</label>
+                                <input type="password" class="form-control" id="loginPassword" name="password" required>
                                 <span class="text-danger">@error('password') {{$message}} @enderror</span>
-                                <br>
-                                <input type="checkbox" id="showPasswordToggle" onclick="togglePasswordVisibility()">
-                                <label for="showPasswordToggle">Show Password</label><br>
-                                <a href="{{route('forget.password')}}">Forget Password</a>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="loginPasswordConfirmation" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="loginPasswordConfirmation"
+                                    name="password_confirmation" required>
+                                <span class="text-danger">@error('password_confirmation') {{$message}} @enderror</span>
                             </div>
 
 
+                            <input type="submit" class="btn btn-success" value="Submit" />
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="submit" class="btn btn-success" value="Login" />
-                                </div>
-                                <div class="col-6 text-end">
-                                    <button type="button" class="btn btn-success">
-                                        <a href="{{ url('/#####') }}"
-                                            style="color: white; text-decoration: none;">Home</a>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <p class="mt-3">Don't have an account? <a href="register">Register here</a></p>
                         </form>
                     </div>
                 </div>
@@ -101,21 +93,6 @@
         </div>
     </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        function togglePasswordVisibility() {
-            const passwordInput = document.getElementById('password');
-            const showPasswordToggle = document.getElementById('showPasswordToggle');
-
-            if (showPasswordToggle.checked) {
-                passwordInput.type = 'text'; // Change to text to reveal the password
-            } else {
-                passwordInput.type = 'password'; // Change back to password to mask the password
-            }
-        }
-    </script>
 
 </body>
 
