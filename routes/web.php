@@ -83,45 +83,56 @@ Route::get('/CheckStockBookUpdate', function () {
 Route::get('/CustomerSupport', function () {
     return view('admin.CustomerSupport');
 });
-Route::get('/Help', function () {
-    return view('user.Help');
-});
+// Route::get('/Help', function () {
+//     return view('user.Help');
+// });
 Route::get('/Logout', function () {
     return view('admin.Logout');
 });
-Route::get('/OwnershipChange', function () {
-    return view('user.OwnershipChange');
-});
-Route::get('/PermitRequest', function () {
-    return view('user.PermitRequest');
-});
-Route::get('/Registration', function () {
-    return view('user.Registration');
-});
-Route::get('/Renew', function () {
-    return view('user.Renew');
-});
-Route::get('/StockBookUpdate', function () {
-    return view('user.StockBookUpdate');
-});
+// Route::get('/OwnershipChange', function () {
+//     return view('user.OwnershipChange');
+// });
+// Route::get('/PermitRequest', function () {
+//     return view('user.PermitRequest');
+// });
+// Route::get('/Registration', function () {
+//     return view('user.Registration');
+// });
+// Route::get('/Renew', function () {
+//     return view('user.Renew');
+// });
+// Route::get('/StockBookUpdate', function () {
+//     return view('user.StockBookUpdate');
+// });
 
-Route::get('/SBU_LogsTimber', function () {
-    return view('user.SBU_LogsTimber');
-});
-Route::get('/SBU_SawnTimber', function () {
-    return view('user.SBU_SawnTimber');
-});
+// Route::get('/SBU_LogsTimber', function () {
+//     return view('user.SBU_LogsTimber');
+// });
+// Route::get('/SBU_SawnTimber', function () {
+//     return view('user.SBU_SawnTimber');
+// });
 
-Route::get('/UserDashboard', function () {
-    return view('user.UserDashboard');
-});
-Route::get('/UserLogout', function () {
-    return view('user.UserLogout');
-});
+// Route::get('/UserDashboard', function () {
+//     return view('user.UserDashboard');
+// });
+// Route::get('/UserLogout', function () {
+//     return view('user.UserLogout');
+// });
 
 //register part
-Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register')->middleware('alreadyLoggedIn');
+Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register');//->middleware('alreadyLoggedIn');
 Route::post('/store', [RegistrationController::class, 'store'])->name('reg.store');
+Route::get('/CheckRegistration', [RegistrationController::class, 'CheckRegistration'])->name('CheckRegistration');
+Route::get('/Help', [RegistrationController::class, 'Help'])->name('Help');
+Route::get('/OwnershipChange', [RegistrationController::class, 'OwnershipChange'])->name('OwnershipChange');
+Route::get('/PermitRequest', [RegistrationController::class, 'PermitRequest'])->name('PermitRequest');
+Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration');
+Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
+Route::get('/SBU_LogsTimber', [RegistrationController::class, 'SBU_LogsTimber'])->name('SBU_LogsTimber');
+Route::get('/SBU_SawnTimber', [RegistrationController::class, 'SBU_SawnTimber'])->name('SBU_SawnTimber');
+Route::get('/StockBookUpdate', [RegistrationController::class, 'StockBookUpdate'])->name('StockBookUpdate');
+Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');
+Route::get('/UserLogout', [RegistrationController::class, 'UserLogout'])->name('UserLogout');
 
 //Admin part
 Route::get('/index', [RegistrationController::class, 'index'])->name('reg.index');;
@@ -130,14 +141,14 @@ Route::put('/update/{registration}', [RegistrationController::class, 'update'])-
 Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
 
 //login part
-Route::get('/login', [RegistrationController::class, 'login'])->name('log.login')->middleware('alreadyLoggedIn');
+Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');//->middleware('alreadyLoggedIn');
 Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
 
 //user dashboard
-Route::get('/dashboard', [RegistrationController::class, 'dashboard'])->name('dashboard')->middleware('isLoggedIn');
+Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard')->middleware('isLoggedIn');
 
 //admin dashboard
-Route::get('/admindash', [RegistrationController::class, 'admindash'])->name('admindash')->middleware('isLoggedIn')->middleware('admin');
+Route::get('/AdminDashboard', [RegistrationController::class, 'AdminDashboard'])->name('AdminDashboard')->middleware('isLoggedIn')->middleware('admin');
 
 
 //logout
@@ -154,6 +165,7 @@ Route::post('/reset-password', [ForgetPasswordController::class, 'resetPasswordP
 
 Route::post('/CheckReg',[Registration::class,'store']);
 Route::post('/CheckReg',[RegisterUserController::class,'stores']);
+
 
 //contact form
 Route::get('/homepage', [ContactController::class, 'showForm'])->name('contact.show');

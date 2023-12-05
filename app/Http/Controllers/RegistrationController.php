@@ -102,10 +102,10 @@ class RegistrationController extends Controller
 
         // Set session and redirect based on the user's role
         if ($user->role == '0') {
-            $redirectRoute = 'dashboard';
+            $redirectRoute = 'UserDashboard';
             $message = 'User login success';
         } else {
-            $redirectRoute = 'admindash';
+            $redirectRoute = 'AdminDashboard';
             $message = 'Admin login success';
         }
 
@@ -128,7 +128,7 @@ class RegistrationController extends Controller
 
 
     //user dashboard
-    public function dashboard(){
+    public function UserDashboard(){
     
         $user = array();
         if(Session::has('loginId')){
@@ -136,11 +136,11 @@ class RegistrationController extends Controller
 
             }
         
-        return view('dashboard', compact('user'));
+        return view('user.UserDashboard', compact('user'));
     }
 
     //admin dashboard
-    public function admindash(){
+    public function AdminDashboard(){
     
         $user = array();
         if(Session::has('loginId')){
@@ -148,8 +148,118 @@ class RegistrationController extends Controller
 
             }
         
-        return view('admindash', compact('user'));
+        return view('admin.AdminDashboard', compact('user'));
     }
+
+    public function CheckRegistration(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CheckRegistration', compact('user'));
+    }
+
+    // public function AdminDashboard(){
+    
+    //     $user = array();
+    //     if(Session::has('loginId')){
+    //         $user = User::where('id','=', Session::get('loginId'))->first();
+
+    //         }
+    //     return view('admin.AdminDashboard', compact('user'));
+    // }
+
+    public function Help(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.Help', compact('user'));
+    }
+
+    public function OwnershipChange(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.OwnershipChange', compact('user'));
+    }
+
+    public function PermitRequest(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.PermitRequest', compact('user'));
+    }
+
+    public function Registration(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.Registration', compact('user'));
+    }
+
+    public function Renew(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.Renew', compact('user'));
+    }
+    public function SBU_LogsTimber(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.SBU_LogsTimber', compact('user'));
+    }
+    public function SBU_SawnTimber(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.SBU_SawnTimber', compact('user'));
+    }
+    public function StockBookUpdate(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.StockBookUpdate', compact('user'));
+    }
+    
+
+    
+    public function UserLogout(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.UserLogout', compact('user'));
+    }
+
 
     public function logout(){
         if(Session::has('loginId')){
