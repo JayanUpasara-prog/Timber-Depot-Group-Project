@@ -5,7 +5,11 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Registration;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\MobileSawmillController;
+
 use App\Http\Controllers\ContactController;
+
+use App\Http\Controllers\ForgetPasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +57,9 @@ Route::get('/inner-page8', function () {
 });
 Route::get('/inner-page9', function () {
     return view('homepage.inner-page9');
+});
+Route::get('/faq', function () {
+    return view('homepage.faq');
 });
 
 Route::get('/AdminDashboard', function () {
@@ -112,17 +119,36 @@ Route::get('/UserLogout', function () {
     return view('user.UserLogout');
 });
 
+//register part
+Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register')->middleware('alreadyLoggedIn');
+Route::post('/store', [RegistrationController::class, 'store'])->name('reg.store');
 
-Route::get('/index', [RegistrationController::class, 'index'])->name('registration.index');;
-Route::get('/register', [RegistrationController::class, 'register'])->name('registration.register');
-Route::post('/index', [RegistrationController::class, 'store'])->name('registration.store');
-Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->name('registration.edit');
-Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('registration.update');
-Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('registration.destroy');
+//Admin part
+Route::get('/index', [RegistrationController::class, 'index'])->name('reg.index');;
+Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->name('reg.edit');
+Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('reg.update');
+Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
 
-Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');
+//login part
+Route::get('/login', [RegistrationController::class, 'login'])->name('log.login')->middleware('alreadyLoggedIn');
 Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
-//Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');;
+
+//user dashboard
+Route::get('/dashboard', [RegistrationController::class, 'dashboard'])->name('dashboard')->middleware('isLoggedIn');
+
+//admin dashboard
+Route::get('/admindash', [RegistrationController::class, 'admindash'])->name('admindash')->middleware('isLoggedIn')->middleware('admin');
+
+
+//logout
+Route::get('/logout', [RegistrationController::class, 'logout']);
+
+//forget password
+Route::get('/forget-password', [ForgetPasswordController::class, 'forgetPassword'])->name('forget.password');
+Route::post('/forget-password', [ForgetPasswordController::class, 'forgetPasswordPost'])->name('forget.password.post');
+Route::get('/reset-password/{token}', [ForgetPasswordController::class, 'resetPassword'])->name('reset.password');
+Route::post('/reset-password', [ForgetPasswordController::class, 'resetPasswordPost'])->name('reset.password.post');
+
 
 
 
