@@ -210,4 +210,40 @@
     })
   });
 
+
+// cotact
+$(document).ready(function () {
+  $('form').submit(function (e) {
+      e.preventDefault();
+
+      var form = $(this);
+      var loadingMessage = $('#loadingMessage');
+      var successMessage = $('#successMessage');
+
+      loadingMessage.text('Sending message...').show();
+
+      $.ajax({
+          url: form.attr('action'),
+          type: 'POST',
+          data: form.serialize(),
+          success: function (response) {
+              loadingMessage.hide();
+              successMessage.text(response.message).show();
+              form[0].reset();
+          },
+          error: function (error) {
+              loadingMessage.hide();
+              successMessage.text('Failed to send message').show();
+          }
+      });
+  });
+});
+
+
+
+
+
+
+
+
 })()

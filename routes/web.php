@@ -5,7 +5,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Registration;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\MobileSawmillController;
-
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,4 +129,8 @@ Route::post('/check', [RegistrationController::class, 'check'])->name('log.check
 Route::post('/CheckReg',[Registration::class,'store']);
 Route::post('/CheckReg',[RegisterUserController::class,'stores']);
 
+//contact form
+Route::get('/homepage', [ContactController::class, 'showForm'])->name('contact.show');
+Route::post('/homepage', [ContactController::class, 'sendMail'])->name('contact.send');
+//contact form
 
