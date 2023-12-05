@@ -5,7 +5,11 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Registration;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\MobileSawmillController;
+
+use App\Http\Controllers\ContactController;
+
 use App\Http\Controllers\ForgetPasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -151,4 +155,8 @@ Route::post('/reset-password', [ForgetPasswordController::class, 'resetPasswordP
 Route::post('/CheckReg',[Registration::class,'store']);
 Route::post('/CheckReg',[RegisterUserController::class,'stores']);
 
+//contact form
+Route::get('/homepage', [ContactController::class, 'showForm'])->name('contact.show');
+Route::post('/homepage', [ContactController::class, 'sendMail'])->name('contact.send');
+//contact form
 

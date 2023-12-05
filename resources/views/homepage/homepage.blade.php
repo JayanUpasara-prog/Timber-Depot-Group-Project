@@ -25,6 +25,8 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Add jQuery CDN link (if not added already) -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 
@@ -187,15 +189,15 @@
     </div>
  
 </div>
-</section>
+    </section>
     
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="padd-section">
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="padd-section">
 
       <div class="container" data-aos="fade-up">
         <div class="section-title text-center">
           <h2>Contact</h2>
- <!--     <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
+        <!--     <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
         </div>
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -211,7 +213,7 @@
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <p>info@example.com</p>
+                <p>forestmel102@gmail.com</p>
               </div>
 
               <div>
@@ -230,7 +232,9 @@
 
           <div class="col-lg-5 col-md-8">
             <div class="form">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          
+              <form action="{{ route('contact.send') }}" method="POST">
+                @csrf
                 <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
@@ -243,16 +247,28 @@
                 <div class="form-group mt-3">
                   <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                 </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                <br>
+                <div class="text-center">
+                  <button type="submit" >Send Message</button>
                 </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
+                <br>
+                @if(Session::has('success'))
+                      <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                      </div>
+                @endif
+              
               </form>
             </div>
+
+              <!-- Add this element where you want to display the loading message -->
+              <div id="loadingMessage" style="display: none;">Sending message...</div>
+              <div id="successMessage" style="display: none;"></div>
+
+
           </div>
 
+          
 
           <div class="map">
 
@@ -269,7 +285,7 @@
 
     </section><!-- End Contact Section -->
 
-
+    
 
   </main><!-- End #main -->
 
@@ -287,7 +303,7 @@
 
             <a class="navbar-brand" href="#">Forest Department,<br>Melsiripura.</a>
             <p> HF4C+JG4, Ibbagamuwa, <br> Melsiripura.<br>
-                info@example.com<br>
+            forestmel102@gmail.com<br>
                 0372259591</p>
           </div>
         </div>
@@ -331,7 +347,7 @@
               <li><a href="#" class="twitter"><i class="bi bi-twitter"></i></a></li>
               <li> <a href="#" class="facebook"><i class="bi bi-facebook"></i></a></li>
               <li><a href="#" class="instagram"><i class="bi bi-instagram"></i></a></li>
-              <li><a href="#" class="gmail"><i class="bi bi-google"></i></a></li>
+              <li><a href="forestmel102@gmail.com" class="gmail"><i class="bi bi-google"></i></a></li>
             </ul>
 
           </div>
