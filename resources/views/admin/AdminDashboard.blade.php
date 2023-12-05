@@ -14,6 +14,7 @@
   </style> -->
   <!-- Template Main CSS File -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
+  @include('livechat')
 </head>
 <body>
 
@@ -126,9 +127,13 @@
                       <div class="card">
                           <img src="assets/images/dashboardImg/face.jpg" alt="User Profile" class="card-img-top">
                           <div class="card-body text-center">
-                              <h5 class="card-title">John Doe</h5>
-                              <p class="card-text">TD-XXXX</p>
+                              <h5 class="card-title">{{ $user->name }}</h5>
+                              <p class="card-text">TD-{{ $user->id }}</p>
                               <button type="button" class="btn btn-primary">Edit Profile</button>
+                              <button type="button" class="btn btn-primary">
+                            <a href="{{ url('/logout') }}"
+                                style="color: white; text-decoration: none;">LogOut</a>
+                        </button>
                           </div>
                       </div>
                   </div>
@@ -138,7 +143,7 @@
                               <h5 class="card-title">User Information</h5>
                               <div class="mb-3">
                                   <label for="fullName" class="form-label">Full Name</label>
-                                  <input type="text" class="form-control" id="fullName" value="John Doe" readonly>
+                                  <input type="text" class="form-control" id="fullName" value="{{ $user->name }}" readonly>
                               </div>
                               <div class="mb-3">
                                   <label for="email" class="form-label">Email</label>

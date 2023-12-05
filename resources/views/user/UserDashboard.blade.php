@@ -13,6 +13,7 @@
   }
   </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
+  @include('livechat')
 </head>
 <body>
 
@@ -101,7 +102,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="help">
+                    <a class="nav-link" href="Help">
                         Help
                     </a>
                  </li>
@@ -125,9 +126,13 @@
                     <div class="card">
                         <img src="assets/images/dashboardImg/face.jpg" alt="User Profile" class="card-img-top">
                         <div class="card-body text-center">
-                            <h5 class="card-title">John Doe</h5>
-                            <p class="card-text">TD-XXXX</p>
+                            <h5 class="card-title">{{ $user->name }}</h5>
+                            <p class="card-text">TD-{{ $user->id }}</p>
                             <button type="button" class="btn btn-primary">Edit Profile</button>
+                            <button type="button" class="btn btn-primary">
+                            <a href="{{ url('/logout') }}"
+                                style="color: white; text-decoration: none;">LogOut</a>
+                        </button>
                         </div>
                     </div>
                 </div>
