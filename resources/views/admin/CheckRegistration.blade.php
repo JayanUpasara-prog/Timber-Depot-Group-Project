@@ -13,7 +13,6 @@
   }
   </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  @include('livechat')
 </head>
 <body>
 

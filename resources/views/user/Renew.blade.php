@@ -44,7 +44,6 @@
   }
   </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  @include('livechat')
 </head>
 <body>
 
@@ -133,7 +132,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Help">
+                    <a class="nav-link" href="help">
                         Help
                     </a>
                  </li>
