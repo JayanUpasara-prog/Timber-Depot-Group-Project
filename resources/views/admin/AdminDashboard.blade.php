@@ -30,11 +30,18 @@
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
-    </a>
-    <form class="d-flex mx-auto text-right" role="search">
+    </a> 
+    <form class="d-flex mx-auto text-right"role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
+    <div class="col-1">
+
+    <button type="button" class="btn btn-primary">
+                                        <a href="{{ url('/#####') }}"
+                                            style="color: white; text-decoration: none;">Home</a>
+                                    </button>
+</div>
     <div class="btn-group">
       <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="assets/images/dashboardImg/face.jpg" alt="Profile Photo" class="rounded-circle" width="20" height="20">
@@ -78,10 +85,16 @@
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a class="nav-link" href="index">
+                          View Registration
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a class="nav-link" href="CheckRegistration">
                           Check Registration
                       </a>
                   </li>
+                 
                   <li class="nav-item">
                       <a class="nav-link" href="CheckRenew">
                           Check Renew
@@ -107,6 +120,12 @@
                          Customer Support
                     </a>
                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="WildCriminals">
+                         Wild Criminal Form
+                    </a>
+                 </li>
+                 
                  <li class="nav-item">
                   <a class="nav-link" href="Logout">
                        Logout

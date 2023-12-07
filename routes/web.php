@@ -62,27 +62,27 @@ Route::get('/faq', function () {
     return view('homepage.faq');
 });
 
-Route::get('/AdminDashboard', function () {
-    return view('admin.AdminDashboard');
-});
-Route::get('/CheckOwnershipChange', function () {
-    return view('admin.CheckOwnershipChange');
-});
-Route::get('/CheckPermitRequest', function () {
-    return view('admin.CheckPermitRequest');
-});
-Route::get('/CheckRegistration', function () {
-    return view('admin.CheckRegistration');
-});
-Route::get('/CheckRenew', function () {
-    return view('admin.CheckRenew');
-});
-Route::get('/CheckStockBookUpdate', function () {
-    return view('admin.CheckStockBookUpdate');
-});
-Route::get('/CustomerSupport', function () {
-    return view('admin.CustomerSupport');
-});
+// Route::get('/AdminDashboard', function () {
+//     return view('admin.AdminDashboard');
+// });
+// Route::get('/CheckOwnershipChange', function () {
+//     return view('admin.CheckOwnershipChange');
+// });
+// Route::get('/CheckPermitRequest', function () {
+//     return view('admin.CheckPermitRequest');
+// });
+// Route::get('/CheckRegistration', function () {
+//     return view('admin.CheckRegistration');
+// });
+// Route::get('/CheckRenew', function () {
+//     return view('admin.CheckRenew');
+// });
+// Route::get('/CheckStockBookUpdate', function () {
+//     return view('admin.CheckStockBookUpdate');
+// });
+// Route::get('/CustomerSupport', function () {
+//     return view('admin.CustomerSupport');
+// });
 // Route::get('/Help', function () {
 //     return view('user.Help');
 // });
@@ -120,13 +120,13 @@ Route::get('/Logout', function () {
 // });
 
 //register part
-Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register');//->middleware('alreadyLoggedIn');
+Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register')->middleware('alreadyLoggedIn');
 Route::post('/store', [RegistrationController::class, 'store'])->name('reg.store');
 Route::get('/CheckRegistration', [RegistrationController::class, 'CheckRegistration'])->name('CheckRegistration');
 Route::get('/Help', [RegistrationController::class, 'Help'])->name('Help');
 Route::get('/OwnershipChange', [RegistrationController::class, 'OwnershipChange'])->name('OwnershipChange');
 Route::get('/PermitRequest', [RegistrationController::class, 'PermitRequest'])->name('PermitRequest');
-Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration');
+Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration')->middleware('isLoggedIn');
 Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
 Route::get('/SBU_LogsTimber', [RegistrationController::class, 'SBU_LogsTimber'])->name('SBU_LogsTimber');
 Route::get('/SBU_SawnTimber', [RegistrationController::class, 'SBU_SawnTimber'])->name('SBU_SawnTimber');
@@ -140,8 +140,18 @@ Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->nam
 Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('reg.update');
 Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
 
+Route::get('/CheckRenew', [RegistrationController::class, 'CheckRenew'])->name('CheckRenew');
+Route::get('/CheckOwnershipChange', [RegistrationController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
+Route::get('/CheckPermitRequest', [RegistrationController::class, 'CheckPermitRequest'])->name('CheckPermitRequest');
+Route::get('/CheckStockBookUpdate', [RegistrationController::class, 'CheckStockBookUpdate'])->name('CheckStockBookUpdate');
+Route::get('/CustomerSupport', [RegistrationController::class, 'CustomerSupport'])->name('CustomerSupport');
+Route::get('/WildCriminals', [RegistrationController::class, 'WildCriminals'])->name('admin.WildCriminals');
+Route::post('/WildCriminalsPost', [RegistrationController::class, 'WildCriminalsPost'])->name('admin.WildCriminalsPost');
+Route::get('/CriminalView', [RegistrationController::class, 'CriminalView'])->name('admin.CriminalView');
+Route::delete('/destroyCriminal/{criminal}', [RegistrationController::class, 'destroyCriminal'])->name('admin.destroyCriminal');
+
 //login part
-Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');//->middleware('alreadyLoggedIn');
+Route::get('/login', [RegistrationController::class, 'login'])->name('log.login')->middleware('alreadyLoggedIn');
 Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
 
 //user dashboard

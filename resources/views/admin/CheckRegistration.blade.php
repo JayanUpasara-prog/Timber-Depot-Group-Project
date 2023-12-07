@@ -77,6 +77,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                      <a class="nav-link" href="index">
+                          View Registration
+                      </a>
+                  </li>
+                <li class="nav-item">
                     <a class="nav-link bg-success active" href="CheckRegistration">
                         Check Registration
                     </a>

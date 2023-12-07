@@ -21,6 +21,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('dashboard')->with('fail', 'You have no admin access');
+        return redirect('UserDashboard')->with('fail', 'You have no admin access');
     }
 }

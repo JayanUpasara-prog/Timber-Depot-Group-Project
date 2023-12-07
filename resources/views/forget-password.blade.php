@@ -46,7 +46,7 @@
 
 
                 <div class="card" style="background-color: rgba(255, 255, 255, 0.9);">
-                    <div class="card-header"
+                    <div class="card-header bg-success"
                         style="text-align: center; font-size: 20px; background-color: #2c9845; color: white;">
                         Reset Your Password
                     </div>

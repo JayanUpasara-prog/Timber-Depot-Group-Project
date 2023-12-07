@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\WildCriminal;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
@@ -139,27 +140,7 @@ class RegistrationController extends Controller
         return view('user.UserDashboard', compact('user'));
     }
 
-    //admin dashboard
-    public function AdminDashboard(){
-    
-        $user = array();
-        if(Session::has('loginId')){
-            $user = User::where('id','=', Session::get('loginId'))->first();
-
-            }
-        
-        return view('admin.AdminDashboard', compact('user'));
-    }
-
-    public function CheckRegistration(){
-    
-        $user = array();
-        if(Session::has('loginId')){
-            $user = User::where('id','=', Session::get('loginId'))->first();
-
-            }
-        return view('admin.CheckRegistration', compact('user'));
-    }
+   
 
     // public function AdminDashboard(){
     
@@ -260,6 +241,122 @@ class RegistrationController extends Controller
         return view('user.UserLogout', compact('user'));
     }
 
+     //admin dashboard
+     public function AdminDashboard(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        
+        return view('admin.AdminDashboard', compact('user'));
+    }
+
+    public function CheckRegistration(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CheckRegistration', compact('user'));
+    }
+
+    public function CheckRenew(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CheckRenew', compact('user'));
+    }
+
+    public function CheckOwnershipChange(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CheckOwnershipChange', compact('user'));
+    }
+
+    public function CheckPermitRequest(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CheckPermitRequest', compact('user'));
+    }
+
+    public function CheckStockBookUpdate(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CheckStockBookUpdate', compact('user'));
+    }
+
+    public function CustomerSupport(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.CustomerSupport', compact('user'));
+    }
+
+    public function WildCriminals(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.WildCriminals', compact('user'));
+    }
+
+    public function WildCriminalsPost(Request $request)
+{
+    
+    $wild = $request->validate([
+       'idnum' => 'required',
+       
+    ]);
+
+    
+    $wildCriminal = new WildCriminal();
+
+    $wildCriminal->name = $request->input('name');
+    $wildCriminal->idnum = $request->input('idnum');
+    $wildCriminal->address = $request->input('Address');
+    
+    $wildCriminal->save();
+
+    
+    return redirect()->route('admin.WildCriminals')->with('success', 'Record entered successfully');
+}
+
+public function CriminalView(){
+    $criminals = WildCriminal::all();
+    return view('admin.CriminalView', ['criminals' => $criminals]);
+}
+
+ //delete part
+
+ public function destroyCriminal(WildCriminal $criminal) 
+ {
+     $criminal->delete();
+     return redirect(route('admin.CriminalView'))->with('success', 'Deleted Successfully');
+ }
+    
 
     public function logout(){
         if(Session::has('loginId')){
