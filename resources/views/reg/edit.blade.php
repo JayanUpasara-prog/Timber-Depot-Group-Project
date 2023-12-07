@@ -8,7 +8,7 @@
 
     <style>
         body {
-            background-color:#A3E496;
+            background-color:black;
             //background-image: url('bg3.jpg');
             background-size:cover;
             background-position: center;
@@ -46,8 +46,8 @@
     <div class="row justify-content-center align-items-center">
         
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header" style="text-align: center; font-size: 20px; background-color: #2c9845; color: white;">
+            <div class="card" >
+                <div class="card-header bg-success" style="text-align: center; font-size: 20px;  color: white;">
                     Edit Your Information
                 </div>
                 <div class="card-body">
@@ -74,7 +74,17 @@
                             <input type="checkbox" id="showPasswordToggle" onclick="togglePasswordVisibility()">
                             <label for="showPasswordToggle">Show Password</label>
                         </div>
-                        <input type="submit" class="btn btn-success" value="Update">
+                        <div class="row">
+    <div class="col-6">
+        <input type="submit" class="btn btn-success" value="Update">
+    </div>
+    <div class="col-6 text-end">
+        <button type="button" class="btn btn-success">
+            <a href="{{ route('reg.index') }}" style="color: white; text-decoration: none;">Back</a>
+        </button>
+    </div>
+</div>
+
                         </form>
                 </div>
             </div>
