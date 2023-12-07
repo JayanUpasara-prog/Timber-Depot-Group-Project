@@ -56,7 +56,7 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-   
+    @include('backtotop')
 
 </body>
 
