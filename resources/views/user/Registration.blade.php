@@ -11,7 +11,6 @@
 
 
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  @include('livechat')
 </head>
 <body>
 
@@ -100,7 +99,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Help">
+                    <a class="nav-link" href="help">
                         Help
                     </a>
                  </li>
@@ -172,7 +171,7 @@
 
     <div class="col-md-6">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="Email" name="Email" required>
+        <input type="email" class="" id="Email" name="Email" required>
         <span style="color:red">@error('Email'){{$message}}@enderror</span>
     </div>
 
@@ -199,8 +198,17 @@
       </tr>
 
       <tr>
+        <td><span style="color:red">@error('CopyReg'){{$message}}@enderror</span><br><span style="color:red">@error('license'){{$message}}@enderror</span><br><span style="color:red">@error('recomd'){{$message}}@enderror</span></td>
+      </tr>
+
+      <tr>
         <td><li><label for="sawmill">Sawmill (Only for sawing)</label></li></td>
         <td><input type="checkbox" id="sawmill" data-name="Sawmill" name="nature[]" value="20" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+      </tr>
+
+      <tr>
+        <td><span style="color:red">@error('deed'){{$message}}@enderror</span><br>
+        <span style="color:red">@error('plan'){{$message}}@enderror</span><br><span style="color:red">@error('Confirm'){{$message}}@enderror</span><br><span style="color:red">@error('recom'){{$message}}@enderror</span></td>
       </tr>
     </ol>
       
@@ -261,20 +269,23 @@
         </div>
 
         <div class="col-md-4">   
-            Copies of relevant land deed/tax deed<br>
+            Copies of relevant land deed/tax deed<b>(Allowed type:pdf)</b><br>
               <input type="file" name="deed" id="deed" >
+              <span style="color:red">@error('deed'){{$message}}@enderror</span>
         </div>
               <!--<input type="submit" value="Upload File" >-->
 
         <div class="col-md-3">   
-            Image of plan(පිඹුර)<br>
+            Image of plan(පිඹුර)<b>(Allowed type:pdf)</b><br>
               <input type="file" name="plan" id="plan" >
+              <span style="color:red">@error('plan'){{$message}}@enderror</span>
         </div>
               <!--<input type="submit" value="Upload File" >-->
 
         <div class="col-md-5">    
-            Affidavit taken to confirm authority if the land is not owned by you<br>
+            Affidavit taken to confirm authority if the land is not owned by you<b>(Allowed type:pdf)</b><br>
               <input type="file" name="Confirm" id="Confirm" >
+              <span style="color:red">@error('Confirm'){{$message}}@enderror</span>
               <!--<input type="submit" value="Upload File" >-->
         </div>
 
@@ -294,13 +305,14 @@
         </div>
 
         <div class="col-md-6">
-            <label for="Lgovernment">Local Government:</label>
+            <label for="Lgovernment">Local Government:</label><br><br>
             <input type="text"  class="form-control" id="Lgovernment" name="Lgovernment" oninput="convertToUppercase()" >
         </div>
 
         <div class="col-md-4">
-            Recommendation of Divisional Secretary<br>
+            Recommendation of Divisional Secretary<b>(Allowed type:pdf)</b><br>
             <input type="file" name="recom" id="recom" >
+            <span style="color:red">@error('recom'){{$message}}@enderror</span>
             <!--<input type="submit" value="Upload File" >--><br><br>
         </div>  
       </div>
@@ -323,8 +335,9 @@
     </div>
 
     <div class="col-md-6">
-    <label for="CopyReg">Copy of the Certificate of Registration and Revenue License should be Uploaded:</label><br><br>
+    <label for="CopyReg">Copy of the Certificate of Registration and Revenue License should be Uploaded<b>(Allowed type:pdf)</b>:</label><br><br>
         <input type="file" name="CopyReg" id="CopyReg" >
+        <span style="color:red">@error('CopyReg'){{$message}}@enderror</span>
         <!--<input type="submit" value="Upload image File" >-->
     </div>
 
@@ -344,14 +357,16 @@
     </div>
 
     <div class="col-md-3">
-        Please Upload a copy:<br><br>
+        Please Upload a copy of Protection License<b>(Allowed type:pdf)</b>:<br>
         <input type="file" name="license" id="license" >
+        <span style="color:red">@error('license'){{$message}}@enderror</span>
         <!--<input type="submit" value="Upload image File" >-->
     </div>
 
     <div class="col-md-3">
-        Recommendation of Divisional Secretary:<br>
+        Recommendation of Divisional Secretary<b>(Allowed type:pdf)</b>:<br>
         <input type="file" name="recomd" id="recomd" >
+        <span style="color:red">@error('recomd'){{$message}}@enderror</span>
         <!--<input type="submit" value="Upload File" >-->
     </div>
   </div>

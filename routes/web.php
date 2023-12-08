@@ -140,6 +140,9 @@ Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->nam
 Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('reg.update');
 Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
 
+Route::get('/CheckRegistration', [Registration::class, 'CheckRegistration'])->name('CheckRegistration');
+Route::get('view_record/{id}', [Registration::class, 'view_record']);
+
 Route::get('/CheckRenew', [RegistrationController::class, 'CheckRenew'])->name('CheckRenew');
 Route::get('/CheckOwnershipChange', [RegistrationController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
 Route::get('/CheckPermitRequest', [RegistrationController::class, 'CheckPermitRequest'])->name('CheckPermitRequest');
@@ -173,8 +176,11 @@ Route::post('/reset-password', [ForgetPasswordController::class, 'resetPasswordP
 
 
 
-Route::post('/CheckReg',[Registration::class,'store']);
-Route::post('/CheckReg',[RegisterUserController::class,'stores']);
+
+
+Route::post('/CheckReg',[Registration::class,'stores']);
+
+//Route::post('/CheckReg',[RegisterUserController::class,'stores']);
 
 
 //contact form

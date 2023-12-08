@@ -13,7 +13,6 @@
   }
   </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  @include('livechat')
 </head>
 <body>
 
@@ -25,7 +24,7 @@
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="homepage">
+    <a class="navbar-brand" href="#">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -77,11 +76,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                      <a class="nav-link" href="index">
-                          View Registration
-                      </a>
-                  </li>
-                <li class="nav-item">
                     <a class="nav-link bg-success active" href="CheckRegistration">
                         Check Registration
                     </a>
@@ -127,14 +121,24 @@
       </div>
   
       <div>
-          <table class="table table-bordered border-primary">
-              <tr>
-                  <th>No.</th>
-                  <th>NIC No.</th>
-                  <th>Name</th>
-                  <th>Check</th>
-              </tr>
-          </table>
+      <table class="table table-bordered border-primary">
+    <tr>
+        <th>No.</th>
+        <th>NIC No.</th>
+        <th>Name</th>
+        <th>Check</th>
+    </tr>
+    @foreach($CheckRegistration as $CheckRegistration)
+        <tr>
+            <td>{{ $CheckRegistration->id }}</td>
+            <td>{{ $CheckRegistration->idno }}</td>
+            <td>{{ $CheckRegistration->fname }}</td>
+            <td><a href="/view_record/{{$CheckRegistration->id}}"><button class ="btn btn-primary">view</button></a></td>
+        </tr>
+@endforeach
+
+</table>
+
       </div>
       </main>
   </div>
