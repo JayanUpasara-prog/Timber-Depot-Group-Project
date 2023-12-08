@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //create table for user registration form
-        Schema::create('registerusers', function (Blueprint $table) {
-            
+        Schema::create('registered_users', function (Blueprint $table) {
             $table->id();
             $table->string('idno');
             $table->string('fname');
@@ -44,7 +42,6 @@ return new class extends Migration
             $table->string('recom')->nullable();
             $table->string('nature_value')->nullable();
         
-
             $table->timestamps();
         });
     }
@@ -54,6 +51,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registerusers');
+        Schema::dropIfExists('registered_users');
     }
 };
