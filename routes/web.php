@@ -9,6 +9,7 @@ use App\Http\Controllers\MobileSawmillController;
 use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\ForgetPasswordController;
+use App\Http\Controllers\RegisteredUserController;
 
 
 /*
@@ -140,8 +141,12 @@ Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->nam
 Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('reg.update');
 Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
 
+//madhura
 Route::get('/CheckRegistration', [Registration::class, 'CheckRegistration'])->name('CheckRegistration');
 Route::get('view_record/{id}', [Registration::class, 'view_record']);
+Route::get('/reject/{id}',[Registration::class,'reject']);
+Route::get('/accept/{id}',[RegisteredUserController::class,'saveUsers'])->name('CheckRegistration');
+Route::post('/send', [RegisteredUserController::class, 'send'])->name('reject.send');
 
 Route::get('/CheckRenew', [RegistrationController::class, 'CheckRenew'])->name('CheckRenew');
 Route::get('/CheckOwnershipChange', [RegistrationController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
