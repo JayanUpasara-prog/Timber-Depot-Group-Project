@@ -186,5 +186,9 @@ Route::post('/CheckReg',[Registration::class,'stores']);
 //contact form
 Route::get('/homepage', [ContactController::class, 'showForm'])->name('contact.show');
 Route::post('/homepage', [ContactController::class, 'sendMail'])->name('contact.send');
-//contact form
 
+
+use App\Http\Controllers\PaymentController;
+
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('show.payment.form');
+Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
