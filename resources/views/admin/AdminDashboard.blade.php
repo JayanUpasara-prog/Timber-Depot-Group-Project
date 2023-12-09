@@ -166,9 +166,9 @@
                               </div>
                               <div class="mb-3">
                                   <label for="email" class="form-label">Email</label>
-                                  <input type="email" class="form-control" id="email" value="john@example.com" readonly>
+                                  <input type="email" class="form-control" id="email" value="{{ $user->email }}" readonly>
                               </div>
-                              <div class="mb-3">
+                              <!-- <div class="mb-3">
                                 <label for="nic" class="form-label">NIC Number</label>
                                 <input type="text" class="form-control" id="nic" value="99xxxxxxxv" readonly>
                               </div>
@@ -179,7 +179,7 @@
                               <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" value="Srilanka" readonly>
-                              </div>
+                              </div> -->
                               <!-- Add more user data fields here as needed -->
                           </div>
                       </div>
