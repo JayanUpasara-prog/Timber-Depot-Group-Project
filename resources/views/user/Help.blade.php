@@ -68,52 +68,7 @@
 <div class="container-fluid">
   <div class="row">
       <!-- Side Navigation Bar -->
-      <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-          <div class="position-sticky">
-              <ul class="nav flex-column nav-pills nav-stacked">
-                  <li class="nav-item">
-                      <a class="nav-link" href="UserDashboard">
-                          Dashboard/My Profile
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="Registration">
-                          Registration
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="Renew">
-                          Renew
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="OwnershipChange">
-                        Ownership Change
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="PermitRequest">
-                        Permit Request
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="StockBookUpdate">
-                        StockBook Update
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link bg-success active" href="Help">
-                        Help
-                    </a>
-                 </li>
-                 <li class="nav-item">
-                  <a class="nav-link" href="UserLogout">
-                       Logout
-                  </a>
-               </li>
-              </ul>
-          </div>
-      </nav>
+      @include('userSideNav')
 
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

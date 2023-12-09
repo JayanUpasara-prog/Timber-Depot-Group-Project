@@ -31,7 +31,7 @@ class Registration extends Controller{
                 },
             ],
             'contact' => 'required|regex:/^0[0-9]{9}$/',
-            'Email' => 'required|email|unique:registerusers',
+            'email' => 'required|email|unique:registerusers',
             'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', // Adjust the allowed file types and maximum size as needed
             'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096',
             'deed' => 'nullable|file|mimes:pdf|max:25000',
