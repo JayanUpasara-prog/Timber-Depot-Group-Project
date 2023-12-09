@@ -78,7 +78,11 @@
   </div>
 </nav> -->
 </br>
-
+@if(Session::has('success'))
+                      <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                      </div>
+                @endif
 
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -138,7 +142,7 @@
            
         </tr>
 
-        <tr class="table-warning">
+        <tr class="table-warning" >
           <td><button type="button" class="btn btn-primary">Check</button></td>
           <td><div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -149,6 +153,12 @@
                 <label class="form-check-label" for="inlineRadio2">Incorrect</label>
               </div></td>
         </tr>
+
+        <tr class="table-success">
+            <td colspan="2" style="text-align: center;">Information of Mobile Timber Sawmill</td>
+        </tr>
+
+
 
         <tr>
             <td>Registration No. of the hand tractor:</td>
@@ -198,6 +208,23 @@
            
         </tr>
 
+        <tr class="table-warning" >
+          <td></td>
+          <td><div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="1" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Correct</label>
+              </div>
+          <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="1" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Incorrect</label>
+              </div></td>
+        </tr>
+        
+
+        <tr class="table-success">
+            <td colspan="2" style="text-align: center;">Information of Timber Sawmill</td>
+        </tr>
+
         <tr>
             <td>The address where the wood shed is located</td>
             <td>{{ $data->wsadd }}</td>
@@ -211,9 +238,15 @@
         </tr>
 
         <tr>
-            <td>he owner of the land</td>
+            <td>The owner of the land</td>
             <td>{{ $data->ownerofland }}</td>
            
+        </tr>
+
+        <tr>
+            <td>Name of woodshed</td>
+            <td>{{ $data->nameofwshed }}</td>
+            
         </tr>
 
         <tr>
@@ -234,11 +267,7 @@
             
         </tr>
 
-        <tr>
-            <td>Name of woodshed</td>
-            <td>{{ $data->nameofwshed }}</td>
-            
-        </tr>
+        
 
         <tr>
             <td>District</td>
@@ -281,7 +310,81 @@
             <td colspan="3">No user data available.</td>
         </tr>
     @endif
+
+    <tr class="table-warning" >
+          <td></td>
+          <td><div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="2" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Correct</label>
+              </div>
+          <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="2" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Incorrect</label>
+              </div></td>
+        </tr>
+
+        <tr class="table-dark">
+          <td colspan="2">
+          <div class="d-flex justify-content-center">
+            <div class="card w-50 mx-auto">
+                <div class="card-header">
+                    <h5 class="card-title">Rejection Message</h5>
+                </div>
+                <div class="card-body">
+                <form action="{{ route('reject.send') }}" method="POST">
+
+                      @csrf
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{ $data->Email }}" readonly>
+                      </div>
+
+                      <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" name="message" id="message" rows="5"></textarea>
+                            <div class="form-text">Reasons for rejection</div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Send Message</button>
+
+                     
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+          </td>
+        </tr>
+
+    <tr>
+      <td colspan="2">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="#" class="btn btn-primary btn-lg me-md-2" onclick="confirmAction('{{ url('accept/' . $data['id']) }}')">Accept</a>
+            <a href="#" class="btn btn-danger btn-lg" onclick="confirmAction('{{ url('reject/' . $data['id']) }}')">Reject</a>
+        </div>
+      </td>
+    </tr>
+
+    <script>
+    function confirmAction(url) {
+        var isConfirmed = confirm("Are you sure you want to proceed?");
+        if (isConfirmed) {
+            // The user clicked "OK" in the confirmation dialog
+            // You can redirect to the specified URL or perform other actions
+            window.location.href = url;
+        } else {
+            // The user clicked "Cancel" in the confirmation dialog
+            // You can handle this case or leave it empty
+        }
+    }
+</script>
 </table>
+  
+
+ 
+
+
+<br><br>
 
         </div>
     </div>

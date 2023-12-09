@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\registeruser;
+use App\Models\RegisteredUser;
 
 
 class Registration extends Controller{
@@ -31,7 +32,7 @@ class Registration extends Controller{
                 },
             ],
             'contact' => 'required|regex:/^0[0-9]{9}$/',
-            'email' => 'required|email|unique:registerusers',
+            'Email' => 'required|email|unique:registerusers',
             'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', // Adjust the allowed file types and maximum size as needed
             'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096',
             'deed' => 'nullable|file|mimes:pdf|max:25000',
@@ -151,15 +152,13 @@ class Registration extends Controller{
             'Lgovernment'=> $req->input('Lgovernment'),
             'recom'=> $recomPath,
             'nature_value' => json_encode($req->nature),
-
-
         ]);
 
         $registeruser->save();
 
         return redirect('/Registration');
-
     }
+
     public function CheckRegistration() {
         $CheckRegistration = registeruser::all();
         return view('admin.CheckRegistration',compact('CheckRegistration'));
@@ -168,6 +167,20 @@ class Registration extends Controller{
     public function view_record($id) {
         $data = registeruser::find($id);
         return view('admin.UsersInfo', compact('data'));
+    }
+
+    function remove($id, Request $req){
+        $data=RegisteredUser::find($id);
+        $data->delete();
+
+        //$req->session()->flash('Success2','User deleted Successfully');
+        return redirect('/CheckRegistration');
+    }
+
+    function reject($id){
+        registeruser::destroy($id);
+        return redirect('/CheckRegistration');
+
     }
     
     
