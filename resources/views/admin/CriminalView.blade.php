@@ -32,6 +32,7 @@
                             <th>Name</th>
                             <th>NIC</th>
                             <th>Address</th>
+                            <th>Created Time</th>
                             <th>Delete</th> 
                         </tr>
                     </thead>
@@ -42,6 +43,7 @@
                             <td>{{ $criminal->name }}</td>
                             <td>{{ $criminal->idnum }}</td>
                             <td>{{ $criminal->Address }}</td>
+                            <td>{{ $criminal->created_at }}</td>
                             <td>
                             <form id="deleteForm"
                                     action="{{ route('admin.destroyCriminal', ['criminal' => $criminal->id]) }}"
@@ -77,7 +79,6 @@
             </div>
         </div>
     </div>
-    
 </body>
 
 </html>

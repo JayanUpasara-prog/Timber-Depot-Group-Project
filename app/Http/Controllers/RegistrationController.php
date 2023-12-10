@@ -8,7 +8,7 @@ use App\Models\WildCriminal;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
-
+use Carbon\Carbon;
 class RegistrationController extends Controller
 {
 

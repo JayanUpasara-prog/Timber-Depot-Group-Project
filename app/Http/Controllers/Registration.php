@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\registeruser;
 use App\Models\RegisteredUser;
+use Illuminate\Support\Facades\Mail;
 
 
 class Registration extends Controller{
@@ -167,6 +169,19 @@ class Registration extends Controller{
     public function view_record($id) {
         $data = registeruser::find($id);
         return view('admin.UsersInfo', compact('data'));
+    }
+
+    public function handleAcceptance(Request $request, $id)
+    {
+        // Your validation and acceptance logic here
+
+        // Send acceptance email
+        $user = registeruser::find($id);
+        Mail::to($user->Email)->send(new AcceptanceMail());
+
+        // Redirect or return a response
+        return redirect()->route('success')->with('success', 'Form accepted successfully. An email confirmation has been sent to your registered email address.');
+
     }
 
     function remove($id, Request $req){
