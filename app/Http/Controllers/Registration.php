@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\registeruser;
-use Illuminate\Support\Facades\Mail;
+use App\Models\RegisteredUser;
 
 
 class Registration extends Controller{
@@ -153,21 +152,13 @@ class Registration extends Controller{
             'Lgovernment'=> $req->input('Lgovernment'),
             'recom'=> $recomPath,
             'nature_value' => json_encode($req->nature),
-
-
         ]);
 
-        $res=$registeruser->save();
+        $registeruser->save();
 
-        //return redirect('/Registration')->with('success', 'You have regitered successfully');
-        if ($res) {
-            return redirect('/Registration')->with('success', 'You have regitered successfully');
-        }else {
-            return back()->with('fail', 'Something went wrong')->withErrors(['fail' => 'Something went wrong']);
-
-       
-        }
+        return redirect('/Registration');
     }
+
     public function CheckRegistration() {
         $CheckRegistration = registeruser::all();
         return view('admin.CheckRegistration',compact('CheckRegistration'));
@@ -178,16 +169,18 @@ class Registration extends Controller{
         return view('admin.UsersInfo', compact('data'));
     }
 
-    public function handleAcceptance(Request $request, $id)
-    {
-        // Your validation and acceptance logic here
+    function remove($id, Request $req){
+        $data=RegisteredUser::find($id);
+        $data->delete();
 
-        // Send acceptance email
-        $user = registeruser::find($id);
-        Mail::to($user->Email)->send(new AcceptanceMail());
+        //$req->session()->flash('Success2','User deleted Successfully');
+        return redirect('/CheckRegistration');
+    }
 
-        // Redirect or return a response
-        return redirect('/CheckRegistration')->with('success', 'Form accepted, and email sent to the user.');
+    function reject($id){
+        registeruser::destroy($id);
+        return redirect('/CheckRegistration');
+
     }
     
     
