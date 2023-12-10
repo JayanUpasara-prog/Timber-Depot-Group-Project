@@ -68,7 +68,7 @@
     <div class="hero-container" data-aos="fade-in">
       <h1 style="margin-top: 20px;">Welcome.</h1>
       <h2>To Conserve &amp; Develop National Forest Resources Ensuring the Prosperity of the Nation.</h2>
-      <img src="assets/img/hero-img.jpg" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+     
       <a href="#get-started" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero Section -->
