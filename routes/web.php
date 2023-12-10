@@ -199,3 +199,14 @@ use App\Http\Controllers\PaymentController;
 
 Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('show.payment.form');
 Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
+
+//ayendra
+Route::get('/noticePage', function () {
+    return view('admin.notice');
+});
+
+use App\Http\Controllers\NoticeController;
+
+Route::post('/submit-notice', [NoticeController::class, 'store'])->name('submit.notice');
+
+Route::get('/inner-page2', [noticeController::class, 'viewNotice']);

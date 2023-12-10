@@ -80,22 +80,38 @@
               fire safety guidelines in the forest. Do not light open fires, discard cigarettes responsibly, and report any signs of wildfires immediately to [037-2260500].
               &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="">Read More></a>
             </li>
+            @foreach($viewNotice as $notice)
+                <li>{{ $notice->notice }}</li>
+            @endforeach
           </ul>
         </div>
+
+        
 
 
         <br><br>
         <div class="notice">
-        <h3>You can download the gazzets here!</h3><br>
-        <!--<button class="btn"><i class="fa fa-download"></i> Download</button>-->
+    <h3>You can download the gazettes here!</h3><br>
+    
+    {{-- Check if there are any gazettes --}}
+    @if ($viewNotice->isNotEmpty())
+        {{-- Get the latest gazette --}}
+        @php
+            $latestGazette = $viewNotice->last();
+        @endphp
 
-        <embed src="./pdf/pdf1.pdf" type="application/pdf" width="100%" height="500px">
+        {{-- Display the latest gazette --}}
+        <embed src="{{ asset("storage/gazettes/{$latestGazette->gazette}") }}" type="application/pdf" width="100%" height="500px">
 
-          <!-- Add a Download Button -->
-          <a href="./pdf/pdf1.pdf" download="pdf1.pdf">
-              <button>Download PDF</button>
-              <div class="notice">
-      </div>
+        <!-- Add a Download Button for the latest gazette -->
+        <a href="{{ asset("storage/gazettes/{$latestGazette->gazette}") }}" download="{{ $latestGazette->gazette }}">
+            <button>Download PDF</button>
+        </a>
+    @else
+        <p>No gazettes available.</p>
+    @endif
+</div>
+
     </section>
 
   </main><!-- End #main -->
