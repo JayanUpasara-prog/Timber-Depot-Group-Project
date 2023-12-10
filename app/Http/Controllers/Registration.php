@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\registeruser;
-use App\Models\RegisteredUser;
+use Illuminate\Support\Facades\Mail;
 
 
 class Registration extends Controller{
@@ -152,13 +153,21 @@ class Registration extends Controller{
             'Lgovernment'=> $req->input('Lgovernment'),
             'recom'=> $recomPath,
             'nature_value' => json_encode($req->nature),
+
+
         ]);
 
-        $registeruser->save();
+        $res=$registeruser->save();
 
-        return redirect('/Registration');
+        //return redirect('/Registration')->with('success', 'You have regitered successfully');
+        if ($res) {
+            return redirect('/Registration')->with('success', 'You have regitered successfully');
+        }else {
+            return back()->with('fail', 'Something went wrong')->withErrors(['fail' => 'Something went wrong']);
+
+       
+        }
     }
-
     public function CheckRegistration() {
         $CheckRegistration = registeruser::all();
         return view('admin.CheckRegistration',compact('CheckRegistration'));
@@ -169,18 +178,16 @@ class Registration extends Controller{
         return view('admin.UsersInfo', compact('data'));
     }
 
-    function remove($id, Request $req){
-        $data=RegisteredUser::find($id);
-        $data->delete();
+    public function handleAcceptance(Request $request, $id)
+    {
+        // Your validation and acceptance logic here
 
-        //$req->session()->flash('Success2','User deleted Successfully');
-        return redirect('/CheckRegistration');
-    }
+        // Send acceptance email
+        $user = registeruser::find($id);
+        Mail::to($user->Email)->send(new AcceptanceMail());
 
-    function reject($id){
-        registeruser::destroy($id);
-        return redirect('/CheckRegistration');
-
+        // Redirect or return a response
+        return redirect('/CheckRegistration')->with('success', 'Form accepted, and email sent to the user.');
     }
     
     
