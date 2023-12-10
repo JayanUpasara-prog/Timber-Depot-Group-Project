@@ -78,13 +78,17 @@
   </div>
 </nav> -->
 </br>
-@if(Session::has('success'))
-                      <div class="alert alert-success">
-                        {{ Session::get('success') }}
-                      </div>
-                @endif
 
       <!-- Main Content -->
+      <form action="{{ route('acceptance.handle', $data->id) }}" method="post">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('fail'))
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                    @endif
+                                    @csrf
+                                    @method("post")
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="container">
         <div class="p mb-2 bg-success text-white text-center"> 

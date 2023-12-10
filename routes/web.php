@@ -147,6 +147,8 @@ Route::get('view_record/{id}', [Registration::class, 'view_record']);
 Route::get('/reject/{id}',[Registration::class,'reject']);
 Route::get('/accept/{id}',[RegisteredUserController::class,'saveUsers'])->name('CheckRegistration');
 Route::post('/send', [RegisteredUserController::class, 'send'])->name('reject.send');
+Route::post('acceptance/{id}', [Registration::class, 'handleAcceptance'])->name('acceptance.handle');
+
 
 Route::get('/CheckRenew', [RegistrationController::class, 'CheckRenew'])->name('CheckRenew');
 Route::get('/CheckOwnershipChange', [RegistrationController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
