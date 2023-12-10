@@ -39,11 +39,63 @@
             max-width: 600px;
             margin: auto;
         }
-    </style>
+
+        .search-bar {
+  /* Remove background color */
+  padding: 10px 0; /* Reduce padding for a smaller bar */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container form {
+  display: flex;
+  flex-grow: 1;
+}
+
+.search-container input {
+  padding: 8px; /* Reduce padding for a smaller input */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 40%; /* Adjust the width as needed */
+}
+
+.search-container button {
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px; /* Reduce padding for a smaller button */
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #357ae8;
+}
+
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+/* Optional: Center the button in the header */
+#header .center-button {
+  margin-top: 0;
+}
+
+</style>
 
 </head>
 
 <body>
+
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -78,16 +130,30 @@
 
 <main id="main">
 
+<!-- ======= Search Bar ======= -->
+<div class="search-bar">
+  <div class="container">
+  <div class="search-container">
+    <form action="/search" method="GET">
+        <input type="text" placeholder="Search..." name="q" id="searchInput" />
+        <button type="submit"><i class="material-icons">search</i></button>
+    </form>
+</div>
+  </div>
+</div>
+<!-- End Search Bar -->
+
     <!-- ======= Get Started Section ======= -->
     <section id="get-started" class="padd-section text-center">
 
 
 <div class="container faq-container mt-4">
-    <h2 class="mb-4">Frequently Asked Questions</h2>
+<h2 class="center-button mb-4">Frequently Asked Questions</h2>
+
 
     <div id="accordion">
         <!-- FAQ Item 1 -->
-        <div class="card">
+        <div class="card" id="faqItem1">
             <div class="card-header" id="heading1">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
@@ -104,7 +170,7 @@
         </div>
 
         <!-- FAQ Item 2 -->
-        <div class="card">
+        <div class="card" id="faqItem2">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
@@ -120,7 +186,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem3">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse2">
@@ -136,7 +202,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem4">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse2">
@@ -152,7 +218,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem5">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse2">
@@ -168,7 +234,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem6">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse2">
@@ -184,7 +250,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem7">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapse2">
@@ -200,7 +266,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem8">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapse2">
@@ -216,7 +282,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem9">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse2">
@@ -232,7 +298,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="faqItem10">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse10" aria-expanded="true" aria-controls="collapse2">
@@ -352,6 +418,33 @@
   <script src="assets/js/main.js"></script>
 
   @include('backtotop')
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('form').submit(function (e) {
+        e.preventDefault();
+        var searchText = $('#searchInput').val().toLowerCase();
+
+        // Loop through all FAQ items
+        $('.card').each(function () {
+            var questionText = $(this).find('.btn-link').text().toLowerCase();
+            var answerText = $(this).find('.card-body').text().toLowerCase();
+
+            // Check if the search text is present in either the question or the answer
+            if (questionText.includes(searchText) || answerText.includes(searchText)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+});
+</script>
+
 
 </body>
 
