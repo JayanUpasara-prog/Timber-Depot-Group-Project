@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        'gazettes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/gazettes'),
+            'url' => env('APP_URL').'/storage/gazettes',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
