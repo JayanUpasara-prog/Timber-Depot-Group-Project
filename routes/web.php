@@ -212,3 +212,6 @@ use App\Http\Controllers\NoticeController;
 Route::post('/submit-notice', [NoticeController::class, 'store'])->name('submit.notice');
 
 Route::get('/inner-page2', [noticeController::class, 'viewNotice']);
+
+//Route::get('/CheckRegistration', [Registration::class, 'showCheckRegistration'])->name('check.registration');
+Route::get('/search',[Registration::class, 'showCheckRegistration'])->name('check.registration.search');

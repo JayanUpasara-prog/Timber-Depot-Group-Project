@@ -2,6 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+<!-- Include the full jQuery library -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<!-- Other script includes -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Swiper JS -->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- GLightbox JS -->
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+<!-- Your main.js file -->
+<script src="assets/js/main.js"></script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -97,6 +115,7 @@
 
 
 
+
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
@@ -180,7 +199,7 @@
             </div>
 
             <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
-                <div clanss="card-body">
+                <div class="card-body">
                 To renew your timber depot registration, ensure all required documents are up to date. This may include proof of continued ownership, updated contact information, and compliance with environmental regulations.
                 </div>
             </div>
@@ -419,30 +438,32 @@
 
   @include('backtotop')
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
 $(document).ready(function () {
-    $('form').submit(function (e) {
-        e.preventDefault();
-        var searchText = $('#searchInput').val().toLowerCase();
+  $('form').submit(function (e) {
+    e.preventDefault();
+    var searchText = $('#searchInput').val().toLowerCase();
 
-        // Loop through all FAQ items
-        $('.card').each(function () {
-            var questionText = $(this).find('.btn-link').text().toLowerCase();
-            var answerText = $(this).find('.card-body').text().toLowerCase();
+    // Loop through all FAQ items
+    $('.card').each(function () {
+        var questionText = $(this).find('.btn-link').text().toLowerCase();
+        var answerText = $(this).find('.card-body').text().toLowerCase();
 
-            // Check if the search text is present in either the question or the answer
-            if (questionText.includes(searchText) || answerText.includes(searchText)) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
+        // Check if the search text is present in either the question or the answer
+        if (questionText.includes(searchText) || answerText.includes(searchText)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
     });
+  });
 });
+
 </script>
 
 

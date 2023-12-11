@@ -198,7 +198,18 @@ class Registration extends Controller{
 
     }
     
-    
+    public function showCheckRegistration(Request $request)
+{
+    $search = $request->input('search');
+
+    $CheckRegistration = registeruser::when($search, function ($query) use ($search) {
+        $query->where('id', $search)
+              ->orWhere('idno', 'like', '%' . $search . '%')
+              ->orWhere('fname', 'like', '%' . $search . '%');
+    })->get();
+
+    return view('admin.CheckRegistration', compact('CheckRegistration'));
+}
     
 
 }
