@@ -26,28 +26,32 @@ class RegistrationController extends Controller
     }
 
     //register part
-    public function store(Request $request){
+    public function store(Request $request) {
         $data = $request->validate([
             'name' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'email' => 'required|email:users,email,',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|max:12',
         ]);
-        
-
+    
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+    
+        $existingUser = User::where('email', $request->email)->first();
+        if ($existingUser) {
+            return back()->with('fail', 'Email already exists. Please use a different email address.');
+        }
+    
         $res = $user->save();
-
+    
         if ($res) {
-            return redirect('/login')->with('success', 'You have regitered successfully');
-        }else {
-            return back()->with('fail', 'Something Wrong');
-
-       
+            return redirect('/login')->with('success', 'You have registered successfully');
+        } else {
+            return back()->with('fail', 'Something went wrong');
         }
     }
+    
 
     //edit part
     public function edit(User $registration) 
@@ -57,18 +61,28 @@ class RegistrationController extends Controller
 
 
     //update part
-    public function update(User $registration, Request $request) 
+    public function update(User $registration, Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|alpha|regex:/^[a-zA-Z\s]+$/',
-            'email' => 'required|email|unique:users,email,' . $registration->id, 
-            'password' => 'required|min:8|max:12', 
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'email' => 'required|email|unique:users,email,' . $registration->id,
+            'password' => 'nullable|min:8|max:12', 
         ]);
-
+    
         
-        $registration->update($data);
+        $registration->name = $data['name'];
+        $registration->email = $data['email'];
+    
+       
+        if ($data['password']) {
+            $registration->password = Hash::make($data['password']);
+        }
+    
+        $registration->save();
+    
         return redirect(route('reg.index'))->with('success', 'Updated Successfully');
     }
+    
 
     //delete part
     public function destroy(User $registration) 

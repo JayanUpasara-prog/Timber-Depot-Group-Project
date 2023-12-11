@@ -156,9 +156,15 @@ class Registration extends Controller{
             'nature_value' => json_encode($req->nature),
         ]);
 
-        $registeruser->save();
+        $res=$registeruser->save();
 
-        return redirect('/Registration');
+        if ($res) {
+            return redirect('/Registration')->with('success', 'You have regitered successfully');
+        }else {
+            return back()->with('fail', 'Something went wrong')->withErrors(['fail' => 'Something went wrong']);
+
+       
+        }
     }
 
     public function CheckRegistration() {
@@ -171,26 +177,18 @@ class Registration extends Controller{
         return view('admin.UsersInfo', compact('data'));
     }
 
-    public function handleAcceptance(Request $request, $id)
-    {
-        // Your validation and acceptance logic here
+    // public function handleAcceptance(Request $request, $id)
+    // {
+    //     // Your validation and acceptance logic here
 
-        // Send acceptance email
-        $user = registeruser::find($id);
-        Mail::to($user->Email)->send(new AcceptanceMail());
+    //     // Send acceptance email
+    //     $user = registeruser::find($id);
+    //     Mail::to($user->Email)->send(new AcceptanceMail());
 
-        // Redirect or return a response
-        return redirect()->route('success')->with('success', 'Form accepted successfully. An email confirmation has been sent to your registered email address.');
+    //     // Redirect or return a response
+    //     return redirect('/CheckRegistration')->with('success', 'Form Accepted and Email sent to the user.');
+    // }
 
-    }
-
-    function remove($id, Request $req){
-        $data=RegisteredUser::find($id);
-        $data->delete();
-
-        //$req->session()->flash('Success2','User deleted Successfully');
-        return redirect('/CheckRegistration');
-    }
 
     function reject($id){
         registeruser::destroy($id);

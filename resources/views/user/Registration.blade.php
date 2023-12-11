@@ -50,7 +50,17 @@
   @endif-->
 
   <form id="myForm" action="/CheckReg" method="POST" enctype="multipart/form-data" class="was-validated ">
-  {{csrf_field()}}
+  @if(Session::has('success'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('fail'))
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                    @endif
+                                    @csrf
+                                    @method("post")
+
+
+  <!-- {{csrf_field()}} -->
   <div id="reg1" class="row g-3">
 
   <div class="mb-2 bg-success text-white text-center "> <h2>Personal Details</h2>

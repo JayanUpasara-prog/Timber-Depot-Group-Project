@@ -50,6 +50,17 @@
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="container">
+                                     @if(Session::has('success'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('success2'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('fail'))
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                    @endif
+                                    @csrf
+                                    @method("post")
           <div class="p mb-2 bg-success text-white text-center"> <h2>Check Registration</h2>
       </div>
   

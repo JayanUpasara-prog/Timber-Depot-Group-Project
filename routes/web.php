@@ -150,6 +150,7 @@ Route::post('/send', [RegisteredUserController::class, 'send'])->name('reject.se
 Route::get('ViewRegisteredRecords', [RegisteredUserController::class, 'ViewRegisteredRecords']);
 Route::get('ViewRecords/{id}', [RegisteredUserController::class, 'ViewRecords']);
 Route::post('acceptance/{id}', [Registration::class, 'handleAcceptance'])->name('acceptance.handle');
+//Route::post('acceptance/{id}', [RegisteredUserController::class, 'saveUsers'])->name('CheckRegistration');
 
 
 Route::get('/CheckRenew', [RegistrationController::class, 'CheckRenew'])->name('CheckRenew');

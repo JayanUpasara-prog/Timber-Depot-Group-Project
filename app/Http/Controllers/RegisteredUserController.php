@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\RegisteredUser;
 use App\Models\registeruser;
@@ -68,12 +69,16 @@ class RegisteredUserController extends Controller
 
         $RegisteredUser->save();
 
+        $user = registeruser::find($id);
+        Mail::to($user->Email)->send(new AcceptanceMail());
+
         // Remove the user from the registeruser table
         $data = registeruser::find($id);
         $data->delete();
+        return redirect('/CheckRegistration')->with('success', 'Form accepted and email sent to the user.');
 
-        return redirect('/CheckRegistration')->with('Success2', 'User accepted and moved to registered_users table successfully.');
     }
+
 
     public function send(Request $req){
 
