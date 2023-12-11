@@ -7,7 +7,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  
 
   <style>
   /* Style for Incorrect button */
@@ -119,26 +118,27 @@
             
         </tr>
 
-        <!-- ... -->
+        <!-- ... (your existing HTML code) -->
+
         <tr>
-        <td>Front Image Of NIC</td>
-        <td>
-            <a href="{{ Storage::url($data->fnic) }}" download>
-                <img src="{{ Storage::url($data->fnic) }}" alt="Front Image Of NIC" style="max-width: 100px;">
-            </a>
-        </td>
-    </tr>
+            <td>Front Image Of NIC</td>
+            <td>
+                <a href="{{ Storage::url($data->fnic) }}" download>
+                    <img src="{{ Storage::url($data->fnic) }}" alt="Front Image Of NIC" style="max-width: 100px;">
+                </a>
+            </td>
+        </tr>
 
-    <tr>
-        <td>Back Image Of NIC</td>
-        <td>
-            <a href="{{ Storage::url($data->bnic) }}" download>
-                <img src="{{ Storage::url($data->bnic) }}" alt="Back Image Of NIC" style="max-width: 100px;">
-            </a>
-        </td>
-    </tr>
+        <tr>
+            <td>Back Image Of NIC</td>
+            <td>
+                <a href="{{ Storage::url($data->bnic) }}" download>
+                    <img src="{{ Storage::url($data->bnic) }}" alt="Back Image Of NIC" style="max-width: 100px;">
+                </a>
+            </td>
+        </tr>
 
-        <!-- ... Repeat this pattern for other images -->
+<!-- ... (continue with your other HTML code) -->
 
 
 
@@ -154,23 +154,9 @@
            
         </tr>
 
-        <tr class="table-warning" >
-          <td><button type="button" class="btn btn-primary">Check</button></td>
-          <td><div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Correct</label>
-              </div>
-          <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">Incorrect</label>
-              </div></td>
-        </tr>
-
         <tr class="table-success">
             <td colspan="2" style="text-align: center;">Information of Mobile Timber Sawmill</td>
         </tr>
-
-
 
         <tr>
             <td>Registration No. of the hand tractor:</td>
@@ -185,7 +171,7 @@
         </tr>
 
         <tr>
-            <td>Copy of Certificate of Registration and Revenue License</td>
+            <td>Copy of the Certificate of Registration and Revenue License should be Uploaded</td>
             <td>@if ($data->CopyReg)
                     <a href="{{ Storage::url($data->CopyReg) }}" target="_blank">View Document</a>
                 @else
@@ -193,12 +179,8 @@
                 @endif
             </td>
             <!-- <td><a href="{{ Storage::url($data->CopyReg) }}" target="_blank">View Document</a></td> -->
+           
         </tr>
-
-
-
-<!-- Repeat similar patterns for other file paths -->
-
 
         <tr>
             <td>The Divisional Secretary's Division where the mobile timber sawmill is to be used</td>
@@ -241,18 +223,6 @@
             <!-- <td><a href="{{ Storage::url($data->recomd) }}" target="_blank">View Document</a></td> -->
            
         </tr>
-
-        <tr class="table-warning" >
-          <td></td>
-          <td><div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="1" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Correct</label>
-              </div>
-          <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="1" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">Incorrect</label>
-              </div></td>
-        </tr>
         
 
         <tr class="table-success">
@@ -289,9 +259,7 @@
                     <a href="{{ Storage::url($data->deed) }}" target="_blank">View Document</a>
                 @else
                     No uploaded file
-                @endif
-            </td>
-            <!-- <td><a href="{{ Storage::url($data->deed) }}" target="_blank">View Document</a></td> -->
+                @endif</td>
            
         </tr>
 
@@ -309,13 +277,13 @@
 
         <tr>
             <td>Affidavit taken to confirm authority if the land is not owned by you</td>
+            <!-- <td><a href="{{ Storage::url($data->Confirm) }}" target="_blank">View Document</a></td> -->
             <td>@if ($data->Confirm)
                     <a href="{{ Storage::url($data->Confirm) }}" target="_blank">View Document</a>
                 @else
                     No uploaded file
                 @endif
             </td>
-            <!-- <td><a href="{{ Storage::url($data->Confirm) }}" target="_blank">View Document</a></td> -->
             
         </tr>
 
@@ -353,7 +321,7 @@
                     No uploaded file
                 @endif
             </td>
-            <!-- <td><a href="{{ Storage::url($data->recomPath) }}" target="_blank">View Document</a></td> -->
+            <!-- <td><a href="{{ Storage::url($data->recom) }}" target="_blank">View Document</a></td> -->
             
         </tr>
 
@@ -369,80 +337,8 @@
         </tr>
     @endif
 
-    <tr class="table-warning" >
-          <td></td>
-          <td><div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="2" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Correct</label>
-              </div>
-          <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="2" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">Incorrect</label>
-              </div></td>
-        </tr>
-
-        <tr class="table-dark">
-          <td colspan="2">
-          <div class="d-flex justify-content-center">
-            <div class="card w-50 mx-auto">
-                <div class="card-header">
-                    <h5 class="card-title">Rejection Message</h5>
-                </div>
-                <div class="card-body">
-                <form action="{{ route('reject.send') }}" method="POST">
-
-                      @csrf
-                      <div class="mb-3">
-                          <label for="email" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{ $data->Email }}" readonly>
-                      </div>
-
-                      <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" name="message" id="message" rows="5"></textarea>
-                            <div class="form-text">Reasons for rejection</div>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Send Message</button>
-
-                     
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-          </td>
-        </tr>
-
-    <tr>
-      <td colspan="2">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a href="#" class="btn btn-primary btn-lg me-md-2" onclick="confirmAction('{{ url('accept/' . $data['id']) }}')">Accept</a>
-            <a href="#" class="btn btn-danger btn-lg" onclick="confirmAction('{{ url('reject/' . $data['id']) }}')">Reject</a>
-        </div>
-      </td>
-    </tr>
-
-    <script>
-    function confirmAction(url) {
-        var isConfirmed = confirm("Are you sure you want to proceed?");
-        if (isConfirmed) {
-            // The user clicked "OK" in the confirmation dialog
-            // You can redirect to the specified URL or perform other actions
-            window.location.href = url;
-        } else {
-            // The user clicked "Cancel" in the confirmation dialog
-            // You can handle this case or leave it empty
-        }
-    }
-</script>
+    
 </table>
-  
-
- 
-
-
-<br><br>
 
         </div>
     </div>

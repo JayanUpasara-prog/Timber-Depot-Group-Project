@@ -29,12 +29,9 @@ class RegisteredUserController extends Controller
     public function saveUsers($id,Request $req)
     {
         $data = registeruser::find($id);
+        $decodedNature = json_decode($data->nature, true);
 
-        // $RegisteredUser = new RegisteredUser;
-        // $RegisteredUser->id = $data->id;
-        // $RegisteredUser->idno = $data->idno;
-        // $RegisteredUser->fname = $data->fname;
-        // $RegisteredUser->address = $data->address;
+     
             
 
         $RegisteredUser = new RegisteredUser([
@@ -66,7 +63,7 @@ class RegisteredUserController extends Controller
             'gnKottasaya'=> $data->gnKottasaya,
             'Lgovernment'=> $data->Lgovernment,
             'recom'=> $data->recom,
-            'nature_value' =>$data->nature,
+            'nature_value' => json_encode($data->nature_value),
         ]);
 
         $RegisteredUser->save();
@@ -85,17 +82,20 @@ class RegisteredUserController extends Controller
             'message' => $req->message,
         ];
 
-
-      //  Mail::to('{{ $data->Email }}')->send(new rejectmessage($data));
-      // Assuming $data contains the necessary data, including the email address
       Mail::to($data['email'])->send(new rejectmessage($data));
-
-
-        
-        //Session::flash('success', 'Message sent successfully!');
-        //return redirect()->route('contact.show');
        
         return back()->with(['success' => 'Message sent successfully']);
     }
+
+    public function ViewRegisteredRecords(){
+        $ViewRegisteredRecords=RegisteredUser::all();
+        return view('admin.ViewRegisteredUsers',compact('ViewRegisteredRecords'));
+    }
+
+    public function ViewRecords($id){
+        $data=RegisteredUser::find($id);
+        return view('admin.RegisteredUserPage',compact('data'));
+    }
+
 
 }
