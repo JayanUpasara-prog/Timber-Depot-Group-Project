@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\RegisteredUser;
+
 use App\Models\User;
 use App\Models\registeruser;
 use Illuminate\Support\Facades\Mail;
@@ -21,10 +22,12 @@ class RegisteredUserController extends Controller
         return view('admin.UsersInfo');
     }
 
-    public function viewUsers(){
-        $data = Registeruser::all();
-        return view('admin.UsersInfo', ['registerusers' => $data]);
+    public function viewUsers()
+    {
+        $data = RegisteredUser::all();
+        return view('admin.UsersInfo', ['registeredUsers' => $data]);
     }
+
     
     
 
@@ -99,9 +102,11 @@ class RegisteredUserController extends Controller
     }
 
     public function ViewRecords($id){
-        $viewR=RegisteredUser::find($id);
-        return view('admin.RegisteredUserPage',compact('viewR'));
+        $data = RegisteredUser::find($id);
+       // dd($data); // Debugging line
+        return view('admin.RegisteredUserPage', compact('data'));
     }
+    
 
     public function showProfile(){
         $user = auth()->user();

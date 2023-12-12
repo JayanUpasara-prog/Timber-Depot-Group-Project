@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Registration;
+
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\MobileSawmillController;
 
