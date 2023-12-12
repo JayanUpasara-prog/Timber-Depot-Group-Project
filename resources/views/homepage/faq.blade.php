@@ -1,55 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Forest Department, Melsiripura.</title>
 
+    <!-- Favicons -->
+    <link href="assets/img/favicon.jpg" rel="icon">
+    <link href="assets/img/apple-touch-icon.jpg" rel="apple-touch-icon">
 
-<!-- Include the full jQuery library -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
-<!-- Other script includes -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-<!-- Swiper JS -->
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
-<!-- GLightbox JS -->
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-<!-- Your main.js file -->
-<script src="assets/js/main.js"></script>
-
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Forest Department, Melsiripura.</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.jpg" rel="icon">
-  <link href="assets/img/apple-touch-icon.jpg" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Your FAQ Page</title>
     <style>
-        /* body {
+         /* body {
             padding-top: 50px; /* Add space for fixed navbar */
         } */
 
@@ -107,16 +82,87 @@
   margin-top: 0;
 }
 
-</style>
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- GLightbox JS -->
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Your main.js file -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (e) {
+                e.preventDefault();
+                var searchText = $('#searchInput').val().toLowerCase();
+
+                // Loop through all FAQ items
+                $('.card').each(function () {
+                    var questionText = $(this).find('.btn-link');
+                    var answerText = $(this).find('.card-body');
+
+                    // Reset previous highlighting
+                    questionText.html(questionText.text());
+                    answerText.html(answerText.text());
+
+                    // Check if the search text is present in either the question or the answer
+                    if (questionText.text().toLowerCase().includes(searchText)) {
+                        highlightText(questionText, searchText);
+                    }
+                    if (answerText.text().toLowerCase().includes(searchText)) {
+                        highlightText(answerText, searchText);
+                    }
+                });
+            });
+
+            function highlightText(element, searchText) {
+                var html = element.html();
+                var regex = new RegExp('(' + searchText + ')', 'ig');
+                var highlightedText = html.replace(regex, '<span class="highlight">$1</span>');
+                element.html(highlightedText);
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (e) {
+                e.preventDefault();
+                var searchText = $('#searchInput').val().toLowerCase();
+
+                // Loop through all FAQ items
+                $('.card').each(function () {
+                    var questionText = $(this).find('.btn-link').text().toLowerCase();
+                    var answerText = $(this).find('.card-body').text().toLowerCase();
+
+                    // Check if the search text is present in either the question or the answer
+                    if (questionText.includes(searchText) || answerText.includes(searchText)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 
 </head>
 
 <body>
 
-
-
-
-  <!-- ======= Header ======= -->
+    <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -147,11 +193,11 @@
     </div>
   </header><!-- End Header -->
 
-<main id="main">
+    <main id="main">
 
-<!-- ======= Search Bar ======= -->
-<div class="search-bar">
-  <div class="container">
+        <!-- ======= Search Bar ======= -->
+        <div class="search-bar">
+           <div class="container">
   <div class="search-container">
     <form action="/search" method="GET">
         <input type="text" placeholder="Search..." name="q" id="searchInput" />
@@ -159,14 +205,12 @@
     </form>
 </div>
   </div>
-</div>
-<!-- End Search Bar -->
+        </div>
+        <!-- End Search Bar -->
 
-    <!-- ======= Get Started Section ======= -->
-    <section id="get-started" class="padd-section text-center">
-
-
-<div class="container faq-container mt-4">
+        <!-- ======= Get Started Section ======= -->
+        <section id="get-started" class="padd-section text-center">
+            <div class="container faq-container mt-4">
 <h2 class="center-button mb-4">Frequently Asked Questions</h2>
 
 
@@ -339,26 +383,13 @@
 
     </div>
 </div>
+        </section><!-- End Contact Section -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </main><!-- End #main -->
 
-
-
-    </section><!-- End Contact Section -->
-
-
-
-  </main><!-- End #main -->
-
-
-
-
-
-  <!-- ======= Footer ======= -->
-  <footer class="footer">
-    <div class="container">
+    <!-- ======= Footer ======= -->
+    <footer class="footer">
+         <div class="container">
       <div class="row">
 
         <div class="col-md-12 col-lg-4">
@@ -420,31 +451,12 @@
       </div>
     </div>
 
-    
+    </footer><!-- End  Footer -->
 
-  </footer><!-- End  Footer -->
+    @include('backtotop')
 
-  </main><!-- End #main -->
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-  @include('backtotop')
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<script>
-$(document).ready(function () {
+    <script>
+       $(document).ready(function () {
   $('form').submit(function (e) {
     e.preventDefault();
     var searchText = $('#searchInput').val().toLowerCase();
@@ -463,9 +475,7 @@ $(document).ready(function () {
     });
   });
 });
-
-</script>
-
+    </script>
 
 </body>
 
