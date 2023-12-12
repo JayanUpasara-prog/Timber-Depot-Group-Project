@@ -383,4 +383,22 @@ public function CriminalView(){
         }
     }
 
+    // app/Http/Controllers/YourController.php
+
+
+
+public function search(Request $request)
+{
+    $searchTerm = $request->input('search');
+
+    // Perform the search using your model
+    $searchResults = User::where('id', 'like', "%$searchTerm%")
+        ->orWhere('name', 'like', "%$searchTerm%")
+        ->orWhere('email', 'like', "%$searchTerm%")
+        ->get();
+
+    // Pass the results to your view
+    return view('reg.index', ['registrations' => $searchResults]);
+}
+
 }

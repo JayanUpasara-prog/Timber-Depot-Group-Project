@@ -196,13 +196,7 @@ Route::post('/forget-password', [ForgetPasswordController::class, 'forgetPasswor
 Route::get('/reset-password/{token}', [ForgetPasswordController::class, 'resetPassword'])->name('reset.password');
 Route::post('/reset-password', [ForgetPasswordController::class, 'resetPasswordPost'])->name('reset.password.post');
 
-
-
-
-
-
 Route::post('/CheckReg',[Registration::class,'stores']);
-
 //Route::post('/CheckReg',[RegisterUserController::class,'stores']);
 
 
@@ -210,25 +204,30 @@ Route::post('/CheckReg',[Registration::class,'stores']);
 Route::get('/homepage', [ContactController::class, 'showForm'])->name('contact.show');
 Route::post('/homepage', [ContactController::class, 'sendMail'])->name('contact.send');
 
-
+//payment routes
 use App\Http\Controllers\PaymentController;
-
 Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('show.payment.form');
 Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
 
 //ayendra
+//notice routes
 Route::get('/noticePage', function () {
     return view('admin.notice');
 });
-
 use App\Http\Controllers\NoticeController;
-
 Route::post('/submit-notice', [NoticeController::class, 'store'])->name('submit.notice');
-
 Route::get('/inner-page2', [noticeController::class, 'viewNotice']);
 
+
+//Search routes
 //Route::get('/CheckRegistration', [Registration::class, 'showCheckRegistration'])->name('check.registration');
 Route::get('/search',[Registration::class, 'showCheckRegistration'])->name('check.registration.search');
+//view registered user search by id,idno,fname
+Route::get('/search1',[RegisteredUserController::class, 'search'])->name('search1');
+// index blade search function
+Route::get('/search2', [RegistrationController::class, 'search'])->name('search2');
+// view_record search and highlight
+Route::get('/searchUsers', [Registration::class, 'searchUsers'])->name('searchUsers');
 
 
 

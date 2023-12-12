@@ -209,5 +209,20 @@ class Registration extends Controller{
     return view('admin.CheckRegistration', compact('CheckRegistration'));
 }
     
+public function searchUsers(Request $request)
+{
+    $searchTerm = $request->input('search');
+
+    // Perform the search using your model
+    $searchResults = registeruser::where('idno', 'like', "%$searchTerm%")
+        ->orWhere('fname', 'like', "%$searchTerm%")
+        ->orWhere('address', 'like', "%$searchTerm%")
+        ->orWhere('contact', 'like', "%$searchTerm%")
+        ->orWhere('Email', 'like', "%$searchTerm%")
+        ->first(); // Assuming you expect only one result
+
+    // Pass the search term and results to your view
+    return view('admin.UsersInfo', ['data' => $searchResults, 'searchTerm' => $searchTerm]);
+}
 
 }

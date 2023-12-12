@@ -1,3 +1,9 @@
+
+<!-- At the beginning of your blade file -->
+@php
+    $searchTerm = isset($searchTerm) ? $searchTerm : '';
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +35,11 @@
   }
 </style>
   
+<style>
+    .highlight {
+        background-color: yellow;
+    }
+</style>
 </head>
 <body>
 
@@ -45,10 +56,11 @@
       <span class="text-success">Forest Department,</span>
       Melsiripura
     </a>
-    <form class="d-flex mx-auto text-right" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <form class="d-flex mx-auto text-right" role="search" method="GET" action="{{ route('searchUsers') }}">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
     <div class="btn-group">
       <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="assets/images/dashboardImg/face.jpg" alt="Profile Photo" class="rounded-circle" width="20" height="20">
@@ -100,23 +112,20 @@
     </tr>
 
     @if(isset($data))
-        <tr>
-            <td>NIC</td>
-            <td>{{ $data->idno }}</td>
-         
-        </tr>
+    <tr>
+        <td>NIC</td>
+        <td class="{{ stripos($data->idno, $searchTerm) !== false ? 'highlight' : '' }}">{{ $data->idno }}</td>
+    </tr>
 
-        <tr>
-            <td>Full name</td>
-            <td>{{ $data->fname }}</td>
-            
-        </tr>
+    <tr>
+        <td>Full name</td>
+        <td class="{{ stripos($data->fname, $searchTerm) !== false ? 'highlight' : '' }}">{{ $data->fname }}</td>
+    </tr>
 
-        <tr>
-            <td>Adrdress</td>
-            <td>{{ $data->address }}</td>
-            
-        </tr>
+    <tr>
+        <td>Address</td>
+        <td class="{{ stripos($data->address, $searchTerm) !== false ? 'highlight' : '' }}">{{ $data->address }}</td>
+    </tr>
 
         <!-- ... -->
         <tr>

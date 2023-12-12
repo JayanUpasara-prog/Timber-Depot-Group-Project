@@ -119,5 +119,17 @@ class RegisteredUserController extends Controller
         return view('user.renew', compact('user', 'RegisteredUser'));
     }
     
-
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+    
+        // Perform the search using your model
+        $searchResults = RegisteredUser::where('id', 'like', "%$searchTerm%")
+            ->orWhere('idno', 'like', "%$searchTerm%")
+            ->orWhere('fname', 'like', "%$searchTerm%")
+            ->get();
+    
+        // Pass the results to your view
+        return view('admin.ViewRegisteredUsers', ['ViewRegisteredRecords' => $searchResults]);
+    }
 }

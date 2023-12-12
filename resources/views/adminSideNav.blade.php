@@ -54,6 +54,11 @@
                          Wild Criminal Form
                     </a>
                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link {{ Request::is('noticePage') ? 'bg-success active' : '' }}" href="noticePage">
+                         Add Notices & Gazzets
+                    </a>
+                 </li>
                  
                  <li class="nav-item">
                   <a class="nav-link {{ Request::is('Logout') ? 'bg-success active' : '' }}" href="Logout">
