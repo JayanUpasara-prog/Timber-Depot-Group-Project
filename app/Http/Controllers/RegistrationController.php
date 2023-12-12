@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+
+
 class RegistrationController extends Controller
 {
 
@@ -379,4 +382,5 @@ public function CriminalView(){
                 return redirect('login');
         }
     }
+
 }

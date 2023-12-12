@@ -45,11 +45,13 @@
                     <img src="{{ asset('storage/profile_pictures/' . $user->profile_picture) }}" alt="User Profile" class="card-img-top">
 
 
+
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $user->name }}</h5>
                             <p class="card-text">TD-{{ $user->id }}</p>
                             <!-- Add this form below the existing form in UserDashboard.blade.php -->
-                            <form action="{{ route('update.profile') }}" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data">
+
     @csrf
     <div class="mb-3">
         <label for="profile_picture" class="form-label">Update Profile Picture</label>

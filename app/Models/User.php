@@ -14,8 +14,9 @@ class User extends Model implements Authenticatable
         'name',
         'email',
         'password',
-        'role'
-    ]; 
+        'role',
+    ];
+    
 
     public function RegisteredUser()
     {
