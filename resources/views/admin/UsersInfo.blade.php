@@ -55,8 +55,7 @@
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
           <li><a class="dropdown-item" href="#">My Profile</a></li>
-          <li><a class="dropdown-item" href="#">Log Out</a></li>
-      </ul>
+          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>      </ul>
   </div>
 </nav>
 

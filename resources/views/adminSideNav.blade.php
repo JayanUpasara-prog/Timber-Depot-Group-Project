@@ -19,7 +19,11 @@
                           Check Registration
                       </a>
                   </li>
-                 
+                  <li class="nav-item">
+                      <a class="nav-link {{ Request::is('ViewRegisteredRecords') ? 'bg-success active' : '' }}" href="ViewRegisteredRecords">
+                          View Registered Users
+                      </a>
+                  </li>  
                   <li class="nav-item">
                       <a class="nav-link {{ Request::is('CheckRenew') ? 'bg-success active' : '' }}" href="CheckRenew">
                           Check Renew
@@ -53,7 +57,7 @@
                  
                  <li class="nav-item">
                   <a class="nav-link {{ Request::is('Logout') ? 'bg-success active' : '' }}" href="Logout">
-                       Logout
+                       Supported Website (Payment & LiveChat)
                   </a>
                </li>
               </ul>
