@@ -68,50 +68,8 @@
   <div class="row">
       <!-- Side Navigation Bar -->
       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-        <div class="position-sticky">
-            <ul class="nav flex-column nav-pills nav-stacked">
-                <li class="nav-item">
-                    <a class="nav-link " href="AdminDashboard">
-                        Dashboard/My Profile
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link bg-success active" href="CheckRegistration">
-                        Check Registration
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="CheckRenew">
-                        Check Renew
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="CheckOwnershipChange">
-                      Check Ownership Change
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="CheckPermitRequest">
-                    Check Permit Request
-                  </a>
-                </li>
-                <li class="nav-item">
-                   <a class="nav-link" href="CheckStockBookUpdate">
-                        Check StockBook Update
-                   </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="CustomerSupport">
-                       Customer Support
-                  </a>
-               </li>
-               <li class="nav-item">
-                <a class="nav-link" href="Logout">
-                     Logout
-                </a>
-             </li>
-            </ul>
-        </div>
+        <!-- Side Navigation Bar -->
+      @include('adminSideNav')
     </nav>
 
       <!-- Main Content -->

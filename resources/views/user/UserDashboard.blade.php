@@ -35,11 +35,23 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/images/dashboardImg/face.jpg" alt="User Profile" class="card-img-top">
+                    <img src="{{ asset('storage/profile_pictures/' . $user->profile_picture) }}" alt="User Profile" class="card-img-top">
+
+
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $user->name }}</h5>
                             <p class="card-text">TD-{{ $user->id }}</p>
-                            <button type="button" class="btn btn-primary">Edit Profile</button>
+                            <!-- Add this form below the existing form in UserDashboard.blade.php -->
+                            <form action="{{ route('update.profile') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <div class="mb-3">
+        <label for="profile_picture" class="form-label">Update Profile Picture</label>
+        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+    </div>
+    <button type="submit" class="btn btn-primary">Update Profile Picture</button>
+</form>
+
+
                             <button type="button" class="btn btn-primary">
                             <a href="{{ url('/logout') }}"
                                 style="color: white; text-decoration: none;">LogOut</a>

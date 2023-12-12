@@ -121,7 +121,7 @@ Route::get('/Logout', function () {
 // });
 
 //register part
-Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register')->middleware('alreadyLoggedIn');
+Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register');//->middleware('alreadyLoggedIn');
 Route::post('/store', [RegistrationController::class, 'store'])->name('reg.store');
 Route::get('/CheckRegistration', [RegistrationController::class, 'CheckRegistration'])->name('CheckRegistration');
 Route::get('/Help', [RegistrationController::class, 'Help'])->name('Help');
@@ -163,7 +163,7 @@ Route::get('/CriminalView', [RegistrationController::class, 'CriminalView'])->na
 Route::delete('/destroyCriminal/{criminal}', [RegistrationController::class, 'destroyCriminal'])->name('admin.destroyCriminal');
 
 //login part
-Route::get('/login', [RegistrationController::class, 'login'])->name('log.login')->middleware('alreadyLoggedIn');
+Route::get('/login', [RegistrationController::class, 'login'])->name('log.login');//->middleware('alreadyLoggedIn');
 Route::post('/check', [RegistrationController::class, 'check'])->name('log.check');
 
 //user dashboard
@@ -215,3 +215,8 @@ Route::get('/inner-page2', [noticeController::class, 'viewNotice']);
 
 //Route::get('/CheckRegistration', [Registration::class, 'showCheckRegistration'])->name('check.registration');
 Route::get('/search',[Registration::class, 'showCheckRegistration'])->name('check.registration.search');
+
+
+// routes/web.php
+
+Route::post('/update-profile', [RegistrationController::class, 'updateProfile'])->name('update.profile');
