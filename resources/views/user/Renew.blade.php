@@ -70,164 +70,131 @@
 
           <div class="container mt-3">
 
-            <form action="/renewal_script.php" class="was-validated" target="_blank" method="POST">
+            <form action="/" class="was-validated" target="_blank" method="POST">
               <h5 class="text-black-50"></h5>		
 		<h6>Owner Details:</h6>
                  <ol>
-
+<li>
 		<div class="mb-3 mt-3">
-                <label for="fullname">Owner Full Name : </label>                
-                <input type="text" class="form-control" id="uname" placeholder="Enter Full Name" name="uname" required>
-              </div>
-		<div class="mb-3 mt-3">
-                <label for="address">Permanent Address : </label>
+                <label for="fullname">Full Name : {{ $RegisteredUser->fname }}</label>                
+                <!-- <input type="text" class="form-control" id="uname" value="{{ $RegisteredUser->fname }}" placeholder="Enter Full Name" name="uname" required> -->
+              </div></li>
+              <li><div class="mb-3 mt-3">
+                <label for="address">Permanent Address : {{ $RegisteredUser->address }}</label>
                 <div class="row">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="House No." required>
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Address Line 1,Address Line 2">
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="City">
-                  </div>
-			<div class="mb-3 mt-3">
-                <label for="nic_no.">National Identity Card No. : </label>          
-                <input type="text" class="form-control" id="uname" placeholder="Enter National Identity Card No." name="uname" required>
-              </div>
-		<br>
-                
-                <p>If the applicant is a company,the registration certificate should be attached<p>
-		<input type="file" name="deed" id="deed">
-          	<input type="submit" value="Upload File"><br><br>
-        	</div>
-		</ol>
-
-
-
-<div class="container mt-3">
-  <label for="detailsSelector">wooden shed type:</label>
-  <select class="form-select" id="detailsSelector">
-<option value="default">Select an option</option>
-    <option value="woodenShed">Wooden Shed</option>
-    <option value="mobileSawmill">Mobile Sawmill</option>
-  </select>
-
-  <div id="woodenShedDetails" class="mt-3">
-
-		<h6>Wooden Shed's Details:</h6>
-		
-		<ol>
-
-		<div class="mb-3 mt-3">
-                <label for="fullname">Name : </label>                
-                <input type="text" class="form-control" id="uname" placeholder="Enter Wooden Shed's Name" name="uname" >
-              </div>
-		<div class="mb-3 mt-3">
-                <label for="address">Address : </label>
-                <div class="row">
+                    <!-- <input type="text" class="form-control" value="{{ $RegisteredUser->address }}" placeholder="Address" required> -->
+                  </div></li>
                   
-                  <div class="col">
-                    <input type="text" class="form-control" placeholder="Address Line 1,Address Line 2 ,city" >
-                  </div>
-		
-		<div class="mb-3 mt-3">
-                <label for="Registration Number">Registration Number : </label>                
-                <input type="text" class="form-control" id="Registration Number" placeholder="Enter Registration Number" name="Registration 			Number" >
-              </div>
-            	
-		<div class="mb-3 mt-3">
-                <label for="First Registered Date">First Registered Date : </label>                
-                <input type="date" class="form-control" id="First Registered Date" placeholder="First Registered Date" name="First Registered 			Date" >
-		<br>
+                  <li><div class="mb-3 mt-3">
+                <label for="nic_no.">National Identity Card No. : {{ $RegisteredUser->idno }}</label>          
+                <!-- <input type="text" class="form-control" id="uname" value="{{ $RegisteredUser->idno }}" placeholder="Enter National Identity Card No." name="uname" required> -->
+              </div></li>
+              <li><div class="mb-3 mt-3">
+                <label for="amount">Renewal Amount :  {{ $RegisteredUser->nature_value }}</label>          
+                <!-- <input type="text" class="form-control" id="amount" value="Rs:{{ $RegisteredUser->nature_value }}" name="amount"> -->
+              </div></li>
               
-		<form>
-               	        <label for="comment"> Details about Wooden Shed : </label>   
-			<textarea id="comment" name="comment" rows="5" cols="152" maxlength="1000"></textarea>	
-							          
-                </form>
-              
-		<div class="mb-3 mt-3">
-                <label for="nic_no.">Validity period of license last obtained : </label>          
-                <input type="text" class="form-control" id="uname" placeholder="month/date" name="uname" >
-              </div>
-		
-                
-                <p>(Attach a copy of the last license obtained)<p>
-		<input type="file" name="deed" id="deed">
-          	<input type="submit" value="Upload File"><br>
-        	</div>
-		
-		<div class="mb-3 mt-3">
-                <label for="nic_no.">Time to apply for new license : </label>          
-                <input type="text" class="form-control" id="uname" placeholder="years/month/date" name="uname" >
-              </div>
-		</ol>
 
+    <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Payment Form</div>
 
+                <div class="card-body">
+                    <form action="{{ route('process.payment') }}" method="POST" id="payment-form">
+                        @csrf
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <div class="form-group">
+                            <label for="amount">Amount ($)</label>
+                            <input type="number" name="amount" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="card-element">Credit or debit card</label>
+                            <div id="card-element"></div>
+                            <div id="card-errors" role="alert"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    // Create a Stripe client.
+    var stripe = Stripe('{{ config('services.stripe.key') }}');
 
+    // Create an instance of Elements.
+    var elements = stripe.elements();
 
-<div id="mobileSawmillDetails" class="mt-3">
-    
+    // Create an instance of the card Element.
+    var card = elements.create('card');
 
+    // Add an instance of the card Element into the `card-element` div.
+    card.mount('#card-element');
 
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function (event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
 
-    
-		<h6>At the time of the mobile sawmill:</h6>
-		<ol>
-		<div class="mb-3 mt-3">
-                <label for="Landmaster Registration number ">Landmaster Registration number : </label>                
-                <input type="text" class="form-control" id="uname" placeholder="Landmaster Registration number " name="Landmaster Registration 			number" >
-              </div>
+    // Handle form submission.
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-		<div class="mb-3 mt-3">
-                <label for="Trolly Registration number">Trolly Registration number : </label>                
-                <input type="text" class="form-control" id="uname" placeholder="Trolly Registration number" name="Trolly Registration number"  			>
-              </div>
-		
-	     
-		<div class="mb-3 mt-3">
-                <label for="Validity period of income permit">Validity period of income permit : </label>          
-                <input type="text" class="form-control" id="uname" placeholder="Validity period of income permit" name="uname" required>
-                </div>
-		<p>(Attach a copy of the income certificate)<p>
-		<input type="file" name="deed" id="deed">
-          	<input type="submit" value="Upload File"><br><br>
-        	
-		
-		<div class="mb-3 mt-3">
-                <label for="Divisional Secretariat">Divisional Secretariat intended to use the mobile sawmill : </label>          
-                <input type="text" class="form-control" id="uname" placeholder="Divisional Secretariat" name="uname" required>
-                </div>
-		</ol>
-		<br>
+        stripe.createToken(card).then(function (result) {
+            if (result.error) {
+                // Inform the user if there was an error.
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                // Send the token to your server.
+                stripeTokenHandler(result.token);
+            }
+        });
+    });
 
+    // Submit the form with the token ID.
+    function stripeTokenHandler(token) {
+        // Insert the token ID into the form so it gets submitted to the server
+        var form = document.getElementById('payment-form');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'stripeToken');
+        hiddenInput.setAttribute('value', token.id);
+        form.appendChild(hiddenInput);
 
- </div>
-</div>
-
-
-
-
-		
-		<form>
-               	        <label for="comment"> Details of faults related to timber sheds(if any) : </label>   
-			<textarea id="comment" name="comment" rows="5" cols="156" maxlength="1000"></textarea>	
-							          
-                </form>
-		<div class="mb-3 mt-3">
-                <label for="Month/date">Validity of Environmental Protection permit(Attach a coppy) : </label>          
-                <input type="text" class="form-control" id="uname" placeholder="Month/date" name="uname" required><br>
-		<input type="file" name="deed" id="deed">
-          	<input type="submit" value="Upload File"><br><br>
-                </div>
-                </div>
-              </div>
-              <br>
+        // Submit the form
+        form.submit();
+    }
+</script>
+<div class="col-6">
+        <input type="submit" class="btn btn-success" value="Renew">
+    </div>
 
       </main>
   </div>

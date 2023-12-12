@@ -123,25 +123,33 @@ Route::get('/Logout', function () {
 //register part
 Route::get('/register', [RegistrationController::class, 'register'])->name('reg.register')->middleware('alreadyLoggedIn');
 Route::post('/store', [RegistrationController::class, 'store'])->name('reg.store');
+
+Route::middleware(['isLoggedIn'])->group(function () {
 Route::get('/CheckRegistration', [RegistrationController::class, 'CheckRegistration'])->name('CheckRegistration');
 Route::get('/Help', [RegistrationController::class, 'Help'])->name('Help');
 Route::get('/OwnershipChange', [RegistrationController::class, 'OwnershipChange'])->name('OwnershipChange');
 Route::get('/PermitRequest', [RegistrationController::class, 'PermitRequest'])->name('PermitRequest');
-Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration')->middleware('isLoggedIn');
-Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
+Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration');
+//Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
+Route::get('/Renew', [RegisteredUserController::class, 'showProfile'])->name('user.renew');
 Route::get('/SBU_LogsTimber', [RegistrationController::class, 'SBU_LogsTimber'])->name('SBU_LogsTimber');
 Route::get('/SBU_SawnTimber', [RegistrationController::class, 'SBU_SawnTimber'])->name('SBU_SawnTimber');
 Route::get('/StockBookUpdate', [RegistrationController::class, 'StockBookUpdate'])->name('StockBookUpdate');
 Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');
 Route::get('/UserLogout', [RegistrationController::class, 'UserLogout'])->name('UserLogout');
+});
+
 
 //Admin part
-Route::get('/index', [RegistrationController::class, 'index'])->name('reg.index');;
+Route::middleware(['admin'])->group(function () {
+Route::get('/index', [RegistrationController::class, 'index'])->name('reg.index');
+Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
+});
 Route::get('/edit/{registration}', [RegistrationController::class, 'edit'])->name('reg.edit');
 Route::put('/update/{registration}', [RegistrationController::class, 'update'])->name('reg.update');
-Route::delete('/destroy/{registration}', [RegistrationController::class, 'destroy'])->name('reg.destroy');
 
 //madhura
+Route::middleware(['admin'])->group(function () {
 Route::get('/CheckRegistration', [Registration::class, 'CheckRegistration'])->name('CheckRegistration');
 Route::get('view_record/{id}', [Registration::class, 'view_record']);
 Route::get('/reject/{id}',[Registration::class,'reject']);
@@ -151,8 +159,10 @@ Route::get('ViewRegisteredRecords', [RegisteredUserController::class, 'ViewRegis
 Route::get('ViewRecords/{id}', [RegisteredUserController::class, 'ViewRecords']);
 Route::post('acceptance/{id}', [Registration::class, 'handleAcceptance'])->name('acceptance.handle');
 //Route::post('acceptance/{id}', [RegisteredUserController::class, 'saveUsers'])->name('CheckRegistration');
+});
 
 
+Route::middleware(['admin'])->group(function () {
 Route::get('/CheckRenew', [RegistrationController::class, 'CheckRenew'])->name('CheckRenew');
 Route::get('/CheckOwnershipChange', [RegistrationController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
 Route::get('/CheckPermitRequest', [RegistrationController::class, 'CheckPermitRequest'])->name('CheckPermitRequest');
@@ -162,6 +172,8 @@ Route::get('/WildCriminals', [RegistrationController::class, 'WildCriminals'])->
 Route::post('/WildCriminalsPost', [RegistrationController::class, 'WildCriminalsPost'])->name('admin.WildCriminalsPost');
 Route::get('/CriminalView', [RegistrationController::class, 'CriminalView'])->name('admin.CriminalView');
 Route::delete('/destroyCriminal/{criminal}', [RegistrationController::class, 'destroyCriminal'])->name('admin.destroyCriminal');
+});
+
 
 //login part
 Route::get('/login', [RegistrationController::class, 'login'])->name('log.login')->middleware('alreadyLoggedIn');
