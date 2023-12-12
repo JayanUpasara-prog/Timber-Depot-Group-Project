@@ -17,6 +17,10 @@ class User extends Model implements Authenticatable
         'role'
     ]; 
 
+    public function RegisteredUser()
+    {
+        return $this->hasOne(RegisteredUser::class, 'email',  'Email');
+    }
     /**
      * Get the name of the unique identifier for the user.
      *

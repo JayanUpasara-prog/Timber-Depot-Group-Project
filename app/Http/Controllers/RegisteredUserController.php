@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\RegisteredUser;
+use App\Models\User;
 use App\Models\registeruser;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\rejectmessage;
@@ -98,9 +99,20 @@ class RegisteredUserController extends Controller
     }
 
     public function ViewRecords($id){
-        $data=RegisteredUser::find($id);
-        return view('admin.RegisteredUserPage',compact('data'));
+        $viewR=RegisteredUser::find($id);
+        return view('admin.RegisteredUserPage',compact('viewR'));
     }
 
+    public function showProfile(){
+        $user = auth()->user();
+        $RegisteredUser = RegisteredUser::where('Email', $user->email)->first();
+    
+        if (!$RegisteredUser) {
+            return redirect('/UserDashboard')->with('fail', 'No data found for renewal. You have to fill the regitration form first.');
+        }
+    
+        return view('user.renew', compact('user', 'RegisteredUser'));
+    }
+    
 
 }

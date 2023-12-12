@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegisteredUser extends Model
 {
+    protected $primaryKey = 'Email';
     use HasFactory;
     protected $fillable = [
         'id',
@@ -40,4 +41,8 @@ class RegisteredUser extends Model
         'nature_value',
         // Add any other fields that you want to be mass-assignable
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'email',  'Email');
+    }
 }

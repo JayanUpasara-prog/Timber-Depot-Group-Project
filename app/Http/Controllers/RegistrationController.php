@@ -77,6 +77,7 @@ class RegistrationController extends Controller
         if ($data['password']) {
             $registration->password = Hash::make($data['password']);
         }
+        
     
         $registration->save();
     

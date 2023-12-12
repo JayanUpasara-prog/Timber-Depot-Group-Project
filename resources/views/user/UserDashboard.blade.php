@@ -29,7 +29,14 @@
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       
-        
+      @if(Session::has('success'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('fail'))
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                    @endif
+                                    @csrf
+                                    @method("post")
       <div class="container mt-2">
         <form>
             <div class="row">
@@ -53,6 +60,9 @@
 
 
                             <button type="button" class="btn btn-primary">
+        <a href="{{ route('reg.edit', ['registration' => auth()->user()->id]) }}" style="color: white; text-decoration: none;">Edit Profile</a>
+    </button>
+                                <button type="button" class="btn btn-primary">
                             <a href="{{ url('/logout') }}"
                                 style="color: white; text-decoration: none;">LogOut</a>
                         </button>
