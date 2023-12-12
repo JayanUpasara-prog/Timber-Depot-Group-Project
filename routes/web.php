@@ -218,6 +218,4 @@ Route::get('/inner-page2', [noticeController::class, 'viewNotice']);
 Route::get('/search',[Registration::class, 'showCheckRegistration'])->name('check.registration.search');
 
 
-// routes/web.php
 
-Route::post('/update-profile', [RegistrationController::class, 'updateProfile'])->name('update.profile');
