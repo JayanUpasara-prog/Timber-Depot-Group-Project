@@ -43,7 +43,7 @@ return new class extends Migration
             $table->string('Lgovernment')->nullable();
             $table->string('recom')->nullable();
             $table->string('nature_value')->nullable();
-        
+            $table->decimal('total', 10, 2)->nullable();   
 
             $table->timestamps();
         });

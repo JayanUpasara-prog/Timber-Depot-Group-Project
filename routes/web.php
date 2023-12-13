@@ -91,6 +91,8 @@ Route::get('/faq', function () {
 Route::get('/Logout', function () {
     return view('admin.Logout');
 });
+
+
 // Route::get('/OwnershipChange', function () {
 //     return view('user.OwnershipChange');
 // });
@@ -229,5 +231,9 @@ Route::get('/search2', [RegistrationController::class, 'search'])->name('search2
 // view_record search and highlight
 Route::get('/searchUsers', [Registration::class, 'searchUsers'])->name('searchUsers');
 
+// Route::get('/pay', function () {
+//     return view('user.checkout');
+// });
 
+Route::get('/user/checkout', [Registration::class, 'registrationSuccess'])->name('registration.success');
 

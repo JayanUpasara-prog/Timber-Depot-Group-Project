@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\registeruser;
 use App\Models\RegisteredUser;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 
 class Registration extends Controller{
@@ -154,17 +155,23 @@ class Registration extends Controller{
             'Lgovernment'=> $req->input('Lgovernment'),
             'recom'=> $recomPath,
             'nature_value' => json_encode($req->nature),
+            'total' => $req->input('totalAmount'), // Include the total value
         ]);
 
         $res=$registeruser->save();
 
         if ($res) {
-            return redirect('/Registration')->with('success', 'You have regitered successfully');
-        }else {
+            return Redirect::route('registration.success')->with('success', 'Data saved successfully!');
+        } else {
             return back()->with('fail', 'Something went wrong')->withErrors(['fail' => 'Something went wrong']);
-
-       
         }
+
+      
+    }
+
+    public function registrationSuccess()
+    {
+        return view('user.checkout');
     }
 
     public function CheckRegistration() {
@@ -176,6 +183,7 @@ class Registration extends Controller{
         $data = registeruser::find($id);
         return view('admin.UsersInfo', compact('data'));
     }
+    
 
     // public function handleAcceptance(Request $request, $id)
     // {
