@@ -8,24 +8,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://js.stripe.com/v3/"></script>
+
 
 
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   @include('livechat')
 
-  <style>
-    #card-element {
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 4px;
-    }
-
-    #card-errors {
-        color: #dc3545; /* Bootstrap's danger color */
-        margin-top: 10px;
-    }
-</style>
+ 
 </head>
 <body>
 
@@ -321,6 +310,12 @@
   </table>
 
   <div style="background-color: aqua;text-align: center;">Total Amount: Rs.<span id="totalAmount">0</span></div><br>
+  
+
+  <div class="col-md-3">
+        <b>Total Amount : Rs.</b>
+        <input type="text" id="totalAmountInput" name="totalAmount" readonly>
+    </div>
 
   
     Uplord Bank Slip:<br><input type="file" name="payment" id="payment" >
@@ -333,7 +328,7 @@
         <td>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="button" onclick="showConfirmation()">Submit</button>
+            <button type="button" onclick="showConfirmation()">Submit And Payment</button>
             </div>
         </td>
     </tr>
@@ -342,104 +337,13 @@
 
   </form>
 
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Payment Form</div>
-
-                <div class="card-body">
-                    <form action="{{ route('process.payment') }}" method="POST" id="payment-form">
-                        @csrf
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <div class="form-group">
-                            <label for="amount">Amount ($)</label>
-                            <input type="number" name="amount" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="card-element">Credit or debit card</label>
-                            <div id="card-element"></div>
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit Payment</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  
 
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-    // Create a Stripe client.
-    var stripe = Stripe('{{ config('services.stripe.key') }}');
-
-    // Create an instance of Elements.
-    var elements = stripe.elements();
-
-    // Create an instance of the card Element.
-    var card = elements.create('card');
-
-    // Add an instance of the card Element into the `card-element` div.
-    card.mount('#card-element');
-
-    // Handle real-time validation errors from the card Element.
-    card.addEventListener('change', function (event) {
-        var displayError = document.getElementById('card-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
-        }
-    });
-
-    // Handle form submission.
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        stripe.createToken(card).then(function (result) {
-            if (result.error) {
-                // Inform the user if there was an error.
-                var errorElement = document.getElementById('card-errors');
-                errorElement.textContent = result.error.message;
-            } else {
-                // Send the token to your server.
-                stripeTokenHandler(result.token);
-            }
-        });
-    });
-
-    // Submit the form with the token ID.
-    function stripeTokenHandler(token) {
-        // Insert the token ID into the form so it gets submitted to the server
-        var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
-
-        // Submit the form
-        form.submit();
-    }
-</script>
 
 
       </main>
@@ -515,10 +419,18 @@
     }
 
     // Function to update the total amount element
-    function updateTotalAmount() {
-      const totalAmount = calculateAmount();
-      totalAmountElement.textContent = totalAmount;
-    }
+    // Function to update the total amount element
+function updateTotalAmount() {
+  const totalAmount = calculateAmount();
+  totalAmountElement.textContent = totalAmount;
+
+  // Set the value of the input field with id 'totalAmountInput'
+  const totalAmountInput = document.getElementById('totalAmountInput');
+  if (totalAmountInput) {
+    totalAmountInput.value = totalAmount;
+  }
+}
+
 
     // Add event listeners to checkboxes
     checkboxes1.forEach(function(checkbox) {
