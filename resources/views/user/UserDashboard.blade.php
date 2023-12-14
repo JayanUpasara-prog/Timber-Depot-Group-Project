@@ -27,7 +27,9 @@
       @include('userSideNav')
 
       <!-- Main Content -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <!-- <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      
       
       @if(Session::has('success'))
                                     <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -35,30 +37,31 @@
                                     @if(Session::has('fail'))
                                     <div class="alert alert-danger">{{Session::get('fail')}}</div>
                                     @endif
-                                    @csrf
+                                  
                                     @method("post")
       <div class="container mt-2">
-        <form>
+      <form action="{{ route('update.profile.picture') }}" method="post" enctype="multipart/form-data">
+
+        @csrf
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                    <img src="{{ asset('storage/profile_pictures/' . $user->profile_picture) }}" alt="User Profile" class="card-img-top">
+                    <img src="{{ Storage::url($user->profile_picture) }}" alt="User Profile" class="card-img-top">
 
-
-
+                  
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $user->name }}</h5>
                             <p class="card-text">TD-{{ $user->id }}</p>
-                            <!-- Add this form below the existing form in UserDashboard.blade.php -->
-                            <form action="" method="post" enctype="multipart/form-data">
+                             Add this form below the existing form in UserDashboard.blade.php 
+                            
 
-    @csrf
-    <div class="mb-3">
-        <label for="profile_picture" class="form-label">Update Profile Picture</label>
-        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
-    </div>
-    <button type="submit" class="btn btn-primary">Update Profile Picture</button>
-</form>
+                            <div class="mb-3">
+                            <div class="row">
+                            <label for="profile_picture" class="form-label">Update Profile Picture</label>
+                            <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+                    
+                        <button type="submit" class="btn btn-primary">Update Profile Picture</button>
+                    
 
 
                             <button type="button" class="btn btn-primary">
@@ -68,6 +71,7 @@
                             <a href="{{ url('/logout') }}"
                                 style="color: white; text-decoration: none;">LogOut</a>
                         </button>
+</div>
                         </div>
                     </div>
                 </div>
@@ -83,7 +87,82 @@
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" value="{{ $user->email }}" readonly>
                             </div>
-                            <!-- <div class="mb-3">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+  </main> -->
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                @if(Session::has('success'))
+                <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                @if(Session::has('fail'))
+                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                @endif
+
+                @method("post")
+                <div class="container mt-2">
+                    <form action="{{ route('update.profile.picture') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="{{ Storage::url($user->profile_picture) }}" alt="User Profile"
+                                        class="card-img-top" style="object-fit: contain; width: 100%; max-height: 200px;">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $user->name }}</h5>
+                                        <p class="card-text">TD-{{ $user->id }}</p>
+
+                                        <div class="mb-3">
+                                            <label for="profile_picture" class="form-label">Update Profile
+                                                Picture</label>
+                                            <input type="file" class="form-control" id="profile_picture"
+                                                name="profile_picture">
+                                        </div>
+                                        <div class="row mt-3">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Update Profile Picture</button>
+        </div>
+    </div>
+
+    <!-- Second row for other two buttons -->
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-primary">
+                <a href="{{ route('reg.edit', ['registration' => auth()->user()->id]) }}"
+                    style="color: white; text-decoration: none;">Edit Profile</a>
+            </button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-primary">
+                <a href="{{ url('/logout') }}" style="color: white; text-decoration: none;">LogOut</a>
+            </button>
+        </div>
+    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">User Information</h5>
+                                        <div class="mb-3">
+                                            <label for="fullName" class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="fullName"
+                                                value="{{ $user->name }}" readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email"
+                                                value="{{ $user->email }}" readonly>
+                                        </div>
+                                        <!-- Add more user data fields here as needed -->
+                                        <div class="mb-3">
                               <label for="nic" class="form-label">NIC Number</label>
                               <input type="text" class="form-control" id="nic" value="99xxxxxxxv" readonly>
                             </div>
@@ -94,15 +173,15 @@
                             <div class="mb-3">
                               <label for="address" class="form-label">Address</label>
                               <input type="text" class="form-control" id="address" value="Srilanka" readonly>
-                            </div> -->
+                            </div>
                             <!-- Add more user data fields here as needed -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </div>
-        </form>
-    </div>
-  </main>
+            </main>
  </div>
 </div>  
 
