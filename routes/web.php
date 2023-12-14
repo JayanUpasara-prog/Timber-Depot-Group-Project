@@ -160,6 +160,18 @@ Route::get('ViewRegisteredRecords', [RegisteredUserController::class, 'ViewRegis
 Route::get('ViewRecords/{id}', [RegisteredUserController::class, 'ViewRecords']);
 Route::post('acceptance/{id}', [Registration::class, 'handleAcceptance'])->name('acceptance.handle');
 //Route::post('acceptance/{id}', [RegisteredUserController::class, 'saveUsers'])->name('CheckRegistration');
+
+//Route::get('CriminalView/{id}', [Registration::class, 'CheckUser']);
+
+//Route::get('CheckUser/{idno}', [Registration::class, 'CheckUser']);
+//Route::get('CheckUser/{id}', [Registration::class, 'CheckUser']);
+// Route::get('admin/CriminalView/{userId}/{idno}', [Registration::class, 'CriminalView'])->name('admin.CriminalView');
+
+// web.php
+Route::get('/CriminalView/{idno}', [Registration::class, 'CriminalView'])->name('admin.CriminalView');
+
+
+
 });
 
 
@@ -229,5 +241,10 @@ Route::get('/search2', [RegistrationController::class, 'search'])->name('search2
 // view_record search and highlight
 Route::get('/searchUsers', [Registration::class, 'searchUsers'])->name('searchUsers');
 
+// Route::get('/pay', function () {
+//     return view('user.checkout');
+// });
+// criminal blade search function
+Route::get('/search3', [RegistrationController::class, 'showCheckCriminal'])->name('search3');
 
 

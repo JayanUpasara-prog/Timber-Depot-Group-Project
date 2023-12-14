@@ -56,8 +56,8 @@
       <span class="text-success">Forest Department,</span>
       Melsiripura
     </a>
-    <form class="d-flex mx-auto text-right" role="search" method="GET" action="{{ route('searchUsers') }}">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <form class="d-flex mx-auto text-right" role="search" method="GET" action="">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="">
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
 
@@ -163,7 +163,12 @@
         </tr>
 
         <tr class="table-warning" >
-          <td><button type="button" class="btn btn-primary">Check</button></td>
+
+          <td><a href="{{ route('admin.CriminalView', ['idno' => $data->idno]) }}" class="btn btn-primary">Check</a></a>
+            </td>
+
+
+
           <td><div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Correct</label>

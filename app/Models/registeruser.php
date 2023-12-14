@@ -39,5 +39,11 @@ class registeruser extends Model
         'recom',
         'nature_value',
         // Add any other fields that you want to be mass-assignable
+       
     ];
+
+    public function wildCriminal()
+    {
+        return $this->hasOne(WildCriminal::class, 'idno', 'idnum');
+    }
 }

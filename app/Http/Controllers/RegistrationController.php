@@ -401,4 +401,52 @@ public function search(Request $request)
     return view('reg.index', ['registrations' => $searchResults]);
 }
 
+public function editProfilePicture()
+    {
+        $user = Auth::user();
+        return view('editProfilePicture', compact('user'));
+    }
+
+    /**
+     * Update the user's profile picture.
+     */
+    public function updateProfilePicture(Request $request)
+{
+    // Validate the incoming request data
+    $request->validate([
+        'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
+    ]);
+
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Check if a profile picture is uploaded
+    if ($request->hasFile('profile_picture')) {
+        // Store the new profile picture in the storage folder
+        $profilePicture = $request->file('profile_picture')->store('profile_pictures', 'public');
+
+        // Update the user's profile_picture column in the database
+        $user->update([
+            'profile_picture' => $profilePicture,
+        ]);
+    }
+    // Fetch the user again to ensure the updated profile_picture is available
+    $user = Auth::user();
+
+    return redirect()->back()->with('success', 'Profile picture updated successfully!');
+}
+
+
+public function showCheckCriminal(Request $request)
+{
+    $search = $request->input('search');
+
+    $criminals = WildCriminal::when($search, function ($query) use ($search) {
+        $query->where('idnum', $search)
+              ;
+    })->get();
+
+    return view('admin.CriminalView', compact('criminals'));
+}
+
 }

@@ -9,6 +9,8 @@ use App\Models\registeruser;
 use App\Models\RegisteredUser;
 use Illuminate\Support\Facades\Mail;
 
+use App\Models\WildCriminal;
+
 
 class Registration extends Controller{
 
@@ -224,5 +226,25 @@ public function searchUsers(Request $request)
     // Pass the search term and results to your view
     return view('admin.UsersInfo', ['data' => $searchResults, 'searchTerm' => $searchTerm]);
 }
+
+// RegistrationController.php
+public function CriminalView($idno) {
+    // Retrieve data based on $idno from your model
+    $userData = registeruser::where('idno', $idno)->first();
+
+    // Pass data to the view
+    return view('admin.CriminalView', ['userData' => $userData]);
+}
+
+
+
+
+// public function CheckUser($idno) {
+//     $CheckUser = WildCriminal::find($idno);
+    
+//     return view('admin.CriminalView', compact('CheckUser'));
+// }
+
+
 
 }
