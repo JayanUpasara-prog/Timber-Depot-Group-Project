@@ -10,7 +10,24 @@
 
 <body class="bg-light">
 
+
+
+
     <div class="container mt-4">
+    
+
+<form class="d-flex mx-auto text-right" role="search" method="GET" action="{{ route('search3') }}">
+    <!-- @php
+        $idno = request('idno');
+    @endphp -->
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ old('search', $idno) }}">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+
+
+
+</form>
         @if(Session::has('success'))
                         <div class="alert alert-success">{{Session::get('success')}}</div>
                         @endif

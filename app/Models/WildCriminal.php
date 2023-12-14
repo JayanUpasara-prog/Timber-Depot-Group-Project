@@ -15,4 +15,12 @@ class WildCriminal extends Model
         'Address',
         
     ]; 
+
+    public function registeruser()
+    {
+        return $this->belongsTo(registeruser::class, 'idnum', 'idno');
+    }
+
+    
+    
 }

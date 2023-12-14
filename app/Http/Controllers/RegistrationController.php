@@ -446,4 +446,18 @@ public function editProfilePicture()
 }
 
 
+
+public function showCheckCriminal(Request $request)
+{
+    $search = $request->input('search');
+
+    $criminals = WildCriminal::when($search, function ($query) use ($search) {
+        $query->where('idnum', $search)
+              ;
+    })->get();
+
+    return view('admin.CriminalView', compact('criminals'));
+}
+
+
 }
