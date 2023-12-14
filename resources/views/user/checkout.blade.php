@@ -7,6 +7,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
+
+  
+   
+   
+    
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://js.stripe.com/v3/"></script>
     <style>
@@ -111,9 +116,14 @@
             <div id="card-errors" role="alert"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Submit Payment</button>
+    
+        
+
+        <button type="submit" class="col text-end btn btn-primary btn-block" onclick="confirmPayment()">Submit Payment</button>
+
     </form>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -178,6 +188,43 @@
 
         // Submit the form
         form.submit();
+    }
+
+
+    function confirmPayment() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You are about to submit the payment.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, submit it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                submitPayment();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire('Cancelled', 'Your payment was not submitted.', 'error');
+            }
+        });
+    }
+
+    function submitPayment() {
+        var form = document.getElementById('payment-form');
+        stripe.createToken(card).then(function (result) {
+            if (result.error) {
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                // Handle the server-side processing logic here
+                // Assuming the server responds with a success message
+                Swal.fire('Payment Successful', 'Registration pending. Redirecting to user dashboard...', 'success')
+                    .then(() => {
+                        // Redirect to the user dashboard or another page
+                        window.location.href = '{{ route("UserDashboard") }}';
+                    });
+            }
+        });
     }
 </script>
 

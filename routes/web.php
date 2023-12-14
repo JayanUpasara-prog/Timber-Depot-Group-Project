@@ -237,3 +237,7 @@ Route::get('/searchUsers', [Registration::class, 'searchUsers'])->name('searchUs
 
 Route::get('/user/checkout', [Registration::class, 'registrationSuccess'])->name('registration.success');
 
+//Route::get('/user/UserDashboard', [Registration::class, 'dashboard'])->name('UserDashboard');
+
+Route::get('/edit-profile-picture', [RegistrationController::class, 'editProfilePicture'])->name('edit.profile.picture');
+Route::post('/update-profile-picture', [RegistrationController::class, 'updateProfilePicture'])->name('update.profile.picture');

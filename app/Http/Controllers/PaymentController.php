@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Charge;
+use Illuminate\Support\Facades\Redirect;
 
 class PaymentController extends Controller
 {
@@ -45,7 +46,7 @@ class PaymentController extends Controller
 
             Charge::create($chargeParams);
 
-            return redirect()->back()->with('success', 'Payment successful.');
+            return Redirect::route('UserDashboard')->with('success', 'Payment successful.');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors([$e->getMessage()]);
         }
