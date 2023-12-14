@@ -34,13 +34,21 @@ class RegistrationController extends Controller
             'name' => 'required|regex:/^[a-zA-Z\s]+$/',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|max:12',
+            'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
         ]);
     
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        
     
+        // if ($request->hasFile('profile_picture')) {
+        //     $profilePicture = $request->file('profile_picture')->store('profile_pictures', 'public');
+        //     $user->profile_picture = $profilePicture;
+        // }
+
+
         $existingUser = User::where('email', $request->email)->first();
         if ($existingUser) {
             return back()->with('fail', 'Email already exists. Please use a different email address.');
@@ -157,6 +165,7 @@ class RegistrationController extends Controller
         
         return view('user.UserDashboard', compact('user'));
     }
+    
 
    
 
@@ -437,6 +446,7 @@ public function editProfilePicture()
 }
 
 
+
 public function showCheckCriminal(Request $request)
 {
     $search = $request->input('search');
@@ -448,5 +458,6 @@ public function showCheckCriminal(Request $request)
 
     return view('admin.CriminalView', compact('criminals'));
 }
+
 
 }

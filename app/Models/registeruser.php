@@ -38,6 +38,7 @@ class registeruser extends Model
         'Lgovernment',
         'recom',
         'nature_value',
+        'total',
         // Add any other fields that you want to be mass-assignable
        
     ];
