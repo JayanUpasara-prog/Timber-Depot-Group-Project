@@ -135,8 +135,10 @@ Route::get('/PermitRequest', [RegistrationController::class, 'PermitRequest'])->
 Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration');
 //Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
 Route::get('/Renew', [RegisteredUserController::class, 'showProfile'])->name('user.renew');
-Route::get('/SBU_LogsTimber', [RegistrationController::class, 'SBU_LogsTimber'])->name('SBU_LogsTimber');
-Route::get('/SBU_SawnTimber', [RegistrationController::class, 'SBU_SawnTimber'])->name('SBU_SawnTimber');
+Route::get('/SB_LogsTimber', [RegistrationController::class, 'SB_LogsTimber'])->name('SB_LogsTimber');
+Route::get('/SB_SawnTimber', [RegistrationController::class, 'SB_SawnTimber'])->name('SB_SawnTimber');
+Route::get('/SB_UpdateLogsTimber', [RegistrationController::class, 'SB_UpdateLogsTimber'])->name('SB_UpdateLogsTimber');
+Route::get('/SB_UpdateSawnTimber', [RegistrationController::class, 'SB_UpdateSawnTimber'])->name('SB_UpdateSawnTimber');
 Route::get('/StockBookUpdate', [RegistrationController::class, 'StockBookUpdate'])->name('StockBookUpdate');
 Route::get('/UserDashboard', [RegistrationController::class, 'UserDashboard'])->name('UserDashboard');
 Route::get('/UserLogout', [RegistrationController::class, 'UserLogout'])->name('UserLogout');
@@ -258,3 +260,18 @@ Route::get('/user/checkout', [Registration::class, 'registrationSuccess'])->name
 
 Route::get('/edit-profile-picture', [RegistrationController::class, 'editProfilePicture'])->name('edit.profile.picture');
 Route::post('/update-profile-picture', [RegistrationController::class, 'updateProfilePicture'])->name('update.profile.picture');
+
+//ownership change by HarshanatH
+use App\Http\Controllers\OwnershipChangeController;
+
+// Route::put('/CheckRegistration', [OwnershipChangeController::class, 'update']);
+// Route::post('/update-registeruser', 'OwnershipChangeController@updateregisteruser')->name('update.registeruser');
+// Route::put('/update/{registration}', [OwnershipChangeController::class, 'update'])->name('registeruser.update');
+Route::get('/UpdateOwnership', [OwnershipChangeController::class, 'UpdateOwnership'])->name('UpdateOwnership');
+Route::post('store_data', [OwnershipChangeController::class, 'store_data']);
+Route::get('/CheckOwnershipChange', [OwnershipChangeController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
+
+//Stockbook Update by HarshanatH
+use App\Http\Controllers\LogsTimberController;
+
+Route::post('/SB_LogsTimber', [LogsTimberController::class, 'store'])->name('logstimbers.store');

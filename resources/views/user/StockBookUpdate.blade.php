@@ -42,8 +42,8 @@
                     <img class="card-img-top" src="logs_of_timber.png" alt="Card image" style="width:75%; height:auto; padding-left:25%;">                            
                     <div class="card-body" style="text-align:center;">
                       <h4 class="card-title">Logs of Timber</h4>
-                      <a href="SBU_LogsTimber" class="btn btn-outline-success">View</a>
-                      <a href="SBU_LogsTimber" class="btn btn-outline-success">Update Status</a>
+                      <a href="SB_LogsTimber" class="btn btn-outline-success">View</a>
+                      <!-- <a href="SB_LogsTimber" class="btn btn-outline-success">Update Status</a> -->
                     </div>
                   </div>
                 </div>
@@ -52,8 +52,8 @@
                     <img class="card-img-top" src="sawn_timber.png" alt="Card image" style="width:75%; height:auto; padding-left:25%;">                            
                     <div class="card-body" style="text-align:center;">
                       <h4 class="card-title">Sawn Timber</h4>
-                      <a href="SBU_SawnTimber" class="btn btn-outline-success">View</a>
-                      <a href="SBU_SawnTimber" class="btn btn-outline-success">Update Status</a>
+                      <a href="SB_SawnTimber" class="btn btn-outline-success">View</a>
+                      <!-- <a href="SB_SawnTimber" class="btn btn-outline-success">Update Status</a> -->
                     </div>
                   </div>
                 </div>              

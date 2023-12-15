@@ -228,23 +228,42 @@ class RegistrationController extends Controller
             }
         return view('user.Renew', compact('user'));
     }
-    public function SBU_LogsTimber(){
+
+    public function SB_LogsTimber(){
     
         $user = array();
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
             }
-        return view('user.SBU_LogsTimber', compact('user'));
+        return view('user.SB_LogsTimber', compact('user'));
     }
-    public function SBU_SawnTimber(){
+    public function SB_SawnTimber(){
     
         $user = array();
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
             }
-        return view('user.SBU_SawnTimber', compact('user'));
+        return view('user.SB_SawnTimber', compact('user'));
+    }
+    public function SB_UpdateLogsTimber(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.SB_UpdateLogsTimber', compact('user'));
+    }
+    public function SB_UpdateSawnTimber(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.SB_UpdateSawnTimber', compact('user'));
     }
     public function StockBookUpdate(){
     
