@@ -58,6 +58,18 @@
 
     @include('backtotop')
 
+    <!--thili-->
+
+    <p>A timber seasoning or processing factory is a facility where raw timber or lumber is treated to enhance its durability, stability, and resistance to decay or insects. The seasoning or processing of timber involves various techniques such as kiln drying, air drying, or chemical treatment to reduce moisture content and improve the overall quality of the wood.</p>
+
+<p> Registration Fee: Rs. 5000.00</p>
+   <p> It covers administrative costs associated with processing and approving the registration.</p>
+
+   <p> Annual fee for permit and it's renewal: Rs. 5000.00</p>
+   <p> This fee is typically paid during the renewal process, ensuring ongoing compliance with regulations and standards.</p>
+   
+    <!--thili-->
+
 </body>
 
 </html>

@@ -58,6 +58,18 @@
 
     @include('backtotop')
 
+    <!--thili-->
+
+    <p>A timber furniture shop is a retail establishment that specializes in selling furniture made primarily from wood, including products such as chairs, tables, bed frames, cabinets, and other wooden furnishings. These shops may offer a variety of styles, designs, and finishes to cater to different customer preferences.</p>
+
+   
+<p> Registration Fee: Rs. 500.00</p>
+   <p> It covers administrative costs associated with processing and approving the registration.</p>
+
+   <p> Annual fee for permit and it's renewal: Rs. 500.00</p>
+   <p> This fee is typically paid during the renewal process, ensuring ongoing compliance with regulations and standards.</p>
+ <!--thili-->
+ 
 </body>
 
 </html>

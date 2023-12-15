@@ -58,6 +58,17 @@
 
     @include('backtotop')
 
+    <!--thili-->
+
+    <p>Timber sales outlets act as intermediaries in the timber supply chain, offering a range of wood products to meet the needs of construction companies, carpenters, furniture manufacturers, and other consumers.</p>
+
+<p> Registration Fee: Rs. 3000.00</p>
+<p> It covers administrative costs associated with processing and approving the registration.</p>
+
+<p> Annual fee for permit and it's renewal: Rs. 3000.00</p>
+<p> This fee is typically paid during the renewal process, ensuring ongoing compliance with regulations and standards.</p>
+
+<!--thili-->
 </body>
 
 </html>

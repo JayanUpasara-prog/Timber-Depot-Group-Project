@@ -58,6 +58,22 @@
   
     @include('backtotop')
 
+<!--thili-->
+
+<p>A sawmill is a facility or industrial plant where logs are processed to produce lumber or timber, which is used for various construction and manufacturing purposes. The primary function of a sawmill is to cut and shape raw logs into boards, beams, and other wood products. Sawmills play a crucial role in the forestry and wood processing industries, contributing to the supply of wood for construction, furniture, and other applications.</p>
+    
+    
+    <p>When it comes to registration and re-registration fees for a sawmill, it's common for certain jurisdictions or industry associations to impose fees for operating such facilities. These fees are typically used to cover administrative costs, regulatory compliance, and support industry standards. Here's a brief overview</p>
+  
+  
+   <p> Registration Fee: Rs. 5000.00</p>
+   <p> It covers administrative costs associated with processing and approving the registration.</p>
+
+   <p> Annual fee for permit and it's renewal: Rs. 5000.00</p>
+   <p> This fee is typically paid during the renewal process, ensuring ongoing compliance with regulations and standards.</p>
+   
+<!--thili-->
+
 </body>
 
 </html>

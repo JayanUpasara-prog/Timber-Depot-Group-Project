@@ -1,8 +1,8 @@
-
 body {
-  background: url('../img/4907157.jpg') no-repeat center center fixed;
+  background: url('../img/b3.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #fff;
+  /*background-color: #b5eab9;*/
+  color: #f8fcf9;
 }
 
 .logo-container {
@@ -27,12 +27,12 @@ h6 {
 
 h2 {
   color: #000;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h4 {
   color: #000;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -48,7 +48,7 @@ h5 {
 a {
   letter-spacing: 2px;
   text-decoration: none;
-  color: #71c55d;
+  color: #579f45;
 }
 
 a:hover {
@@ -69,9 +69,9 @@ li {
 }
 
 p {
-  color: #505050;
-  font-size: 14px;
-  font-weight: 300;
+  color: #292828;
+  font-size: 15px;
+  font-weight: 400;
   letter-spacing: 0.5px;
   line-height: 2;
   margin-bottom: 20px;
@@ -198,8 +198,8 @@ span {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  color: #222;
+  font-size: 18px;
+  color: #171717;
   white-space: nowrap;
   transition: 0.3s;
   letter-spacing: 0;
@@ -232,20 +232,20 @@ span {
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
-  border-radius: 4px;
+
 }
 
 .navbar .dropdown ul li {
-  min-width: 200px;
+  min-width: 100px;
 }
 
 .navbar .dropdown ul a {
-  padding: 10px 20px;
+  padding: 5px 10px;
   text-transform: none;
 }
 
 .navbar .dropdown ul a i {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .navbar .dropdown ul a:hover,
@@ -413,7 +413,7 @@ span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity here */
+  background: rgba(0, 0, 0, 0.479); /* Adjust the color and opacity here */
 }
 
 @media (min-width: 1025px) {
@@ -449,11 +449,10 @@ span {
 
 
 #hero h1 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(3, 3, 3, 0.945);
+  font-weight: 1000;
   margin: 0 0 10px 0;
-  font-size: 60px;
-  font-weight: 700;
+  font-size: 70px;
   line-height: 70px;
   font-family: "Philosopher", sans-serif;
   color: #71c55d;
@@ -470,9 +469,9 @@ span {
 #hero h2 {
   color: #f5f1f1;
   margin-bottom: 30px;
-  font-size: 20px;
+  font-size: 21px;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -667,6 +666,9 @@ span {
   color: #000;
   padding: 30px 20px;
   transition: all 0.5s ease-in-out 0s;
+  height: 100%;
+
+
 }
 
 #get-started .feature-block img {
@@ -695,8 +697,8 @@ span {
 }
 
 #get-started .feature-block a {
-  color: #505050;
-  font-size: 12px;
+  color: #58a64c;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   text-transform: capitalize;
@@ -704,7 +706,7 @@ span {
 }
 
 #get-started .feature-block a:hover {
-  color: #71c55d;
+  color: #99f283;
 }
 
 /* Features Section
@@ -719,13 +721,14 @@ span {
   background-color: rgba(255, 255, 255, 0.5);
   color: #000;
   padding: 30px 20px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   transition: all 0.5s ease-in-out 0s;
+  height: 90%;
 }
 
 #features .feature-block img {
   height: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 60px;
 }
 
@@ -740,8 +743,8 @@ span {
 
 #features .feature-block p {
   margin-bottom: 0;
+  
 }
-
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
@@ -772,9 +775,9 @@ section {
 }
 
 .section-title h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Philosopher", sans-serif;
   font-size: 45px;
-  font-weight: 100;
+  font-weight: 300;
   letter-spacing: 2px;
   margin-bottom: 20px;
   text-transform: capitalize;
@@ -785,6 +788,112 @@ section {
 }
 
 .separator {
+  color: #292929;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+/* Rating Section
+--------------------------------*/
+#ratings {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  margin-top: 0px;
+  
+}
+
+#ratings .rating-block {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  padding: 30px 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+#ratings .rating-block:hover {
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out 0s;
+}
+
+#ratings .rating-info {
+  margin-bottom: 10px;
+}
+
+#ratings .rating-info strong {
+  font-weight: bold;
+  color: black; /* Bold black color */
+}
+
+#ratings .rating-info .star {
+  margin: 0 4px;
+  color: green;
+  
+}
+
+#ratings .rating-block p {
+  margin-bottom: 0;
+  font-weight: bold; /* Bold black color */
+  color: black; /* Bold black color */
+}
+
+/* Add styles for stars */
+#ratings .rating-block .star {
+  margin: 0 4px; /* Adjust margin as needed */
+  color: green; /* Color for the star margin */
+}
+
+#ratings .rating-block .filled-star {
+  color: green; /* Color for the filled star */
+}
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+#ratings section {
+  overflow: hidden;
+}
+
+#ratings .padd-section {
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+
+@media (max-width: 992px) {
+  #ratings .padd-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+#ratings .section-title {
+  margin-bottom: 80px;
+}
+
+@media (max-width: 992px) {
+  #ratings .section-title {
+    margin-bottom: 40px;
+  }
+}
+
+#ratings .section-title h2 {
+  font-family: "Philosopher", sans-serif;
+  font-size: 45px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+#ratings .section-title .separator {
+  margin: 0;
+}
+
+#ratings .separator {
   color: #626262;
   font-family: "Roboto", sans-serif;
   font-size: 15px;
@@ -793,11 +902,17 @@ section {
   text-transform: capitalize;
 }
 
+ #ratings .rating-block img {
+  height: 80px;
+  margin-bottom: 30px;
+  width: 80px;
+} 
+
 
 /* Contact Section
 --------------------------------*/
 #contact {
-  background-color: rgba(255, 255, 255, 0.5);
+  
   color: #000;
 }
 
@@ -807,24 +922,24 @@ section {
 
 #contact .info i {
   font-size: 32px;
-  color: #71c55d;
+  color: #4c873b;
   float: left;
   line-height: 0;
 }
 
 #contact .info p {
   padding: 0 0 10px 50px;
-  margin-bottom: 20px;
-  line-height: 22px;
-  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 30px;
+  font-size: 16px;
 }
-
 #contact .info .email p {
   padding-top: 5px;
 }
 
 #contact .social-links {
-  padding: 20px 0;
+  padding: 20px 0px;
+  
 }
 
 #contact .social-links a {
@@ -833,16 +948,18 @@ section {
   background: #71c55d;
   color: #fff;
   line-height: 1;
-  padding: 6px 0 8px 0;
+  padding: 6px 0px 8px 0px;
   border-radius: 50%;
   text-align: center;
   width: 36px;
   height: 36px;
   transition: 0.3s;
+  margin: 15px;
+ 
 }
 
 #contact .social-links a:hover {
-  background: #55b03f;
+  background: #3e802d;
   color: #fff;
 }
 
@@ -856,9 +973,8 @@ section {
 
 
 #contact .text-center button[type=submit]:hover{
-  background: #488239;
+  background: #3e802d;
 }
-
 
 alert {
   margin-top: 15px;
@@ -920,7 +1036,7 @@ alert {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background: #2a2c30;
+  background: #042502;
   padding-top: 50px;
 }
 
@@ -975,10 +1091,11 @@ alert {
   bottom: 20px;
   right: 20px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #acd9af;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+
 
