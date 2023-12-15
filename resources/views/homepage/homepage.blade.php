@@ -39,7 +39,7 @@
       <div id="logo" class="logo-container" >
         <a href="homepage"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
 
-        <h1><a href="homepage"><span>Forest Department,</span> Melsiripura.</a></h1>
+        <h1><a href="homepage"><span>Forest Department, </span>Sri Lanka</a></h1>
   
       </div>
 
@@ -47,6 +47,9 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#features">Services</a></li>
+          <li><a class="nav-link scrollto" href="#Reviews">Reviews</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="login">Sign In</a></li>
           <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">English</a></li>
@@ -54,8 +57,6 @@
               <li><a href="#">தமிழ்</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="login">Sign In</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -66,7 +67,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-in">
-      <h1 style="margin-top: 20px;">Welcome.</h1>
+    <h1 style="margin-top: 20px;">Welcome</h1>
       <h2>To Conserve &amp; Develop National Forest Resources Ensuring the Prosperity of the Nation.</h2>
      
       <a href="#get-started" class="btn-get-started scrollto">Get Started</a>
@@ -124,7 +125,7 @@
 
 <div class="container" data-aos="fade-up">
     <div class="section-title text-center">
-        <h2>Services.</h2>
+    <h2>Nature Of The Timber Depot</h2>
         <p class="separator">Discover Our Services For Sustainable Forest Management</p>
     </div>
 
@@ -135,7 +136,7 @@
                 <img src="assets\pic\sawmill1.png" alt="carpentry">
                 <h4>SAWMILL</h4>
                 <p>Sawmill(Only for Sawing)</p>
-                <p>mobile timber sawmill(Only for Sawing)</p>
+                <p>Mobile timber sawmill(Only for Sawing)</p>
                 <a href="inner-page4">More info</a>
             </div>
         </div>
@@ -190,6 +191,46 @@
  
 </div>
     </section>
+
+    
+<!--ratings-->
+<section id="ratings" class="padd-section text-center">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+            <h2>User Reviews</h2>
+            <!-- Add a separator or description if needed -->
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            @php $counter = 0 @endphp
+            @forelse($ratings->where('rating', '>=', 4)->reverse() as $rating)
+                @if($counter < 4)
+                    <div class="col-md-3">
+                        <div class="rating-block">
+                        <img src="assets\pic\icon4.jpg" alt="img"> 
+                            <p> {{ $rating->user_name }}</p>
+                            <p>
+                            @for($i = 1; $i <= 5; $i++)
+                                @if($i <= $rating->rating)
+                                    <span class="star">&#9733;</span> <!-- Filled star -->
+                                @else
+                                    <span class="star">&#9734;</span> <!-- Empty star -->
+                                @endif
+                            @endfor
+                            </p>
+                            <!-- {{ $rating->rating }}-->
+                            <p>{{ $rating->comment }}</p>
+                        </div>
+                    </div>
+                    @php $counter++ @endphp
+                @endif
+            @empty
+                <p>No ratings found</p>
+            @endforelse
+        </div>
+    </div>
+</section>
+<!--ratings-->
     
       <!-- ======= Contact Section ======= -->
       <section id="contact" class="padd-section">

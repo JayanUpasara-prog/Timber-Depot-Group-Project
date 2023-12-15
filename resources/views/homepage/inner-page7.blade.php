@@ -57,7 +57,20 @@
     </section><!-- End Breadcrumbs -->
 
     @include('backtotop')
+   <!--thili-->
 
+    <p>
+A carpentry shed is a facility where woodworking and carpentry activities take place. Carpenters use this space for crafting and assembling wooden structures, furniture, and various wood-based products. The shed provides a controlled environment for woodworking, allowing carpenters to work on projects with precision and efficiency</p> 
+
+
+<p> Registration Fee: Rs. 750.00</p>
+   <p> It covers administrative costs associated with processing and approving the registration.</p>
+
+   <p> Annual fee for permit and it's renewal: Rs. 750.00</p>
+   <p> This fee is typically paid during the renewal process, ensuring ongoing compliance with regulations and standards.</p>
+
+
+    <!--thili-->
 </body>
 
 </html>

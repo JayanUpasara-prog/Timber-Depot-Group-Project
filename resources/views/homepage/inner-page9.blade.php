@@ -58,6 +58,19 @@
 
     @include('backtotop')
 
+    <!--new-->
+    <p>
+A firewood shed is a structure designed to store and protect firewood from the elements, ensuring it remains dry and ready for use as fuel. These sheds are commonly used by individuals, businesses, or organizations involved in the sale or distribution of firewood for heating purposes. The firewood stored in these sheds is typically cut, seasoned, and ready for burning.</p>
+
+   
+<p> Registration Fee: Rs. 150.00</p>
+   <p> It covers administrative costs associated with processing and approving the registration.</p>
+
+   <p> Annual fee for permit and it's renewal: Rs. 150.00</p>
+   <p> This fee is typically paid during the renewal process, ensuring ongoing compliance with regulations and standards.</p>
+
+    <!--new-->
+    
 </body>
 
 </html>

@@ -13,6 +13,9 @@ use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\RegisteredUserController;
 
 
+/*thilii*/
+use App\Http\Controllers\RatingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -275,3 +278,17 @@ Route::get('/CheckOwnershipChange', [OwnershipChangeController::class, 'CheckOwn
 use App\Http\Controllers\LogsTimberController;
 
 Route::post('/SB_LogsTimber', [LogsTimberController::class, 'store'])->name('logstimbers.store');
+
+
+//thilini
+Route::get('/user/create', [RatingController::class, 'create'])->name('user.create');
+Route::post('/user/store', [RatingController::class, 'store'])->name('user.store');
+Route::get('/', [RatingController::class, 'ViewRating']);
+// web.php
+
+
+
+Route::get('/AdminViewRating', [RatingController::class, 'AdminViewRating']);
+Route::get('/ratings', [RatingController::class, 'AdminViewRating'])->name('admin.AdminViewRating');
+Route::delete('/admin/deleteRating/{id}', [RatingController::class, 'deleteRating'])->name('admin.deleteRating');
+
