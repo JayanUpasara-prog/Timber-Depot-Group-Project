@@ -13,14 +13,29 @@
   }
   </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-
+  <style>
+  body {
+      /* Set the background image */
+      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
+      /* Set background image size */
+      background-size: cover; /* or contain, or specific dimensions */
+      
+      /* Specify background color in case the image is not available or doesn't cover the whole body */
+      background-color: #f0f0f0; /* Choose a suitable background color */
+      
+      /* Other background properties, if needed */
+      background-repeat: no-repeat;
+      background-position: center center;
+      /* Add more styles as necessary */
+    }
+    </style>
 </head>
 <body>
 
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="homepage">
+    <a class="navbar-brand" href="{{ url('/#####') }}">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       <span class="text-success">Forest Department,</span>
       Melsiripura
@@ -31,7 +46,7 @@
     </form>
     <div class="btn-group">
       <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="assets/images/dashboardImg/face.jpg" alt="Profile Photo" class="rounded-circle" width="20" height="20">
+          <img src="{{ Storage::url($user->profile_picture) }}" alt="Profile Photo" class="rounded-circle" width="20" height="20">
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
           <li><a class="dropdown-item" href="#">My Profile</a></li>

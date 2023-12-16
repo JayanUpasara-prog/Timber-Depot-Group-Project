@@ -37,9 +37,9 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div id="logo" class="logo-container" >
-        <a href="homepage"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
+        <a href="{{ url('/#####') }}"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
 
-        <h1><a href="homepage"><span>Forest Department, </span>Sri Lanka</a></h1>
+        <h1><a href="{{ url('/#####') }}"><span>Forest Department, </span>Sri Lanka</a></h1>
   
       </div>
 

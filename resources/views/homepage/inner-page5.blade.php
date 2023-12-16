@@ -24,14 +24,14 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div id="logo" class="logo-container">
-        <a href="homepage"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
+        <a href="{{ url('/#####') }}"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
 
-        <h1><a href="homepage"><span>Forest Department,</span> Melsiripura.</a></h1>
+        <h1><a href="{{ url('/#####') }}"><span>Forest Department,</span> Melsiripura.</a></h1>
        </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="homepage">Home</a></li>
+          <li><a class="nav-link scrollto " href="{{ url('/#####') }}">Home</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -48,7 +48,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>TIMBER SALES OUTLET</h2>
           <ol>
-            <li><a href="homepage">Home</a></li>
+            <li><a href="{{ url('/#####') }}">Home</a></li>
             <li>TIMBER SALES OUTLET</li>
           </ol>
         </div>

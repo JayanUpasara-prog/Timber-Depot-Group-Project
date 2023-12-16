@@ -178,12 +178,15 @@ class Registration extends Controller{
 
     public function CheckRegistration() {
         $CheckRegistration = registeruser::all();
-        return view('admin.CheckRegistration',compact('CheckRegistration'));
+        $user = auth()->user(); // Assuming you have a logged-in user
+        return view('admin.CheckRegistration', compact('CheckRegistration', 'user'));
     }
+    
     
     public function view_record($id) {
         $data = registeruser::find($id);
-        return view('admin.UsersInfo', compact('data'));
+        $user = auth()->user(); // Assuming you have a logged-in user
+        return view('admin.UsersInfo', compact('data','user'));
     }
     
 

@@ -11,7 +11,7 @@
                   </li>
                   <li class="nav-item">
                       <a class="nav-link {{ Request::is('index') ? 'bg-success active' : '' }}" href="index">
-                          View Registration
+                          View Users
                       </a>
                   </li>
                   <li class="nav-item">
@@ -45,8 +45,8 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('CustomerSupport') ? 'bg-success active' : '' }}" href="CustomerSupport">
-                         Customer Support
+                    <a class="nav-link {{ Request::is('admin.AdminViewRating') ? 'bg-success active' : '' }}" href="/ratings">
+                       View Rating
                     </a>
                  </li>
                  <li class="nav-item">
