@@ -166,15 +166,15 @@
                                         <!-- Add more user data fields here as needed -->
                                         <div class="mb-3">
                               <label for="nic" class="form-label">NIC Number</label>
-                              <input type="text" class="form-control" id="nic" value="99xxxxxxxv" readonly>
+                              <input type="text" class="form-control" id="nic" value="{{ $RegisteredUser->idno ?? 'N/A' }}" readonly>
                             </div>
                             <div class="mb-3">
                               <label for="contact" class="form-label">Contact</label>
-                              <input type="text" class="form-control" id="contact" value="0712345678" readonly>
+                              <input type="text" class="form-control" id="contact" value="{{ $RegisteredUser->contact ?? 'N/A' }}" readonly>
                             </div>
                             <div class="mb-3">
                               <label for="address" class="form-label">Address</label>
-                              <input type="text" class="form-control" id="address" value="Srilanka" readonly>
+                              <input type="text" class="form-control" id="address" value="{{ $RegisteredUser->address ?? 'N/A' }}" readonly>
                             </div>
                             <!-- Add more user data fields here as needed -->
                                     </div>

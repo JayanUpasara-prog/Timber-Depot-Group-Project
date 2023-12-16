@@ -22,9 +22,7 @@ class rejectmessage extends Mailable
         }
 
 
-    /**
-     * Get the message envelope.
-     */
+
     public function envelope(): Envelope
     {
         return new Envelope(

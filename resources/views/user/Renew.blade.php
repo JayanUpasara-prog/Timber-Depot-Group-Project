@@ -7,14 +7,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Your custom script here -->
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Initially hide both sections
       document.getElementById('woodenShedDetails').style.display = 'none';
       document.getElementById('mobileSawmillDetails').style.display = 'none';
-
-      // Function to toggle visibility based on the user's choice
       function toggleDetails(selectedOption) {
         if (selectedOption === 'woodenShed') {
           document.getElementById('woodenShedDetails').style.display = 'block';
@@ -23,13 +20,11 @@
           document.getElementById('woodenShedDetails').style.display = 'none';
           document.getElementById('mobileSawmillDetails').style.display = 'block';
         } else {
-          // If no option is selected, hide both sections
           document.getElementById('woodenShedDetails').style.display = 'none';
           document.getElementById('mobileSawmillDetails').style.display = 'none';
         }
       }
 
-      // Event listener for the select element
       document.getElementById('detailsSelector').addEventListener('change', function () {
         toggleDetails(this.value);
       });
@@ -58,6 +53,8 @@
     background: #aaa;
   }
   </style> -->
+  
+  
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   @include('livechat')
 </head>
@@ -81,7 +78,6 @@
           <div class="p-3 mb-2 bg-success text-white"> <h2>Renew</h2>
         </div>
    
-        <!--start from here main division of form-->
         <form action="{{ route('renew.submit') }}" method="POST" id="renew-form">
     @csrf
         <div id="main_div">
@@ -96,7 +92,6 @@
 <li>
 		<div class="mb-3 mt-3">
                 <label for="fullname">Full Name : {{ $RegisteredUser->fname }}</label>                
-                <!-- <input type="text" class="form-control" id="uname" value="{{ $RegisteredUser->fname }}" placeholder="Enter Full Name" name="uname" required> -->
               </div></li>
 
               <li><div class="mb-3 mt-3">
@@ -115,15 +110,13 @@
                   
                   <li><div class="mb-3 mt-3">
                 <label for="nic_no.">National Identity Card No. : {{ $RegisteredUser->idno }}</label>          
-                <!-- <input type="text" class="form-control" id="uname" value="{{ $RegisteredUser->idno }}" placeholder="Enter National Identity Card No." name="uname" required> -->
               </div></li>
               <li><div class="mb-3 mt-3">
-                <label for="amount">Renewal Amount :  {{ $RegisteredUser->nature_value }}</label>          
-                <!-- <input type="text" class="form-control" id="amount" value="Rs:{{ $RegisteredUser->nature_value }}" name="amount"> -->
+                <label for="amount">Renewal Amount :  {{ $RegisteredUser->total }}</label>          
               </div></li>
               
 
-    <!-- <div class="container mt-5">
+    <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -218,7 +211,7 @@
         // Submit the form
         form.submit();
     }
-</script> -->
+</script>
 <div class="col-6">
         <input type="submit" class="btn btn-success" value="Renew">
     </div>

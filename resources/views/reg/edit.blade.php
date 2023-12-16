@@ -15,7 +15,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             
-            min-height: 100vh; /* Ensure the background covers the full viewport height */
+            min-height: 100vh; 
             display: flex;
             align-items: center;
             justify-content: center; 
@@ -26,7 +26,7 @@
         }
         /* Style for the login card */
         .card {
-            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to the card */
+            background-color: rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
@@ -107,9 +107,9 @@
         const showPasswordToggle = document.getElementById('showPasswordToggle');
 
         if (showPasswordToggle.checked) {
-            passwordInput.type = 'text'; // Change to text to reveal the password
+            passwordInput.type = 'text'; 
         } else {
-            passwordInput.type = 'password'; // Change back to password to mask the password
+            passwordInput.type = 'password'; 
         }
     }
 </script>
