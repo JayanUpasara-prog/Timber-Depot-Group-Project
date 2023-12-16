@@ -1,3 +1,33 @@
+/* Style for Vision and Mission sections */
+.inner-page {
+  background-color: #b8d9a5; /* Light background color */
+  padding: 40px 0; /* Padding on the top and bottom */
+  border: 1px solid #dcdcdc; /* Light border color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  text-align: center; /* Center-align text */
+  margin: 40px 0; /* Margin on all sides */
+}
+
+.inner-page h2 {
+  font-size: 36px; /* Larger font size for headings */
+  color: #343a40; /* Dark text color */
+  font-weight: bold; /* Bold font weight */
+}
+
+.inner-page p {
+  font-size: 18px; /* Regular font size for paragraphs */
+  line-height: 1.6; /* Line height for readability */
+  color: #343a40; /* Slightly muted text color */
+}
+
+/* Responsive margin */
+@media (min-width: 768px) {
+  .inner-page {
+    margin: 60px 0; /* Increased margin on larger screens */
+  }
+}
+
 body {
   background: url('../img/b3.jpg') no-repeat center center fixed;
   background-size: cover;

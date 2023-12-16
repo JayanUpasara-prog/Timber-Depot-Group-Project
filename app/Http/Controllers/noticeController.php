@@ -41,6 +41,8 @@ public function viewNotice() {
     $viewNotice = noticeAndGazette::all();
     return view('homepage.inner-page2',compact('viewNotice'));
 }
+
+
 }
 // app/Http/Controllers/NoticeController.php
 

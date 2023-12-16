@@ -193,6 +193,9 @@ Route::get('/WildCriminals', [RegistrationController::class, 'WildCriminals'])->
 Route::post('/WildCriminalsPost', [RegistrationController::class, 'WildCriminalsPost'])->name('admin.WildCriminalsPost');
 Route::get('/CriminalView', [RegistrationController::class, 'CriminalView'])->name('admin.CriminalView');
 Route::delete('/destroyCriminal/{criminal}', [RegistrationController::class, 'destroyCriminal'])->name('admin.destroyCriminal');
+
+Route::get('/Logout', [RegistrationController::class, 'Logoutnew'])->name('admin.Logout');
+
 });
 
 
@@ -292,4 +295,6 @@ Route::get('/', [RatingController::class, 'ViewRating']);
 Route::get('/AdminViewRating', [RatingController::class, 'AdminViewRating']);
 Route::get('/ratings', [RatingController::class, 'AdminViewRating'])->name('admin.AdminViewRating');
 Route::delete('/admin/deleteRating/{id}', [RatingController::class, 'deleteRating'])->name('admin.deleteRating');
+
+Route::get('/homepage/homepage', [RatingController::class, 'ViewRating'])->name('homepage.homepage');
 

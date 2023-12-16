@@ -98,7 +98,8 @@ class RegisteredUserController extends Controller
 
     public function ViewRegisteredRecords(){
         $ViewRegisteredRecords=RegisteredUser::all();
-        return view('admin.ViewRegisteredUsers',compact('ViewRegisteredRecords'));
+        $user = auth()->user(); // Assuming you have a logged-in user
+        return view('admin.ViewRegisteredUsers',compact('ViewRegisteredRecords','user'));
     }
 
     public function ViewRecords($id){

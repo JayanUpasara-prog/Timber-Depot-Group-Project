@@ -14,6 +14,23 @@
   </style> -->
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   @include('livechat')
+  
+  <style>
+  body {
+      /* Set the background image */
+      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
+      /* Set background image size */
+      background-size: cover; /* or contain, or specific dimensions */
+      
+      /* Specify background color in case the image is not available or doesn't cover the whole body */
+      background-color: #f0f0f0; /* Choose a suitable background color */
+      
+      /* Other background properties, if needed */
+      background-repeat: no-repeat;
+      background-position: center center;
+      /* Add more styles as necessary */
+    }
+    </style>
 </head>
 <body>
 
@@ -152,7 +169,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">User Information</h5>
                                         <div class="mb-3">
-                                            <label for="fullName" class="form-label">Full Name</label>
+                                            <label for="fullName" class="form-label">User Name</label>
                                             <input type="text" class="form-control" id="fullName"
                                                 value="{{ $user->name }}" readonly>
                                         </div>
@@ -164,15 +181,15 @@
                                         <!-- Add more user data fields here as needed -->
                                         <div class="mb-3">
                               <label for="nic" class="form-label">NIC Number</label>
-                              <input type="text" class="form-control" id="nic" value="99xxxxxxxv" readonly>
+                              <input type="text" class="form-control" id="nic" value="200000702767" readonly>
                             </div>
                             <div class="mb-3">
                               <label for="contact" class="form-label">Contact</label>
-                              <input type="text" class="form-control" id="contact" value="0712345678" readonly>
+                              <input type="text" class="form-control" id="contact" value="0713316064" readonly>
                             </div>
                             <div class="mb-3">
                               <label for="address" class="form-label">Address</label>
-                              <input type="text" class="form-control" id="address" value="Srilanka" readonly>
+                              <input type="text" class="form-control" id="address" value="547/B, School Lane, Hasalaka, Mahiyanganaya" readonly>
                             </div>
                             <!-- Add more user data fields here as needed -->
                                     </div>

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Rating;
+use App\Models\User;
 
 class RatingController extends Controller
 {
     public function create()
     {
-        return view('user.create');
+        $user = Auth::user();
+        return view('user.create',compact('user'));
     }
 
     public function store(Request $request)
@@ -39,8 +42,8 @@ class RatingController extends Controller
 public function AdminViewRating()
 {
     $ratings = Rating::latest()->take(30)->get();
-
-    return view('admin.AdminViewRating', compact('ratings'));
+    $user = auth()->user(); // Assuming you have a logged-in user
+    return view('admin.AdminViewRating', compact('ratings','user'));
 }
 
 public function deleteRating($id)
@@ -56,6 +59,7 @@ public function deleteRating($id)
     return redirect()->route('admin.AdminViewRating')->with('success', 'Rating deleted successfully');
 }
 
-//change
+
+
     
 }

@@ -1,8 +1,11 @@
+
+
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background: #2a2c30;
+  background: #042502;
   padding-top: 50px;
 }
 
@@ -49,19 +52,7 @@
   padding-top: 0;
   text-decoration: none;
   letter-spacing: 0;
-}
- 
-.hidden {
-  display: none;
-}
 
-#selectedItemsTable{
-width: 60%;
-border-collapse: collapse;
-color: blue;
 
-}
 
-th{
-color: black;
 }

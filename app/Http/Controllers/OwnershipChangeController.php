@@ -74,7 +74,8 @@ class OwnershipChangeController extends Controller
     public function CheckOwnershipChange()
     {
         $CheckOwnershipChange = OwnershipChange::all();
-        return view('admin.CheckOwnershipChange',compact('CheckOwnershipChange'));
+        $user = auth()->user(); // Assuming you have a logged-in user
+        return view('admin.CheckOwnershipChange',compact('CheckOwnershipChange','user'));
     }
 
 

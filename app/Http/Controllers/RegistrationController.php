@@ -16,11 +16,17 @@ class RegistrationController extends Controller
 {
 
     //show data part
-    public function index()
-    {
-        $registrations = User::all(); 
-        return view('reg.index', ['registrations' => $registrations]);
+    //show data part
+public function index()
+{
+    $registrations = User::all();
+    $user = []; // Add this line to define $user
+    if (Session::has('loginId')) {
+        $user = User::where('id', '=', Session::get('loginId'))->first();
     }
+    return view('reg.index', ['registrations' => $registrations, 'user' => $user]);
+}
+
 
     //register form
     public function register()
@@ -298,6 +304,30 @@ class RegistrationController extends Controller
         return view('user.UserLogout', compact('user'));
     }
 
+    public function checkout(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.checkout', compact('user'));
+    }
+
+    public function create(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('user.create', compact('user'));
+    }
+
+    
+
+   
+
      //admin dashboard
      public function AdminDashboard(){
     
@@ -310,15 +340,25 @@ class RegistrationController extends Controller
         return view('admin.AdminDashboard', compact('user'));
     }
 
-    public function CheckRegistration(){
+    // public function CheckRegistration(){
     
-        $user = array();
-        if(Session::has('loginId')){
-            $user = User::where('id','=', Session::get('loginId'))->first();
+    //     $user = array();
+    //     if(Session::has('loginId')){
+    //         $user = User::where('id','=', Session::get('loginId'))->first();
 
-            }
+    //         }
+    //     return view('admin.CheckRegistration', compact('user'));
+    // }
+
+    public function CheckRegistration() {
+        $user = array();
+        if (Session::has('loginId')) {
+            $user = User::where('id', '=', Session::get('loginId'))->first();
+        }
+    
         return view('admin.CheckRegistration', compact('user'));
     }
+    
 
     public function CheckRenew(){
     
@@ -378,6 +418,16 @@ class RegistrationController extends Controller
 
             }
         return view('admin.WildCriminals', compact('user'));
+    }
+
+    public function Logoutnew(){
+    
+        $user = array();
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
+        return view('admin.Logout', compact('user'));
     }
 
     public function WildCriminalsPost(Request $request)
@@ -502,6 +552,18 @@ public function showCheckCriminal(Request $request)
 
     return view('admin.CriminalView', compact('criminals'));
 }
+
+public function CheckRegistrationnew() {
+    $user = array();
+    if (Session::has('loginId')) {
+        $user = User::where('id', '=', Session::get('loginId'))->first();
+    }
+
+    return view('admin.CheckRegistration', compact('user'));
+}            
+
+
+
 
 
 }
