@@ -59,12 +59,16 @@
       @include('userSideNav')
 
       <!-- Main Content -->
+
+
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="container mt-3">
           <div class="p-3 mb-2 bg-success text-white"> <h2>Renew</h2>
         </div>
    
         <!--start from here main division of form-->
+        <form action="{{ route('renew.submit') }}" method="POST" id="renew-form">
+    @csrf
         <div id="main_div">
           <h4>Renewal the registration of a woodshed </h4>
 
@@ -79,11 +83,19 @@
                 <label for="fullname">Full Name : {{ $RegisteredUser->fname }}</label>                
                 <!-- <input type="text" class="form-control" id="uname" value="{{ $RegisteredUser->fname }}" placeholder="Enter Full Name" name="uname" required> -->
               </div></li>
+
+              <li><div class="mb-3 mt-3">
+                <label for="address">Email : {{ $RegisteredUser->Email }}</label>
+                <div class="row">
+                  <div class="col">
+                   
+                  </div></li>
+
               <li><div class="mb-3 mt-3">
                 <label for="address">Permanent Address : {{ $RegisteredUser->address }}</label>
                 <div class="row">
                   <div class="col">
-                    <!-- <input type="text" class="form-control" value="{{ $RegisteredUser->address }}" placeholder="Address" required> -->
+                   
                   </div></li>
                   
                   <li><div class="mb-3 mt-3">
@@ -96,7 +108,7 @@
               </div></li>
               
 
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -191,7 +203,7 @@
         // Submit the form
         form.submit();
     }
-</script>
+</script> -->
 <div class="col-6">
         <input type="submit" class="btn btn-success" value="Renew">
     </div>

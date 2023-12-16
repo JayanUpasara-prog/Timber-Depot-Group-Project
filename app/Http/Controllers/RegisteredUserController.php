@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\AcceptanceMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\RegisteredUser;
-
+use App\Mail\renewMail;
 use App\Models\User;
 use App\Models\registeruser;
 use Illuminate\Support\Facades\Mail;
@@ -119,6 +119,15 @@ class RegisteredUserController extends Controller
         return view('user.renew', compact('user', 'RegisteredUser'));
     }
     
+    public function submitRenewal(Request $request) {
+        $user = auth()->user();
+    $RegisteredUser = RegisteredUser::where('Email', $user->email)->first();
+    Mail::to($user->email)->send(new renewMail($RegisteredUser));
+
+    // Redirect or return a response as needed
+    return redirect('/UserDashboard')->with('success', 'Renewal successful! Email sent.');
+    }
+
     public function search(Request $request)
     {
         $searchTerm = $request->input('search');

@@ -138,6 +138,7 @@ Route::get('/PermitRequest', [RegistrationController::class, 'PermitRequest'])->
 Route::get('/Registration', [RegistrationController::class, 'Registration'])->name('Registration');
 //Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
 Route::get('/Renew', [RegisteredUserController::class, 'showProfile'])->name('user.renew');
+Route::post('/Renew/Submit', [RegisteredUserController::class, 'submitRenewal'])->name('renew.submit');
 Route::get('/SB_LogsTimber', [RegistrationController::class, 'SB_LogsTimber'])->name('SB_LogsTimber');
 Route::get('/SB_SawnTimber', [RegistrationController::class, 'SB_SawnTimber'])->name('SB_SawnTimber');
 Route::get('/SB_UpdateLogsTimber', [RegistrationController::class, 'SB_UpdateLogsTimber'])->name('SB_UpdateLogsTimber');
@@ -165,7 +166,7 @@ Route::get('/accept/{id}',[RegisteredUserController::class,'saveUsers'])->name('
 Route::post('/send', [RegisteredUserController::class, 'send'])->name('reject.send');
 Route::get('ViewRegisteredRecords', [RegisteredUserController::class, 'ViewRegisteredRecords']);
 Route::get('ViewRecords/{id}', [RegisteredUserController::class, 'ViewRecords']);
-Route::post('acceptance/{id}', [Registration::class, 'handleAcceptance'])->name('acceptance.handle');
+Route::post('acceptance/{id}', [RegisteredUserController::class, 'handleAcceptance'])->name('acceptance.handle');
 //Route::post('acceptance/{id}', [RegisteredUserController::class, 'saveUsers'])->name('CheckRegistration');
 
 //Route::get('CriminalView/{id}', [Registration::class, 'CheckUser']);
