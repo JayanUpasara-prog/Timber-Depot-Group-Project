@@ -31,11 +31,16 @@ class RegistrationController extends Controller
     //register part
     public function store(Request $request) {
         $data = $request->validate([
-            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'name' => 'required|regex:/^[a-zA-Z\s.]+$/',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|max:12',
+            
             'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
-        ]);
+      
+            'password' => ['required', 'min:8', 'max:12', function ($attribute, $value, $fail) {
+                if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$/', $value)) {
+                    $fail("The password must contain as required ");
+                }
+            }]        ]);
     
         $user = new User();
         $user->name = $request->name;
@@ -75,10 +80,16 @@ class RegistrationController extends Controller
     public function update(User $registration, Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'name' => 'required|regex:/^[a-zA-Z\s.]+$/',
             'email' => 'required|email|unique:users,email,' . $registration->id,
-            'password' => 'nullable|min:8|max:12', 
+            'password' => ['required', 'min:8', 'max:12', function ($attribute, $value, $fail) {
+                if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$/', $value)) {
+                    $fail("The password must contain as required ");
+                }
+            }]
+            
         ]);
+        
     
         
         $registration->name = $data['name'];
@@ -373,7 +384,21 @@ class RegistrationController extends Controller
 {
     
     $wild = $request->validate([
-       'idnum' => 'required',
+       'idnum' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    // Check if the ID number has 10 digits and starts with a non-zero digit and ends with 'v'
+                    if (!preg_match('/^[1-9][0-9]{8}v$/i', $value)) {
+                        // Check if the ID number has 12 digits and all digits are numbers
+                        if (!preg_match('/^[0-9]{12}$/', $value)) {
+                            $fail("The NIC Number format is invalid. Please enter a valid format.");
+                        }
+                    }
+                },
+            ],
+            'name' => 'required|regex:/^[a-zA-Z\s.]+$/'
+
+
        
     ]);
 

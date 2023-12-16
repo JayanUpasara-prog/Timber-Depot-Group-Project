@@ -124,9 +124,10 @@
                         <div class="mb-3">
                           <label for="name" class="form-label">Name</label>
                           <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
-                          <span class="text-danger">@error('name') {{ $message }} @enderror</span>
+                          <span class="text-danger">@error('name') <span class="text-danger">The name may only contain letters, spaces, and dots.</span> @enderror</span>
                         </div>
 
+                        
                         <div class="mb-3">
                           <label for="idnum" class="form-label">NIC Number</label>
                           <input type="text" class="form-control" id="idnum" name="idnum" placeholder="Enter NIC" required>

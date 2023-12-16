@@ -78,7 +78,7 @@
                                     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" pattern="[A-Za-z\s]+" required title="Name should contain only alphabetic characters and spaces.">
-        <span class="text-danger">@error('name') {{ $message }} @enderror</span>
+        <span class="text-danger">@error('name') <span class="text-danger">The name may only contain letters, spaces, and dots.</span> @enderror</span>
     </div>
 
                                     <div class="mb-3">
@@ -90,6 +90,9 @@
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password" name="password"
                                             placeholder="Password" required>
+                                            <span id="password-help" class="form-text text-muted">
+        The password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+    </span><br>
                                         <span class="text-danger">@error('password') {{$message}} @enderror</span>
                                         <br>
                                         <input type="checkbox" id="showPasswordToggle"

@@ -30,17 +30,9 @@
         }
     </style>
 </head>
-<body>
+<body class="">
 
- <div>
-        @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div> 
+ 
 
 <div class="container mt-5">
     <div class="row justify-content-center align-items-center">
@@ -52,13 +44,20 @@
                 </div>
                 <div class="card-body">
                     <form id="registrationForm" method="post" action="{{route('reg.update', ['registration' => $registration])}}">
-                        @csrf
-                        @method("put")
+                        @if(Session::has('success'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('fail'))
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                    @endif
+                                    @csrf
+                                    @method("put")
 
                         
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control"  name="name" value="{{$registration -> name}}" placeholder="Enter your name" required>
+                            <span class="text-danger">@error('name') <span class="text-danger">The name may only contain letters, spaces, and dots.</span> @enderror</span>
                         </div>
 
                         <div class="mb-3">
@@ -71,6 +70,11 @@
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="8" pattern=".{8,}" title="Password should contain at least 8 characters" required>
+                            <span id="password-help" class="form-text text-muted">
+        The password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+    </span><br>
+                            <span class="text-danger">@error('password') {{$message}} @enderror</span><br>
+                                
                             <input type="checkbox" id="showPasswordToggle" onclick="togglePasswordVisibility()">
                             <label for="showPasswordToggle">Show Password</label>
                         </div>
