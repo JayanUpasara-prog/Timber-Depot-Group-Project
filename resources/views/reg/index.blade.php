@@ -7,12 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  </style> -->
+ 
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   <style>
   body {
@@ -114,7 +109,7 @@
                                         var result = window.confirm("Are you sure you want to delete this record?");
 
                                         if (result) {
-                                            // User clicked "OK", update the form action with the correct ID
+                                           
                                             document.getElementById('deleteForm').action = "{{ url('destroy') }}" + '/' + id;
                                             document.getElementById('deleteForm').submit();
                                         } else {

@@ -111,8 +111,7 @@
 
     <div class="col-md-6">
         <label for="email">Email:</label>
-        <input type="email" class="" id="Email" name="Email" required style="height: 40px; width: 100%;">
-        <span style="color:red">@error('Email'){{$message}}@enderror</span>
+        <input type="email" class="" id="Email"  value="{{ $user->email }}" name="Email" readonly required style="height: 40px; width: 100%;">
     </div>
 
 

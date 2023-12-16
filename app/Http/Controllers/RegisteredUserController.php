@@ -69,6 +69,7 @@ class RegisteredUserController extends Controller
             'Lgovernment'=> $data->Lgovernment,
             'recom'=> $data->recom,
             'nature_value' => json_encode($data->nature_value),
+            'total'=>$data->total,
         ]);
 
         $RegisteredUser->save();

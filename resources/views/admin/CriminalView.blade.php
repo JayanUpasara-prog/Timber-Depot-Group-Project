@@ -92,7 +92,7 @@
                                         var result = window.confirm("Are you sure you want to delete this record?");
 
                                         if (result) {
-                                            // User clicked "OK", update the form action with the correct ID
+                                           
                                             document.getElementById('deleteForm').action = "{{ url('destroyCriminal') }}" + '/' + id;
                                             document.getElementById('deleteForm').submit();
                                         } else {

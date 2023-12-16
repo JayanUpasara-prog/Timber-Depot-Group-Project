@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\WildCriminal;
+use App\Models\RegisteredUser;
+use App\Models\registeruser;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
@@ -15,14 +18,15 @@ use Illuminate\Support\Facades\Storage;
 class RegistrationController extends Controller
 {
 
-    //show data part
+
     //show data part
 public function index()
 {
     $registrations = User::all();
-    $user = []; // Add this line to define $user
+    $user = []; 
     if (Session::has('loginId')) {
         $user = User::where('id', '=', Session::get('loginId'))->first();
+
     }
     return view('reg.index', ['registrations' => $registrations, 'user' => $user]);
 }
@@ -34,7 +38,8 @@ public function index()
         return view('reg.register');
     }
 
-    //register part
+
+    //register store part
     public function store(Request $request) {
         $data = $request->validate([
             'name' => 'required|regex:/^[a-zA-Z\s.]+$/',
@@ -52,12 +57,6 @@ public function index()
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        
-    
-        // if ($request->hasFile('profile_picture')) {
-        //     $profilePicture = $request->file('profile_picture')->store('profile_pictures', 'public');
-        //     $user->profile_picture = $profilePicture;
-        // }
 
 
         $existingUser = User::where('email', $request->email)->first();
@@ -140,11 +139,9 @@ public function index()
         'password' => $request->password
     ];
 
-    // Attempt to authenticate using Auth::attempt()
     if (Auth::attempt($credentials)) {
         $user = Auth::user();
 
-        // Set session and redirect based on the user's role
         if ($user->role == '0') {
             $redirectRoute = 'UserDashboard';
             $message = 'User login success';
@@ -158,9 +155,6 @@ public function index()
         return redirect($redirectRoute)->with('success', $message);
     }
 
-    // Authentication failed with Auth::attempt()
-    
-    // Manually retrieve the user for additional checks
     $user = User::where('email', $request->email)->first();
 
     if ($user) {
@@ -173,28 +167,18 @@ public function index()
 
     //user dashboard
     public function UserDashboard(){
-    
         $user = array();
+        if(auth()->check()) {
+            $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
+        }
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
             }
         
-        return view('user.UserDashboard', compact('user'));
-    }
+            return view('user.UserDashboard', compact('user', 'RegisteredUser'));
+        }
     
-
-   
-
-    // public function AdminDashboard(){
-    
-    //     $user = array();
-    //     if(Session::has('loginId')){
-    //         $user = User::where('id','=', Session::get('loginId'))->first();
-
-    //         }
-    //     return view('admin.AdminDashboard', compact('user'));
-    // }
 
     public function Help(){
     
@@ -304,34 +288,13 @@ public function index()
         return view('user.UserLogout', compact('user'));
     }
 
-    public function checkout(){
-    
-        $user = array();
-        if(Session::has('loginId')){
-            $user = User::where('id','=', Session::get('loginId'))->first();
-
-            }
-        return view('user.checkout', compact('user'));
-    }
-
-    public function create(){
-    
-        $user = array();
-        if(Session::has('loginId')){
-            $user = User::where('id','=', Session::get('loginId'))->first();
-
-            }
-        return view('user.create', compact('user'));
-    }
-
-    
-
-   
-
      //admin dashboard
      public function AdminDashboard(){
     
         $user = array();
+        if(auth()->check()) {
+            $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
+        }
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
@@ -340,25 +303,19 @@ public function index()
         return view('admin.AdminDashboard', compact('user'));
     }
 
-    // public function CheckRegistration(){
+
     
-    //     $user = array();
-    //     if(Session::has('loginId')){
-    //         $user = User::where('id','=', Session::get('loginId'))->first();
 
-    //         }
-    //     return view('admin.CheckRegistration', compact('user'));
-    // }
-
+    
     public function CheckRegistration() {
+
         $user = array();
-        if (Session::has('loginId')) {
-            $user = User::where('id', '=', Session::get('loginId'))->first();
-        }
-    
+        if(Session::has('loginId')){
+            $user = User::where('id','=', Session::get('loginId'))->first();
+
+            }
         return view('admin.CheckRegistration', compact('user'));
     }
-    
 
     public function CheckRenew(){
     
@@ -420,16 +377,6 @@ public function index()
         return view('admin.WildCriminals', compact('user'));
     }
 
-    public function Logoutnew(){
-    
-        $user = array();
-        if(Session::has('loginId')){
-            $user = User::where('id','=', Session::get('loginId'))->first();
-
-            }
-        return view('admin.Logout', compact('user'));
-    }
-
     public function WildCriminalsPost(Request $request)
 {
     
@@ -437,9 +384,9 @@ public function index()
        'idnum' => [
                 'required',
                 function ($attribute, $value, $fail) {
-                    // Check if the ID number has 10 digits and starts with a non-zero digit and ends with 'v'
+                    
                     if (!preg_match('/^[1-9][0-9]{8}v$/i', $value)) {
-                        // Check if the ID number has 12 digits and all digits are numbers
+                        
                         if (!preg_match('/^[0-9]{12}$/', $value)) {
                             $fail("The NIC Number format is invalid. Please enter a valid format.");
                         }
@@ -486,21 +433,18 @@ public function CriminalView(){
         }
     }
 
-    // app/Http/Controllers/YourController.php
-
-
 
 public function search(Request $request)
 {
     $searchTerm = $request->input('search');
 
-    // Perform the search using your model
+   
     $searchResults = User::where('id', 'like', "%$searchTerm%")
         ->orWhere('name', 'like', "%$searchTerm%")
         ->orWhere('email', 'like', "%$searchTerm%")
         ->get();
 
-    // Pass the results to your view
+   
     return view('reg.index', ['registrations' => $searchResults]);
 }
 
@@ -509,31 +453,23 @@ public function editProfilePicture()
         $user = Auth::user();
         return view('editProfilePicture', compact('user'));
     }
-
-    /**
-     * Update the user's profile picture.
-     */
     public function updateProfilePicture(Request $request)
 {
-    // Validate the incoming request data
+    
     $request->validate([
-        'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
+        'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
     ]);
 
-    // Get the authenticated user
+    
     $user = Auth::user();
 
-    // Check if a profile picture is uploaded
     if ($request->hasFile('profile_picture')) {
-        // Store the new profile picture in the storage folder
         $profilePicture = $request->file('profile_picture')->store('profile_pictures', 'public');
 
-        // Update the user's profile_picture column in the database
         $user->update([
             'profile_picture' => $profilePicture,
         ]);
     }
-    // Fetch the user again to ensure the updated profile_picture is available
     $user = Auth::user();
 
     return redirect()->back()->with('success', 'Profile picture updated successfully!');
@@ -552,18 +488,6 @@ public function showCheckCriminal(Request $request)
 
     return view('admin.CriminalView', compact('criminals'));
 }
-
-public function CheckRegistrationnew() {
-    $user = array();
-    if (Session::has('loginId')) {
-        $user = User::where('id', '=', Session::get('loginId'))->first();
-    }
-
-    return view('admin.CheckRegistration', compact('user'));
-}            
-
-
-
 
 
 }
