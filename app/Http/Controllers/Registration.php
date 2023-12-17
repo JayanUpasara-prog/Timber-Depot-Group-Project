@@ -38,11 +38,7 @@ class Registration extends Controller{
                 },
             ],
 
-            // 'district' => 'required|regex:/^[a-zA-Z\s.]+$/',
-            // 'DSsection' => 'required|regex:/^[a-zA-Z\s.]+$/',
-            // 'gnKottasaya' => 'required|regex:/^[a-zA-Z\s.]+$/',
-            // 'Lgovernment' => 'required|regex:/^[a-zA-Z\s.]+$/',
-            // 'ownerofland' => 'required|regex:/^[a-zA-Z\s.]+$/',
+
             'contact' => 'required|regex:/^0[0-9]{9}$/',
             'Email' => 'required|email|unique:registerusers',
             'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', 
