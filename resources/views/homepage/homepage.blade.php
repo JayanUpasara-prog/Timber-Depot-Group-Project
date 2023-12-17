@@ -108,7 +108,7 @@
             <div class="feature-block">
 
               <img src="assets/img/trees.png" alt="img">
-              <h4>Forests around Melsiripura area.</h4>
+              <h4>Forests </h4>
               <p>Manage forest resources to ensure sustainable timber production for future needs.</p>
               <a href="inner-page3">read more</a>
 
