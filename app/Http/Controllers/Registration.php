@@ -38,7 +38,7 @@ class Registration extends Controller{
                 },
             ],
 
-        
+
             'contact' => 'required|regex:/^0[0-9]{9}$/',
             'Email' => 'required|email|unique:registerusers',
             'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', 
