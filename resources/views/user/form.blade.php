@@ -135,9 +135,6 @@ button:hover{
 </head>
 <body>
 
-@include('userHeadNav')
-
-
 <br>
 <div class="container-fluid">
   <div class="row">
@@ -180,7 +177,7 @@ button:hover{
 <br>
 
 <label for="email">Email:</label>
-<input type="text" name="email"  value="{{ $user->email }}" readonly required>
+<input type="text" name="email"  required>
 
 <br>
 

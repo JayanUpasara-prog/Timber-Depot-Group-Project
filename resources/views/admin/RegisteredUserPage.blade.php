@@ -342,8 +342,13 @@
         </tr>
 
         <tr>
-            <td>Values</td>
-            <td>{{ $data->nature_value }}</td>
+            <td>Total Value</td>
+            <td>{{ $data->total }}</td>
+            
+        </tr>
+        <tr>
+            <td>Registered Date</td>
+            <td>{{ $data->registration_date }}</td>
             
         </tr>
         <!-- Add more rows as needed -->

@@ -35,7 +35,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('CheckPermitRequest') ? 'bg-success active' : '' }}" href="CheckPermitRequest">
+                    <a class="nav-link {{ Request::is('ViewPermitRequests') ? 'bg-success active' : '' }}" href="ViewPermitRequests">
                       Check Permit Request
                     </a>
                   </li>

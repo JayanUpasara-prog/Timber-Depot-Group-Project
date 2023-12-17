@@ -336,7 +336,13 @@
     Uplord Bank Slip:<br><input type="file" name="payment" id="payment" >
     <!--<input type="submit" value="Upload File" >--><br><br>
   
+    <label for="date">Date:</label>
+        <input type="date" id="registration_date" name="registration_date" required>
 
+        <script>
+            // Auto-fill the date field with the current date
+            document.getElementById('registration_date').valueAsDate = new Date();
+        </script>
     
       <table> 
       <tr>
