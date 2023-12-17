@@ -31,7 +31,7 @@ class PermitRequestController extends Controller
     {
     
         
-        // Validation rules for the PermitRequest module
+        
         $request->validate([
             'national_id_number' => 'required|string|max:255',
             'contact_number' => 'required|string|max:255',
@@ -46,10 +46,10 @@ class PermitRequestController extends Controller
             'thickness' => 'required|numeric',
             'count' => 'required|integer',
         ], [
-            // Add custom error messages if needed...
+           
         ]);
 
-        // Process and store data for the PermitRequest module
+       
         $permitRequest = new PermitRequest([
             'id'=>$request->input('id'),
             'national_id_number' => $request->input('national_id_number'),
@@ -71,7 +71,7 @@ class PermitRequestController extends Controller
         //dd($permitRequest);
 
        
-        // Redirect with success message
+       
         return back()->with('success', 'Permit request stored successfully.');
     }
 
@@ -83,7 +83,7 @@ class PermitRequestController extends Controller
 
     public function viewPermitRecord($id) {
         $data = PermitRequest::find($id);
-        $user = auth()->user(); // Assuming you have a logged-in user
+        $user = auth()->user(); 
         return view('admin.PermitRequestsInfo', compact('data','user'));
     }
     
@@ -95,8 +95,8 @@ class PermitRequestController extends Controller
             'national_id_number' => $data->national_id_number,
             'contact_number' => $data->contact_number,
             'email' => $data->email,
-            'traveling_date' => $data->traveling_date,// Store the file path
-            'traveling_distance' => $data->traveling_distance, // Store the file path
+            'traveling_date' => $data->traveling_date,
+            'traveling_distance' => $data->traveling_distance, 
             'receiver_address' => $data->receiver_address,
             'vehicle_number' => $data->vehicle_number,
             'timber_type'=> $data->timber_type,

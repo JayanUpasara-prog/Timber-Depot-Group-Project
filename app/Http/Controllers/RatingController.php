@@ -38,11 +38,11 @@ class RatingController extends Controller
     return view('homepage.homepage', compact('ratings'));
 }
 
-//change
+
 public function AdminViewRating()
 {
     $ratings = Rating::latest()->take(30)->get();
-    $user = auth()->user(); // Assuming you have a logged-in user
+    $user = auth()->user(); 
     return view('admin.AdminViewRating', compact('ratings','user'));
 }
 

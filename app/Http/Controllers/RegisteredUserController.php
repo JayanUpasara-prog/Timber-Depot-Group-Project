@@ -46,8 +46,8 @@ class RegisteredUserController extends Controller
             'idno' => $data->idno,
             'fname' => $data->fname,
             'address' => $data->address,
-            'fnic' => $data->fnic,// Store the file path
-            'bnic' => $data->bnic, // Store the file path
+            'fnic' => $data->fnic,
+            'bnic' => $data->bnic, 
             'contact' => $data->contact,
             'Email' => $data->Email,
             'RegNoT'=> $data->RegNoT,
@@ -80,7 +80,7 @@ class RegisteredUserController extends Controller
         $user = registeruser::find($id);
         Mail::to($user->Email)->send(new AcceptanceMail());
 
-        // Remove the user from the registeruser table
+        
         $data = registeruser::find($id);
         $data->delete();
         return redirect('/CheckRegistration')->with('success', 'Form accepted and email sent to the user.');
@@ -102,14 +102,14 @@ class RegisteredUserController extends Controller
 
     public function ViewRegisteredRecords(){
         $ViewRegisteredRecords=RegisteredUser::all();
-        $user = auth()->user(); // Assuming you have a logged-in user
+        $user = auth()->user(); 
         return view('admin.ViewRegisteredUsers',compact('ViewRegisteredRecords','user'));
     }
 
     public function ViewRecords($id){
         $data = RegisteredUser::find($id);
-        $user = auth()->user(); // Assuming you have a logged-in user
-       // dd($data); // Debugging line
+        $user = auth()->user(); 
+       // dd($data); 
         return view('admin.RegisteredUserPage', compact('data','user'));
     }
     
@@ -129,15 +129,14 @@ class RegisteredUserController extends Controller
         $user = auth()->user();
         $RegisteredUser = RegisteredUser::where('Email', $user->email)->first();
     
-        // Update the registration_date in the registered_users table
-        $RegisteredUser->registration_date = now(); // Use the current date as the new registration date
+       
+        $RegisteredUser->registration_date = now(); 
     
-        // Save the changes
+       
         $RegisteredUser->save();
     
         Mail::to($user->email)->send(new renewMail($RegisteredUser));
     
-// Flash data to the session to indicate successful submission
 return redirect()
 ->route('user.renewCheckout')
 ->with('success', 'Renewal Pending & Redirect to Payment.')
@@ -149,19 +148,19 @@ return redirect()
     {
         $searchTerm = $request->input('search');
     
-        // Perform the search using your model
+       
         $searchResults = RegisteredUser::where('id', 'like', "%$searchTerm%")
             ->orWhere('idno', 'like', "%$searchTerm%")
             ->orWhere('fname', 'like', "%$searchTerm%")
             ->get();
     
-        // Pass the results to your view
+       
         return view('admin.ViewRegisteredUsers', ['ViewRegisteredRecords' => $searchResults]);
     }
 
 
     public function showRenewCheckout() {
-        // You can add any necessary logic here
+        
         return view('user.renewCheckout');
     }
     

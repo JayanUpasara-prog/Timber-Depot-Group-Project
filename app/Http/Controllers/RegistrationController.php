@@ -19,7 +19,7 @@ class RegistrationController extends Controller
 {
 
 
-    //show data part
+   
 public function index()
 {
     $registrations = User::all();
@@ -32,20 +32,20 @@ public function index()
 }
 
 
-    //register form
+    
     public function register()
     {
         return view('reg.register');
     }
 
 
-    //register store part
+   
     public function store(Request $request) {
         $data = $request->validate([
             'name' => 'required|regex:/^[a-zA-Z\s.]+$/',
             'email' => 'required|email|unique:users,email',
             
-            'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
+            'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
       
             'password' => ['required', 'min:8', 'max:12', function ($attribute, $value, $fail) {
                 if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$/', $value)) {

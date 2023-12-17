@@ -25,9 +25,9 @@ class RegisterUserController extends Controller
             'idno' => [
                 'required',
                 function ($attribute, $value, $fail) {
-                    // Check if the ID number has 10 digits and starts with a non-zero digit and ends with 'v'
+                   
                     if (!preg_match('/^[1-9][0-9]{8}v$/i', $value)) {
-                        // Check if the ID number has 12 digits and all digits are numbers
+                       
                         if (!preg_match('/^[0-9]{12}$/', $value)) {
                             $fail("The NIC Number format is invalid. Please enter a valid format.");
                         }
@@ -36,9 +36,9 @@ class RegisterUserController extends Controller
             ],
             'contact' => 'required|regex:/^0[0-9]{9}$/',
             'Email' => 'required|email|unique:persanolinfos',
-            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', // Adjust the allowed file types and maximum size as needed
+            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', 
             'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096',
-    // Other validation rules go here...
+   
         ]
 
         
@@ -55,10 +55,10 @@ class RegisterUserController extends Controller
             'bnic.max' => 'The Back Image of NIC should not exceed 2048 KB in size',
         ]);
 
-   // Validate and store fnic image
+  
 $fnicPath = $req->file('fnic')->store('uploads', 'public');
 
-// Validate and store bnic image
+
 $bnicPath = $req->file('bnic')->store('uploads', 'public');
 
 $personalinfo = new Persanolinfo([

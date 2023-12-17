@@ -15,7 +15,7 @@ class User extends Model implements Authenticatable
         'email',
         'password',
         'role',
-        'profile_picture', // Add this line
+        'profile_picture', 
     ];
     
     

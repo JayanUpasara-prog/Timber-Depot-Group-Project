@@ -78,7 +78,7 @@
     </div>
 
     <div class="col-md-6">
-        <label for="address">Serial Address:</label>
+        <label for="address">Address:</label>
         <input type="text" class="form-control" id="address" name="address" oninput="convertToUppercase()" required>
     </div>
 
@@ -133,7 +133,7 @@
 
       <tr>    
         <td><li><label for="MTsawmill">Mobile Timber Sawmill (Only for sawing)</label></li></td>
-        <td><input type="checkbox" id="MTsawmill" data-name="Mobile timber sawmill (Only for Sawing)" name="nature[]" value="10" class="checkbox-group1" onchange="handleCheckboxChange(this)"></td>
+        <td><input type="checkbox" id="MTsawmill" data-name="Mobile timber sawmill (Only for Sawing)" name="nature[]" value="5000" class="checkbox-group1" onchange="handleCheckboxChange(this)"></td>
       </tr>
 
       <tr>
@@ -142,7 +142,7 @@
 
       <tr>
         <td><li><label for="sawmill">Sawmill (Only for sawing)</label></li></td>
-        <td><input type="checkbox" id="sawmill" data-name="Sawmill" name="nature[]" value="20" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+        <td><input type="checkbox" id="sawmill" data-name="Sawmill" name="nature[]" value="5000" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>
 
       <tr>
@@ -153,27 +153,27 @@
       
       <tr>
         <td><label for="vehicle3">2.Timber Sales Outlet(only for sale of timber and machines cannot be used)</label></td>
-        <td><input type="checkbox" id="TSOutlet" data-name="Timber_sales_outlet" name="nature[]" value="30" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+        <td><input type="checkbox" id="TSOutlet" data-name="Timber_sales_outlet" name="nature[]" value="3000" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>  
 
       <tr>
         <td> <label for="seasoning">3.Seasoning or Processing Factory(sawing of logs and sale of timber not permitted)</label></td>
-        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning_or_processing_factory" name="nature[]" value="40" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+        <td><input type="checkbox" id="seasoning" data-name="Seatimbersoning_or_processing_factory" name="nature[]" value="5000" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr> 
 
       <tr>
         <td><label for="Cshed">4.Carpentry Shed(storing of logs and sale of timber not permitted)</label></td>
-        <td> <input type="checkbox" id="Cshed" data-name="Carpentry_shed" name="nature[]" value="50" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+        <td> <input type="checkbox" id="Cshed" data-name="Carpentry_shed" name="nature[]" value="750" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>  
 
       <tr>
         <td><label for="furniture">5.Timber Furniture Shop(only for the sale of finished furniture. Use of machines not permitted)</label></td>
-        <td><input type="checkbox" id="furniture" data-name="Timber_furniture_shop" name="nature[]" value="60" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+        <td><input type="checkbox" id="furniture" data-name="Timber_furniture_shop" name="nature[]" value="500" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>
 
       <tr>
         <td> <label for="FWshed">6.Fire Wood Shed</label></td>
-        <td> <input type="checkbox" id="FWshed" data-name="Fire_wood_shed" name="nature[]" value="70" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
+        <td> <input type="checkbox" id="FWshed" data-name="Fire_wood_shed" name="nature[]" value="150" class="checkbox-group" onchange="handleCheckboxChange(this)"></td>
       </tr>
        
   </table>
@@ -333,8 +333,7 @@
     </div>
 
   
-    Uplord Bank Slip:<br><input type="file" name="payment" id="payment" >
-    <!--<input type="submit" value="Upload File" >--><br><br>
+   
   
     <label for="date">Date:</label>
         <input type="date" id="registration_date" name="registration_date" required>
@@ -387,34 +386,86 @@
   const totalAmountElement = document.getElementById('totalAmount');
   const selectedItemsTableBody = document.querySelector('#selectedItemsTable tbody');
 
-    function handleCheckboxChange(checkbox) {
-      // Check which checkboxes are selected
-      const checkbox1 = document.querySelector('.checkbox-group1');
-      const otherCheckboxes = document.querySelectorAll('.checkbox-group:checked');
+    // function handleCheckboxChange(checkbox) {
+    //   // Check which checkboxes are selected
+    //   const checkbox1 = document.querySelector('.checkbox-group1');
+    //   const otherCheckboxes = document.querySelectorAll('.checkbox-group:checked');
 
-      // Hide all divs initially
-      document.querySelector('.div3').style.display = 'none';
-      document.querySelector('.div4').style.display = 'none';
-      document.querySelector('.div5').style.display = 'none';
+    //   // Hide all divs initially
+    //   document.querySelector('.div3').style.display = 'none';
+    //   document.querySelector('.div4').style.display = 'none';
+    //   document.querySelector('.div5').style.display = 'none';
 
-      // Check the conditions and show the corresponding divs
-      if (checkbox1.checked && otherCheckboxes.length > 0) {
-        // 1st checkbox and any other checkbox are checked
-        document.querySelector('.div4').style.display = 'block';
-        document.querySelector('.div3').style.display = 'block';
-      } else if (checkbox1.checked) {
-        // 1st checkbox is checked
-        document.querySelector('.div4').style.display = 'block';
-      } else if (otherCheckboxes.length > 0) {
-        // Any other checkbox is checked
-        document.querySelector('.div3').style.display = 'block';
-      }
+    //   // Check the conditions and show the corresponding divs
+    //   if (checkbox1.checked && otherCheckboxes.length > 0) {
+    //     // 1st checkbox and any other checkbox are checked
+    //     document.querySelector('.div4').style.display = 'block';
+    //     document.querySelector('.div3').style.display = 'block';
+    //   } else if (checkbox1.checked) {
+    //     // 1st checkbox is checked
+    //     document.querySelector('.div4').style.display = 'block';
+    //   } else if (otherCheckboxes.length > 0) {
+    //     // Any other checkbox is checked
+    //     document.querySelector('.div3').style.display = 'block';
+    //   }
 
-      // Show Div 3 if any checkbox is checked
-      if (checkbox1.checked || otherCheckboxes.length > 0) {
-        document.querySelector('.div5').style.display = 'block';
-      }
-    }
+    //   // Show Div 3 if any checkbox is checked
+    //   if (checkbox1.checked || otherCheckboxes.length > 0) {
+    //     document.querySelector('.div5').style.display = 'block';
+    //   }
+    // }
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+  // Add event listeners to checkboxes
+  const checkboxes1 = document.querySelectorAll('.checkbox-group, .checkbox-group1');
+  checkboxes1.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+      handleCheckboxChange(checkbox);
+      updateTotalAmount();
+    });
+  });
+
+  // Call the function to check the initial state on page load
+  checkboxes1.forEach(function (checkbox) {
+    handleCheckboxChange(checkbox);
+  });
+});
+
+function handleCheckboxChange(checkbox) {
+  // Check which checkboxes are selected
+  const checkbox1 = document.querySelector('.checkbox-group1');
+  const otherCheckboxes = document.querySelectorAll('.checkbox-group:checked');
+
+  // Hide all divs initially
+  document.querySelector('.div3').style.display = 'none';
+  document.querySelector('.div4').style.display = 'none';
+  document.querySelector('.div5').style.display = 'none';
+
+  // Check the conditions and show the corresponding divs
+  if (checkbox1.checked && otherCheckboxes.length > 0) {
+    // 1st checkbox and any other checkbox are checked
+    document.querySelector('.div4').style.display = 'block';
+    document.querySelector('.div3').style.display = 'block';
+  } else if (checkbox1.checked) {
+    // 1st checkbox is checked
+    document.querySelector('.div4').style.display = 'block';
+  } else if (otherCheckboxes.length > 0) {
+    // Any other checkbox is checked
+    document.querySelector('.div3').style.display = 'block';
+  }
+
+  // Show Div 3 if any checkbox is checked
+  if (checkbox1.checked || otherCheckboxes.length > 0) {
+    document.querySelector('.div5').style.display = 'block';
+  }
+}
+
+
+
+
+
 
     // Function to calculate individual amounts based on checked checkboxes
     function calculateAmount() {
