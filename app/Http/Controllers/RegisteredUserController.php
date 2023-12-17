@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\registeruser;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\rejectmessage;
+use Carbon\Carbon;
+
 
 
 
@@ -107,6 +109,7 @@ class RegisteredUserController extends Controller
     public function ViewRecords($id){
         $data = RegisteredUser::find($id);
         $user = auth()->user(); // Assuming you have a logged-in user
+       // dd($data); // Debugging line
         return view('admin.RegisteredUserPage', compact('data','user'));
     }
     
@@ -124,12 +127,23 @@ class RegisteredUserController extends Controller
     
     public function submitRenewal(Request $request) {
         $user = auth()->user();
-    $RegisteredUser = RegisteredUser::where('Email', $user->email)->first();
-    Mail::to($user->email)->send(new renewMail($RegisteredUser));
-
-    // Redirect or return a response as needed
-    return redirect('/UserDashboard')->with('success', 'Renewal successful! Email sent.');
+        $RegisteredUser = RegisteredUser::where('Email', $user->email)->first();
+    
+        // Update the registration_date in the registered_users table
+        $RegisteredUser->registration_date = now(); // Use the current date as the new registration date
+    
+        // Save the changes
+        $RegisteredUser->save();
+    
+        Mail::to($user->email)->send(new renewMail($RegisteredUser));
+    
+// Flash data to the session to indicate successful submission
+return redirect()
+->route('user.renewCheckout')
+->with('success', 'Renewal Pending & Redirect to Payment.')
+->with('form-submitted', true);
     }
+    
 
     public function search(Request $request)
     {
@@ -146,6 +160,10 @@ class RegisteredUserController extends Controller
     }
 
 
+    public function showRenewCheckout() {
+        // You can add any necessary logic here
+        return view('user.renewCheckout');
+    }
     
 
 

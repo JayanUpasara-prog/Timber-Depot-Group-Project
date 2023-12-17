@@ -147,6 +147,10 @@ Route::get('/Registration', [RegistrationController::class, 'Registration'])->na
 //Route::get('/Renew', [RegistrationController::class, 'Renew'])->name('Renew');
 Route::get('/Renew', [RegisteredUserController::class, 'showProfile'])->name('user.renew');
 Route::post('/Renew/Submit', [RegisteredUserController::class, 'submitRenewal'])->name('renew.submit');
+
+Route::get('/RenewCheckout', [RegisteredUserController::class, 'showRenewCheckout'])->name('user.renewCheckout');
+
+
 Route::get('/SB_LogsTimber', [RegistrationController::class, 'SB_LogsTimber'])->name('SB_LogsTimber');
 Route::get('/SB_SawnTimber', [RegistrationController::class, 'SB_SawnTimber'])->name('SB_SawnTimber');
 Route::get('/SB_UpdateLogsTimber', [RegistrationController::class, 'SB_UpdateLogsTimber'])->name('SB_UpdateLogsTimber');

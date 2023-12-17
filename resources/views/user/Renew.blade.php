@@ -111,107 +111,30 @@
                   <li><div class="mb-3 mt-3">
                 <label for="nic_no.">National Identity Card No. : {{ $RegisteredUser->idno }}</label>          
               </div></li>
+
+             
+<li>
+    <div class="mb-3 mt-3">
+        @php
+            $renewalDate = \Carbon\Carbon::parse($RegisteredUser->registration_date)->addYear();
+        @endphp
+        <label for="amount">Renewal Date: {{ $renewalDate->format('Y-m-d') }}</label>
+    </div>
+</li>
+
               <li><div class="mb-3 mt-3">
                 <label for="amount">Renewal Amount :  {{ $RegisteredUser->total }}</label>          
               </div></li>
+
+              
               
 
-    <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Payment Form</div>
-
-                <div class="card-body">
-                    <form action="{{ route('process.payment') }}" method="POST" id="payment-form">
-                        @csrf
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <div class="form-group">
-                            <label for="amount">Amount ($)</label>
-                            <input type="number" name="amount" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="card-element">Credit or debit card</label>
-                            <div id="card-element"></div>
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit Payment</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-    // Create a Stripe client.
-    var stripe = Stripe('{{ config('services.stripe.key') }}');
 
-    // Create an instance of Elements.
-    var elements = stripe.elements();
-
-    // Create an instance of the card Element.
-    var card = elements.create('card');
-
-    // Add an instance of the card Element into the `card-element` div.
-    card.mount('#card-element');
-
-    // Handle real-time validation errors from the card Element.
-    card.addEventListener('change', function (event) {
-        var displayError = document.getElementById('card-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
-        }
-    });
-
-    // Handle form submission.
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        stripe.createToken(card).then(function (result) {
-            if (result.error) {
-                // Inform the user if there was an error.
-                var errorElement = document.getElementById('card-errors');
-                errorElement.textContent = result.error.message;
-            } else {
-                // Send the token to your server.
-                stripeTokenHandler(result.token);
-            }
-        });
-    });
-
-    // Submit the form with the token ID.
-    function stripeTokenHandler(token) {
-        // Insert the token ID into the form so it gets submitted to the server
-        var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
-
-        // Submit the form
-        form.submit();
-    }
-</script>
 <div class="col-6">
         <input type="submit" class="btn btn-success" value="Renew">
     </div>
