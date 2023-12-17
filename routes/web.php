@@ -294,9 +294,17 @@ use App\Http\Controllers\OwnershipChangeController;
 // Route::put('/CheckRegistration', [OwnershipChangeController::class, 'update']);
 // Route::post('/update-registeruser', 'OwnershipChangeController@updateregisteruser')->name('update.registeruser');
 // Route::put('/update/{registration}', [OwnershipChangeController::class, 'update'])->name('registeruser.update');
-Route::get('/UpdateOwnership', [OwnershipChangeController::class, 'UpdateOwnership'])->name('UpdateOwnership');
+// Route::get('/UpdateOwnership', [OwnershipChangeController::class, 'UpdateOwnership']); 
+// ->name('UpdateOwnership');
 Route::post('store_data', [OwnershipChangeController::class, 'store_data']);
 Route::get('/CheckOwnershipChange', [OwnershipChangeController::class, 'CheckOwnershipChange'])->name('CheckOwnershipChange');
+Route::get('/update_ownership/{userid}', [OwnershipChangeController::class, 'update_ownership']);
+//Route::get('AutoShowData/{userid}', [OwnershipChangeController::class, 'AutoShowData']);
+
+//Anusar
+Route::post('/ownership-change', [OwnershipChangeController::class, 'updateRegisteredUser'])
+    ->name('ownership-change.update-registered-user');
+
 
 //Stockbook Update by HarshanatH
 use App\Http\Controllers\LogsTimberController;

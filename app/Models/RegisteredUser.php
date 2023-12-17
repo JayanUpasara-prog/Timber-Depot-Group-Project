@@ -44,7 +44,8 @@ class RegisteredUser extends Model
         // Add any other fields that you want to be mass-assignable
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class, 'email',  'Email');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'email', 'Email');
     }
 }

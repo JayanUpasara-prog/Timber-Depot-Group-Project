@@ -64,7 +64,7 @@
 </div>
                 
               <div class="col-sm-8">
-                <label for="fname">Full Name : {{ $user->name }}</label>
+                <label for="fname">Full Name : {{ $RegisteredUser->fname }}</label>
                 <!-- above Full Name part should change this as "$registered_user->name".... -->
               </div>
             </div>
@@ -73,40 +73,55 @@
           
           <h5 class="text-black-50" title="Details of Prospective(New) owner!">Prospective Owner's Personal Details : </h5>
 
+            @foreach($errors->all() as $error)
+              <div class="alert alert-danger" role="alert">
+                {{$error}}
+              </div>
+            @endforeach
+
             <form method="POST" action="store_data" enctype="multipart/form-data" class="was-validated">
-              @csrf
-              @method('post')
+            @if(Session::has('success'))
+                                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                                    @endif
+                                    @if(Session::has('fail'))
+                                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                                    @endif
+                                    @csrf
+                                    @method("post")
 
               <div class="mb-3 mt-3">
                 <div class="row">
 
-                <!-- madhura -->
-                <div class="col-sm-6">
-                    <label for="fname">User ID: </label>
-                    <input type="text" class="form-control"  name="UserID"  value="{{ $user->id }}">
-                  </div>
-                <!-- madhura -->
+      
 
-                  <div class="col-sm-6">
-                    <label for="fname">Full Name : </label>
-                    <input type="text" class="form-control" placeholder="Enter Full Name" name="fname" oninput="convertToUppercase()" required pattern="[A-Za-z\s]+" required title="Name should contain only alphabetic characters and spaces.">
+                                   
+                  <div class="col-sm-3">
+                    <label for="userid">Registered User ID : </label>        
+                    <input type="text" class="form-control" value="{{$RegisteredUser->id}}" readonly name="userid" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Should be equal to Registerd User ID of above</div>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
+                    <label for="fname">Full Name : </label>
+                    <input type="text" class="form-control" value="" name="fname" oninput="convertToUppercase()" required pattern="[A-Za-z\s]+" required title="Name should contain only alphabetic characters and spaces.">
+                  </div>
+                  <div class="col-sm-4">
                     <label for="address">Address : </label>
                     <input type="text" class="form-control" placeholder="Enter Address" name="address" oninput="convertToUppercase()" required>
                   </div>
                   <br>
                 </div>
                 <div class="row">
-                  <div class="col-sm-4">
-                    <label for="idno">National Identity Card No. : </label>
-                    <input type="text" class="form-control" placeholder="Enter NIC number" name="idno" required>
+                  
+                  <div class="col-sm-3">
+                    <label for="idno">ID No.(NIC) : </label>
+                    <input type="text" class="form-control" placeholder="Enter NIC number" name="idno" required>                    
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                     <label for="contact">Contact Number : </label>
-                    <input type="text" class="form-control" placeholder="Enter Contact Number" name="contact" required>
+                    <input type="text" class="form-control" placeholder="Enter Contact Number" name="contact" required>                    
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                     <label for="Email">Email : </label>
                     <input type="email" class="form-control" placeholder="Enter Email" name="Email" required>
                   </div>

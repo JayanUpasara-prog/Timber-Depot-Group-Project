@@ -115,7 +115,7 @@
                 <td>{{ $ViewRegisteredRecords->idno }}</td>
                 <td>{{ $ViewRegisteredRecords->fname }}</td>
                 <!-- <td><button class ="btn btn-primary">view</button></td> -->
-                <td><a href="/ViewRecords/{{$ViewRegisteredRecords->id}}"><button
+                <td><a href="/ViewRecords/{{$ViewRegisteredRecords->id}}."><button
                       class="btn btn-primary">view</button></a></td>
               </tr>
               @endforeach

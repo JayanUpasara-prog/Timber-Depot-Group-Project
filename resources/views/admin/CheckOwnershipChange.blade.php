@@ -107,13 +107,13 @@
               <tbody>
                 @foreach($CheckOwnershipChange as $CheckOwnershipChange)
                   <tr>
-                      <td>{{ $CheckOwnershipChange->id }}</td>
+                      <td>{{ $CheckOwnershipChange->userid }}</td>
                       <td>{{ $CheckOwnershipChange->fname }}</td>
                       <td>{{ $CheckOwnershipChange->address }}</td>
                       <td>{{ $CheckOwnershipChange->idno }}</td>
                       <td>{{ $CheckOwnershipChange->contact }}</td>
                       <td>{{ $CheckOwnershipChange->Email }}</td>
-                      <td><a href="/CheckOwnershipChange/{{$CheckOwnershipChange->id}}"><button class ="btn btn-primary">view</button></a></td>
+                      <td><a href="/update_ownership/{{$CheckOwnershipChange->id}}"><button class ="btn btn-outline-success">View</button></a></td>
                   </tr>
                 @endforeach
               </tbody>

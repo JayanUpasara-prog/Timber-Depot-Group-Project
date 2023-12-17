@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('ownership_changes', function (Blueprint $table) {
             $table->id();
+            $table->string('userid');
             $table->string('idno');
             $table->string('fname');
             $table->string('address');
             $table->string('contact');
             $table->string('Email');
-            $table->timestamps();
+            $table->timestamps();            
         });
     }
 

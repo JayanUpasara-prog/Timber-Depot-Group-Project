@@ -9,7 +9,17 @@ class OwnershipChange extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-        
-    // ];        
+    protected $fillable = [
+        'userid',
+        'idno',
+        'fname',
+        'address',
+        'contact',
+        'Email'
+    ];
+
+    public function registeredUser()
+    {
+        return $this->belongsTo(RegisteredUser::class, 'userid', 'id');
+    }
 }
