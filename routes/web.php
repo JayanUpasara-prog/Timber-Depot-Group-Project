@@ -285,7 +285,7 @@ Route::post('/SB_LogsTimber', [LogsTimberController::class, 'store'])->name('log
 
 
 //thilini
-Route::get('/user/create', [RatingController::class, 'create'])->name('user.create');
+Route::get('/create', [RatingController::class, 'create'])->name('user.create');
 Route::post('/user/store', [RatingController::class, 'store'])->name('user.store');
 Route::get('/', [RatingController::class, 'ViewRating']);
 // web.php

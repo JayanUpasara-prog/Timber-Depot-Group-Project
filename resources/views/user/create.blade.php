@@ -26,6 +26,25 @@
       /* Add more styles as necessary */
     }
     </style>
+    <style>
+    /* Add styles for the form */
+    .my-custom-form {
+        background-color: #c5f1c7;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        margin: 0 auto; /* Center the form horizontally */
+    }
+
+    .my-custom-form h1 {
+        text-align: center;
+        color: #3b7b3b; /* Set the color to dark green */
+        font-size: 2em; /* Set the font size to 2em */
+        margin-bottom: 20px;
+    }
+</style>
+
 
   <script>
         function validateRatingInput(input) {
@@ -46,7 +65,7 @@
 
 @include('userHeadNav')
 
-</br>
+
 
 <div class="container-fluid">
   <div class="row">
@@ -64,33 +83,34 @@
         </div>
     @endif
 
-    <form action="{{ route('user.store') }}" method="post">
-        @csrf
+    <form action="{{ route('user.store') }}" method="post" class="my-custom-form">
+    @csrf
 
-        <div class="form-group">
-            <label for="user_id">User ID:</label>
-            <input type="text" name="user_id" required>
-        </div>
+    <div class="form-group">
+        <label for="user_id">User ID:</label>
+        <input type="text" name="user_id" value="TD - {{ $user->id }}" >
+    </div>
 
-        <div class="form-group mt-3">
-            <label for="user_name">User Name:</label>
-            <input type="text" name="user_name" required>
-        </div>
+    <div class="form-group mt-3">
+        <label for="user_name">User Name:</label>
+        <input type="text" name="user_name" value="{{ $user->name }}"  >
+    </div>
 
-        <div class="form-group mt-3">
-            <label for="rating">Rating:</label>
-            <input type="number" name="rating" required min="1" max="5" step="1" oninput="validateRatingInput(this)">
-        </div>
+    <div class="form-group mt-3">
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" required min="1" max="5" step="1" oninput="validateRatingInput(this)">
+    </div>
 
-        <div class="form-group mt-3">
-            <label for="comment">Comment:</label>
-            <textarea name="comment" required></textarea>
-        </div>
+    <div class="form-group mt-3">
+        <label for="comment">Comment:</label>
+        <textarea name="comment" required></textarea>
+    </div>
 
-        <div class="text-center">
-            <button type="submit">Submit Rating</button>
-        </div>
-    </form>
+    <div class="text-center">
+        <button type="submit">Submit Rating</button>
+    </div>
+</form>
+
 </div>
       </main>
   </div>
