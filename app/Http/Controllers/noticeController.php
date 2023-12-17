@@ -14,7 +14,7 @@ class NoticeController extends Controller
 {
     $request->validate([
         'notice' => 'sometimes|string',
-        'gazette' => 'sometimes|file|mimes:pdf|max:10240', // Adjust max file size as needed
+        'gazette' => 'sometimes|file|mimes:pdf|max:10240', 
     ]);
 
     $data = [];
@@ -27,7 +27,7 @@ class NoticeController extends Controller
         $file = $request->file('gazette');
         $fileName = $file->getClientOriginalName();
 
-        $file->storeAs('gazettes', $fileName, 'public'); // Assumes a 'gazettes' disk in your filesystem configuration
+        $file->storeAs('gazettes', $fileName, 'public'); 
 
         $data['gazette'] = $fileName;
     }
@@ -44,11 +44,6 @@ public function viewNotice() {
 
 
 }
-// app/Http/Controllers/NoticeController.php
-
-
-
-// ...
 
 
 

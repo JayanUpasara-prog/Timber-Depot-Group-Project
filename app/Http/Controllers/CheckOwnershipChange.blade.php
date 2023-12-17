@@ -117,7 +117,8 @@
 
 
 <!-- ======= Footer ======= -->
-@include('footer')<!-- End  Footer -->
+@include('footer')
+<!-- End  Footer -->
 
 </body>
 </html>

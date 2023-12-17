@@ -18,7 +18,7 @@ class PaymentController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:1',
-            'payment_method' => 'required|string', // Add this line for the payment method
+            'payment_method' => 'required|string', 
             'cardholder_name' => 'required|string',
             'email' => 'required|email',
         ]);
@@ -31,18 +31,18 @@ class PaymentController extends Controller
             $chargeParams = [
                 'amount' => $request->amount * 100,
                 'currency' => 'usd',
-                'description' => 'Custom charge for ' . $request->cardholder_name, // Include the customer's name in the description
+                'description' => 'Custom charge for ' . $request->cardholder_name, 
                 'source' => $request->stripeToken,
-                'statement_descriptor' => 'Custom Descriptor', // Update with your descriptor
+                'statement_descriptor' => 'Custom Descriptor', 
                 'receipt_email' => $request->email,
             ];
                
 
-            // Handle different payment methods
+            
             if ($request->payment_method === 'card') {
-                $chargeParams['source'] = $request->stripeToken; // Update with the appropriate field for the card token
+                $chargeParams['source'] = $request->stripeToken;
             }
-            // Add additional cases for other payment methods if needed
+           
 
             Charge::create($chargeParams);
 

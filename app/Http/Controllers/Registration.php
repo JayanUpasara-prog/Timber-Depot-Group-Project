@@ -27,9 +27,9 @@ class Registration extends Controller{
             'idno' => [
                 'required',
                 function ($attribute, $value, $fail) {
-                    // Check if the ID number has 10 digits and starts with a non-zero digit and ends with 'v'
+                  
                     if (!preg_match('/^[1-9][0-9]{8}v$/i', $value)) {
-                        // Check if the ID number has 12 digits and all digits are numbers
+                    
                         if (!preg_match('/^[0-9]{12}$/', $value)) {
                             $fail("The NIC Number format is invalid. Please enter a valid format.");
                         }
@@ -38,7 +38,7 @@ class Registration extends Controller{
             ],
             'contact' => 'required|regex:/^0[0-9]{9}$/',
             'Email' => 'required|email|unique:registerusers',
-            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', // Adjust the allowed file types and maximum size as needed
+            'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', 
             'bnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096',
             'deed' => 'nullable|file|mimes:pdf|max:25000',
             'plan' => 'nullable|file|mimes:pdf|max:25000',
@@ -49,7 +49,7 @@ class Registration extends Controller{
             'recomd' => 'nullable|file|mimes:pdf|max:25000',
             
 
-    // Other validation rules go here...
+   
         ]
 
         
@@ -132,8 +132,8 @@ class Registration extends Controller{
             'idno' => $req->input('idno'),
             'fname' => $req->input('fname'),
             'address' => $req->input('address'),
-            'fnic' => $fnicPath, // Store the file path
-            'bnic' => $bnicPath, // Store the file path
+            'fnic' => $fnicPath, 
+            'bnic' => $bnicPath, 
             'contact' => $req->input('contact'),
             'Email' => $req->input('Email'),
             'RegNoT'=> $req->input('RegNoT'),
@@ -157,7 +157,7 @@ class Registration extends Controller{
             'Lgovernment'=> $req->input('Lgovernment'),
             'recom'=> $recomPath,
             'nature_value' => json_encode($req->nature),
-            'total' => $req->input('totalAmount'), // Include the total value
+            'total' => $req->input('totalAmount'), 
             'registration_date'=> $req->input('registration_date'),
         ]);
 
@@ -179,29 +179,19 @@ class Registration extends Controller{
 
     public function CheckRegistration() {
         $CheckRegistration = registeruser::all();
-        $user = auth()->user(); // Assuming you have a logged-in user
+        $user = auth()->user(); 
         return view('admin.CheckRegistration', compact('CheckRegistration', 'user'));
     }
     
     
     public function view_record($id) {
         $data = registeruser::find($id);
-        $user = auth()->user(); // Assuming you have a logged-in user
+        $user = auth()->user(); 
         return view('admin.UsersInfo', compact('data','user'));
     }
     
 
-    // public function handleAcceptance(Request $request, $id)
-    // {
-    //     // Your validation and acceptance logic here
-
-    //     // Send acceptance email
-    //     $user = registeruser::find($id);
-    //     Mail::to($user->Email)->send(new AcceptanceMail());
-
-    //     // Redirect or return a response
-    //     return redirect('/CheckRegistration')->with('success', 'Form Accepted and Email sent to the user.');
-    // }
+   
 
 
     function reject($id){
@@ -227,35 +217,30 @@ public function searchUsers(Request $request)
 {
     $searchTerm = $request->input('search');
 
-    // Perform the search using your model
+  
     $searchResults = registeruser::where('idno', 'like', "%$searchTerm%")
         ->orWhere('fname', 'like', "%$searchTerm%")
         ->orWhere('address', 'like', "%$searchTerm%")
         ->orWhere('contact', 'like', "%$searchTerm%")
         ->orWhere('Email', 'like', "%$searchTerm%")
-        ->first(); // Assuming you expect only one result
-
-    // Pass the search term and results to your view
+        ->first(); 
+    
     return view('admin.UsersInfo', ['data' => $searchResults, 'searchTerm' => $searchTerm]);
 }
 
-// RegistrationController.php
+
 public function CriminalView($idno) {
-    // Retrieve data based on $idno from your model
+  
     $userData = registeruser::where('idno', $idno)->first();
 
-    // Pass data to the view
+   
     return view('admin.CriminalView', ['userData' => $userData]);
 }
 
 
 
 
-// public function CheckUser($idno) {
-//     $CheckUser = WildCriminal::find($idno);
-    
-//     return view('admin.CriminalView', compact('CheckUser'));
-// }
+
 
 
 
