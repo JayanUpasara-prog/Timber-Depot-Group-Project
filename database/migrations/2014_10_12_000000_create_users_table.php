@@ -18,8 +18,7 @@ return new class extends Migration
             $table->String('role')->default(0);
             $table->String('password');
 
-
-            $table->timestamps();
+            $table->timestamps();        
         });
     }
 

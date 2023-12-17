@@ -193,11 +193,14 @@ public function index()
     public function OwnershipChange(){
     
         $user = array();
+        if(auth()->check()) {
+            $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
+        }
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
             }
-        return view('user.OwnershipChange', compact('user'));
+        return view('user.OwnershipChange', compact('user', 'RegisteredUser'));
     }
 
     public function PermitRequest(){
