@@ -116,9 +116,11 @@
         </div>
 
         <div class="form-group">
-            <label for="cardholder-name">Name on Card</label>
-            <input type="text" name="cardholder_name" class="form-control" required>
-        </div>
+    <label for="cardholder-name">Name on Card</label>
+    <input type="text" name="cardholder_name" class="form-control" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+</div>
+
+
 
         <div class="form-group">
             <label for="email">Email</label>

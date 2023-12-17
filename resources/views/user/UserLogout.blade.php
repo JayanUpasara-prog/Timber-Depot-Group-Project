@@ -29,7 +29,7 @@
 <body>
 
 @include('userHeadNav')
-</br>
+
 
 <div class="container-fluid">
   <div class="row">

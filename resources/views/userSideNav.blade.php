@@ -3,7 +3,7 @@
 @endphp
 
 
-<nav id="sidebar" class="mt-0 col-md-3 col-lg-2 d-md-block bg-light sidebar" style="background-color: #3498db;']">
+<nav id="sidebar" class="mt-0 col-md-3 col-lg-2 d-md-block bg-light sidebar" style="background: linear-gradient(to right, #aaf0aa, #ffffff);">
           <div class="position-sticky">
               <ul class="nav flex-column nav-pills nav-stacked">
                   <li class="nav-item">
@@ -37,7 +37,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('user.create') ? 'bg-success active' : '' }}" href="user/create">
+                    <a class="nav-link {{ Request::is('user.create') ? 'bg-success active' : '' }}" href="{{ route('user.create') }}">
                         Review
                     </a>
                  </li>

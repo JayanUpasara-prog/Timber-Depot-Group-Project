@@ -18,7 +18,7 @@ class RatingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required|integer',
+            'user_id' => 'required|string',
             'user_name' => 'required|string',
             'rating' => 'required|integer|between:1,5',
             'comment' => 'nullable|string',

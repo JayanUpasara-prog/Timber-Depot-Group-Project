@@ -1,4 +1,4 @@
-<nav class="navbar bg-light">
+<nav class="navbar" style="background: linear-gradient(to bottom, #aaf0aa, #ffffff);">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ url('/#####') }}">
       <img src="assets/images/dashboardImg/Srilanka.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
