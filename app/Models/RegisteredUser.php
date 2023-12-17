@@ -40,6 +40,7 @@ class RegisteredUser extends Model
         'recom',
         'nature_value',
         'total',
+        'registration_date',
         // Add any other fields that you want to be mass-assignable
     ];
 

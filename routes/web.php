@@ -12,6 +12,14 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\RegisteredUserController;
 
+//chariya
+use App\Http\Controllers\PermitRequestController;
+
+
+
+// Rest of your code...
+
+
 
 /*thilii*/
 use App\Http\Controllers\RatingController;
@@ -177,10 +185,18 @@ Route::post('acceptance/{id}', [RegisteredUserController::class, 'handleAcceptan
 
 // web.php
 Route::get('/CriminalView/{idno}', [Registration::class, 'CriminalView'])->name('admin.CriminalView');
-
-
-
 });
+
+// chariya
+Route::get('/ViewPermitRequest', [PermitRequestController::class, 'ViewPermitRequest']);
+Route::post('/storepermit', [PermitRequestController::class, 'storepermit'])->name('storepermit');
+Route::get('/ViewPermitRequests', [PermitRequestController::class, 'viewPermit']);
+Route::get('/ViewPermitRecords/{id}', [PermitRequestController::class, 'viewPermitRecord']);
+Route::get('/acceptPermit/{id}',[PermitRequestController::class,'savePermits'])->name('ViewPermitRequests');
+Route::get('/reject/{id}',[PermitRequestController::class,'reject']);
+Route::post('/send', [PermitRequestController::class, 'send'])->name('reject.send');
+
+
 
 
 Route::middleware(['admin'])->group(function () {

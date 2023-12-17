@@ -70,6 +70,7 @@ class RegisteredUserController extends Controller
             'recom'=> $data->recom,
             'nature_value' => json_encode($data->nature_value),
             'total'=>$data->total,
+            'registration_date'=> $data->registration_date,
         ]);
 
         $RegisteredUser->save();
@@ -105,8 +106,8 @@ class RegisteredUserController extends Controller
 
     public function ViewRecords($id){
         $data = RegisteredUser::find($id);
-       // dd($data); // Debugging line
-        return view('admin.RegisteredUserPage', compact('data'));
+        $user = auth()->user(); // Assuming you have a logged-in user
+        return view('admin.RegisteredUserPage', compact('data','user'));
     }
     
 
@@ -143,4 +144,10 @@ class RegisteredUserController extends Controller
         // Pass the results to your view
         return view('admin.ViewRegisteredUsers', ['ViewRegisteredRecords' => $searchResults]);
     }
+
+
+    
+
+
+    
 }

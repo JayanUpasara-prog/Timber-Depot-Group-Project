@@ -391,6 +391,11 @@
             <td>{{ $data->total }}</td>
             
         </tr>
+        <tr>
+            <td>Registered Date</td>
+            <td>{{ $data->registration_date }}</td>
+            
+        </tr>
         <!-- Add more rows as needed -->
     @else
         <tr>

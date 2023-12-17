@@ -158,6 +158,7 @@ class Registration extends Controller{
             'recom'=> $recomPath,
             'nature_value' => json_encode($req->nature),
             'total' => $req->input('totalAmount'), // Include the total value
+            'registration_date'=> $req->input('registration_date'),
         ]);
 
         $res=$registeruser->save();

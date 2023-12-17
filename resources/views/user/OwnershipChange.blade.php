@@ -59,10 +59,10 @@
 
           <div class="mb-3 mt-3">
             <div class="row">
-              <div class="col-sm-4">
-                <label for="uid">User ID : TD-{{ $user->id }}</label>
-                <!-- above Full Name part should change this as "$registered_user->name".... -->
-              </div>                
+            <div class="col-sm-4">
+    <label for="uid">User ID : TD-{{ $user->id }}</label>
+</div>
+                
               <div class="col-sm-8">
                 <label for="fname">Full Name : {{ $user->name }}</label>
                 <!-- above Full Name part should change this as "$registered_user->name".... -->
@@ -79,6 +79,14 @@
 
               <div class="mb-3 mt-3">
                 <div class="row">
+
+                <!-- madhura -->
+                <div class="col-sm-6">
+                    <label for="fname">User ID: </label>
+                    <input type="text" class="form-control"  name="UserID"  value="{{ $user->id }}">
+                  </div>
+                <!-- madhura -->
+
                   <div class="col-sm-6">
                     <label for="fname">Full Name : </label>
                     <input type="text" class="form-control" placeholder="Enter Full Name" name="fname" oninput="convertToUppercase()" required pattern="[A-Za-z\s]+" required title="Name should contain only alphabetic characters and spaces.">
