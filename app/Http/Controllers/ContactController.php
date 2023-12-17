@@ -19,7 +19,7 @@ class ContactController extends Controller
     public function sendMail(Request $request)
         {
             $request->validate([
-                'name' => 'required',
+                'name' => 'required|regex:/^[a-zA-Z\s.]+$/',
                 'email' => 'required|email',
                 'subject' => 'required',
                 'message' => 'required',

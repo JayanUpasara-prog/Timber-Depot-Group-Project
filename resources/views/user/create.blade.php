@@ -12,35 +12,27 @@
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
-      
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
-      
-      /* Other background properties, if needed */
+      background-image: url('assets/img/4907157.jpg');       
+      background-size: cover; 
+      background-color: #f0f0f0; 
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
     }
     </style>
     <style>
-    /* Add styles for the form */
     .my-custom-form {
         background-color: #c5f1c7;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 500px;
-        margin: 0 auto; /* Center the form horizontally */
+        margin: 0 auto; 
     }
 
     .my-custom-form h1 {
         text-align: center;
-        color: #3b7b3b; /* Set the color to dark green */
-        font-size: 2em; /* Set the font size to 2em */
+        color: #3b7b3b; 
+        font-size: 2em; 
         margin-bottom: 20px;
     }
 </style>
@@ -69,7 +61,6 @@
 
 <div class="container-fluid">
   <div class="row">
-      <!-- Side Navigation Bar -->
       @include('userSideNav')
 
       <!-- Main Content -->
@@ -88,12 +79,12 @@
 
     <div class="form-group">
         <label for="user_id">User ID:</label>
-        <input type="text" name="user_id" value="TD - {{ $user->id }}" >
+        <input type="text" name="user_id" value="TD - {{ $user->id }}" readonly>
     </div>
 
     <div class="form-group mt-3">
         <label for="user_name">User Name:</label>
-        <input type="text" name="user_name" value="{{ $user->name }}"  >
+        <input type="text" name="user_name" value="{{ $user->name }} " readonly >
     </div>
 
     <div class="form-group mt-3">

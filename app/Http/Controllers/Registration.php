@@ -24,6 +24,7 @@ class Registration extends Controller{
         //dd($req->all());
 
         $req->validate([
+            'fname' => 'required|regex:/^[a-zA-Z\s.]+$/',
             'idno' => [
                 'required',
                 function ($attribute, $value, $fail) {
@@ -36,6 +37,12 @@ class Registration extends Controller{
                     }
                 },
             ],
+
+            'district' => 'required|regex:/^[a-zA-Z\s.]+$/',
+            'DSsection' => 'required|regex:/^[a-zA-Z\s.]+$/',
+            'gnKottasaya' => 'required|regex:/^[a-zA-Z\s.]+$/',
+            'Lgovernment' => 'required|regex:/^[a-zA-Z\s.]+$/',
+            'ownerofland' => 'required|regex:/^[a-zA-Z\s.]+$/',
             'contact' => 'required|regex:/^0[0-9]{9}$/',
             'Email' => 'required|email|unique:registerusers',
             'fnic' => 'required|file|mimes:jpeg,png,jpg,gif|max:5096', // Adjust the allowed file types and maximum size as needed
@@ -56,6 +63,7 @@ class Registration extends Controller{
         
         , [
             'contact.regex' => 'The Contact Number format is invalid. Please enter a valid format.',
+            
 
             'fnic.required' => 'Please upload the Front Image of NIC.',
             'fnic.file' => 'The Front Image of NIC must be a file.',

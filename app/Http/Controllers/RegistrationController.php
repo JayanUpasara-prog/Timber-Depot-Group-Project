@@ -196,6 +196,10 @@ public function index()
         if(auth()->check()) {
             $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
         }
+        if (!$RegisteredUser) {
+            return redirect('/UserDashboard')->with('fail', 'No data found for renewal. You have to fill the regitration form first.');
+        }
+
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
@@ -206,11 +210,17 @@ public function index()
     public function PermitRequest(){
     
         $user = array();
+        if(auth()->check()) {
+            $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
+        }
+        if (!$RegisteredUser) {
+            return redirect('/UserDashboard')->with('fail', 'No data found for renewal. You have to fill the regitration form first.');
+        }
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();
 
             }
-        return view('user.PermitRequest', compact('user'));
+        return view('user.PermitRequest', compact('user', 'RegisteredUser'));
     }
 
     public function Registration(){

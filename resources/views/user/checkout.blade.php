@@ -9,18 +9,13 @@
 
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
-      
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
-      
-      /* Other background properties, if needed */
+     
+      background-image: url('assets/img/4907157.jpg'); 
+      background-size: cover; 
+      background-color: #f0f0f0; 
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+      
     }
     </style>
   
@@ -79,7 +74,7 @@
     }
 
     #card-errors {
-        color: #dc3545; /* Bootstrap's danger color */
+        color: #dc3545; 
         margin-top: 10px;
     }
     </style>
@@ -111,7 +106,7 @@
             <label for="payment_method">Payment Method</label>
             <select name="payment_method" class="form-control" required>
                 <option value="card">Credit Card</option>
-                <!-- Add other payment methods if needed -->
+                
             </select>
         </div>
 
@@ -146,7 +141,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    // Stripe integration script here...
 </script>
 
 
@@ -154,19 +148,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Create a Stripe client.
     var stripe = Stripe('{{ config('services.stripe.key') }}');
 
-    // Create an instance of Elements.
     var elements = stripe.elements();
 
-    // Create an instance of the card Element.
     var card = elements.create('card');
 
-    // Add an instance of the card Element into the `card-element` div.
     card.mount('#card-element');
 
-    // Handle real-time validation errors from the card Element.
     card.addEventListener('change', function (event) {
         var displayError = document.getElementById('card-errors');
         if (event.error) {
@@ -176,26 +165,21 @@
         }
     });
 
-    // Handle form submission.
     var form = document.getElementById('payment-form');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
         stripe.createToken(card).then(function (result) {
             if (result.error) {
-                // Inform the user if there was an error.
                 var errorElement = document.getElementById('card-errors');
                 errorElement.textContent = result.error.message;
             } else {
-                // Send the token to your server.
                 stripeTokenHandler(result.token);
             }
         });
     });
 
-    // Submit the form with the token ID.
     function stripeTokenHandler(token) {
-        // Insert the token ID into the form so it gets submitted to the server
         var form = document.getElementById('payment-form');
         var hiddenInput = document.createElement('input');
         hiddenInput.setAttribute('type', 'hidden');
@@ -203,7 +187,6 @@
         hiddenInput.setAttribute('value', token.id);
         form.appendChild(hiddenInput);
 
-        // Submit the form
         form.submit();
     }
 
@@ -233,11 +216,8 @@
                 var errorElement = document.getElementById('card-errors');
                 errorElement.textContent = result.error.message;
             } else {
-                // Handle the server-side processing logic here
-                // Assuming the server responds with a success message
                 Swal.fire('Payment Successful', 'Registration pending. Redirecting to user dashboard...', 'success')
                     .then(() => {
-                        // Redirect to the user dashboard or another page
                         window.location.href = '{{ route("UserDashboard") }}';
                     });
             }

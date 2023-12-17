@@ -48,7 +48,11 @@ class ForgetPasswordController extends Controller
     function resetPasswordPost(Request $request){
             $request ->validate([
                 'email'=>'required|email|exists:users',
-                'password' => 'required|min:8|max:12|confirmed',
+                'password' => ['required', 'min:8', 'max:12','confirmed', function ($attribute, $value, $fail) {
+                    if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$/', $value)) {
+                        $fail("The password must contain as required ");
+                    }
+                }],
                 'password_confirmation' => 'required|'
             ]);
 

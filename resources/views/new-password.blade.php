@@ -9,6 +9,7 @@
 
     <style>
         body {
+
             background-image: url('bg3.jpg');
             background-size: cover;
             background-position: center center;
@@ -67,12 +68,15 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="loginEmail" name="email" required>
-                                <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                    <span class="text-danger">@error('email') The selected email is not registered. @enderror</span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="loginPassword" class="form-label">Enter New Password</label>
                                 <input type="password" class="form-control" id="loginPassword" name="password" required>
+                                <span id="password-help" class="form-text text-muted">
+        The password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+    </span><br>
                                 <span class="text-danger">@error('password') {{$message}} @enderror</span>
                             </div>
 
@@ -80,6 +84,7 @@
                                 <label for="loginPasswordConfirmation" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="loginPasswordConfirmation"
                                     name="password_confirmation" required>
+                                    
                                 <span class="text-danger">@error('password_confirmation') {{$message}} @enderror</span>
                             </div>
 
