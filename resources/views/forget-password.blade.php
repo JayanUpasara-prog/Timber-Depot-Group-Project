@@ -9,27 +9,28 @@
 
     <style>
         body {
+           
             background-image: url('bg3.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-color: #f0f0f0;
-            /* Fallback background color */
+            
             min-height: 100vh;
-            /* Ensure the background covers the full viewport height */
+            
             display: flex;
             align-items: center;
-            /* Center vertically */
+            
             justify-content: center;
 
 
         }
 
-        /* Style for the login card */
+       
         .card {
             background-color: rgba(255, 255, 255, 0.8);
-            /* Add a semi-transparent white background to the card */
+            
         }
     </style>
 </head>
@@ -68,7 +69,7 @@
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="loginEmail" name="email"
                                     placeholder="Enter email" value="{{old('email')}}" required>
-                                <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                                    <span class="text-danger">@error('email') The selected email is not registered. @enderror</span>
                             </div>
                             
                                

@@ -11,18 +11,11 @@
   @include('livechat')
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
-      
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
-      
-      /* Other background properties, if needed */
-      background-repeat: no-repeat;
+      background-image: url('assets/img/4907157.jpg');      
+      background-size: cover; 
+      background-color: #f0f0f0; 
+            background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
     }
     </style>
 </head>
@@ -44,7 +37,6 @@
           </div>
           </br>
 
-          <!--start from here main division of form-->
           <div id="main_div">
             <div class="d-flex p-2 bg-light">
               <div class="p-6">
@@ -65,7 +57,6 @@
                 
               <div class="col-sm-8">
                 <label for="fname">Full Name : {{ $RegisteredUser->fname }}</label>
-                <!-- above Full Name part should change this as "$registered_user->name".... -->
               </div>
             </div>
           </div>
@@ -148,7 +139,6 @@
 
 <script>
 
-//relavant field must be only block letters
 function convertToUppercase() {
   var inputFields = document.querySelectorAll(".form-control");
     inputFields.forEach(function(input) {

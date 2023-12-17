@@ -74,7 +74,7 @@
     <div class="col-md-6 ">
         <label for="fname">Full Name:</label>
         <input type="text" class="form-control" id="fname" name="fname" oninput="convertToUppercase()" required pattern="[A-Za-z\s]+" required title="Name should contain only alphabetic characters and spaces.">
-        <!--<span style="color:red">@error('fname'){{$message}}@enderror</span>-->
+        <span style="color:red">@error('fname'){{$message}}@enderror</span>
     </div>
 
     <div class="col-md-6">

@@ -278,6 +278,7 @@
                 @csrf
                 <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <span style="color:red">@error('name'){{$message}}@enderror</span>
                 </div>
                 <div class="form-group mt-3">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>

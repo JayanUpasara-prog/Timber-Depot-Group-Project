@@ -145,13 +145,7 @@ button:hover{
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="container mt-3">
         
-  <!--{{$errors}}-->
-
-  <!--@if($errors->any())
-    @foreach($errors->all() as $err)
-      <li>{{$err}}</li>
-    @endforeach
-  @endif-->
+  
 
 
 <section class="contact">

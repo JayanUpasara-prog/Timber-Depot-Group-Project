@@ -21,8 +21,20 @@ class OwnershipChangeController extends Controller
         $data = new OwnershipChange;
 
         $this->validate($request,[            
-            'idno'=>'required|max:12|min:8',
-            'contact'=>'size:10'
+            'idno' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    // Check if the ID number has 10 digits and starts with a non-zero digit and ends with 'v'
+                    if (!preg_match('/^[1-9][0-9]{8}v$/i', $value)) {
+                        // Check if the ID number has 12 digits and all digits are numbers
+                        if (!preg_match('/^[0-9]{12}$/', $value)) {
+                            $fail("The NIC Number format is invalid. Please enter a valid format.");
+                        }
+                    }
+                },
+            ],
+            'contact' => 'required|regex:/^0[0-9]{9}$/',
+            'Email' => 'required|email|unique:users,email',
         ]);
 
         $data->userid = $request->input('userid');

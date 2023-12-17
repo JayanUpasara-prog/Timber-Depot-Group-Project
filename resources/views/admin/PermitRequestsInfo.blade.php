@@ -43,11 +43,7 @@
 </head>
 <body>
 
-<!-- <div class="p-2 bg-light text-black text-center">
-  <img src="Srilanka.jpg" class="float-start img-fluid" alt="Srilanka" width="100" height="100">
-  <h1 class="text-success text-start">Forest Department,</h1>
-  <p class="text-dark text-start">Melsiripura</p> 
-</div> -->
+
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
@@ -71,24 +67,7 @@
   </div>
 </nav>
 
-<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <div class="container-fluid">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav> -->
+
 </br>
 @if(Session::has('success'))
                       <div class="alert alert-success">
@@ -258,12 +237,10 @@
     function confirmAction(url) {
         var isConfirmed = confirm("Are you sure you want to proceed?");
         if (isConfirmed) {
-            // The user clicked "OK" in the confirmation dialog
-            // You can redirect to the specified URL or perform other actions
+            
             window.location.href = url;
         } else {
-            // The user clicked "Cancel" in the confirmation dialog
-            // You can handle this case or leave it empty
+           
         }
     }
 </script>
