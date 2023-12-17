@@ -28,6 +28,133 @@
   }
 }
 
+
+
+/* Style for the section with class "inner-page pt-4" */
+.inner-page.pt-4 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 40px 0; /* Adjust padding as needed */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.inner-page.pt-4 h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.inner-page.pt-4 p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.inner-page.pt-4 ul {
+	content: '\1F332';
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inner-page.pt-4 li {
+	  
+  color: #626262;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 30px;
+  text-transform: capitalize;
+}
+
+/* Additional styles for links in the list */
+.inner-page.pt-4 li a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.inner-page.pt-4 li a:hover {
+  color: #1d5b90;
+}
+
+/* Style for the main content container */
+.inner-page .container {
+  background-color: #fff; /* White background for the content */
+  padding: 20px;
+  border-radius: 8px;
+ 
+}
+/* Style for the section with class "inner-page pt-4" */
+.inner-page.pt-4 ul {
+ list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inner-page.pt-4 li {
+text-align: justify;
+  color: #626262;
+  font-size: 14 px; /* Increase font size for better readability */
+  font-weight: 400;
+  line-height: 1.6; /* Improve line height for better spacing */
+  margin-bottom: 20px; /* Add space between list items */
+}
+
+
+
+/* Additional styles for links in the list */
+.inner-page.pt-4 li a {
+  color: #3498db;
+   font-size: 10px;
+  text-decoration: none;
+  font-weight: bold;
+   display: block;
+  text-align: center;
+  margin-top: 10px; /* Adjust the margin as needed */
+  
+}
+
+.inner-page.pt-4 li strong {
+  
+  font-size: 18px;
+  font-weight: bold;
+ 
+  
+}
+
+
+.inner-page.pt-4 li a:hover {
+  color: #1d5b90;
+}
+
+
+/* Style for the breadcrumbs */
+.breadcrumbs {
+  background-color: #f8f9fa; /* Light gray background for breadcrumbs */
+  padding: 15px 0;
+}
+
+.breadcrumbs h2 {
+  font-size: 24px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Style for breadcrumb links */
+.breadcrumbs ol li a {
+  color: #555;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumbs ol li a:hover {
+  color: #1d5b90;
+}
+
+
 body {
   background: url('../img/b3.jpg') no-repeat center center fixed;
   background-size: cover;

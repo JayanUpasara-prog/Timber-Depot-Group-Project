@@ -68,11 +68,115 @@
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page pt-4">
-      <div class="container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31634.072664550553!2d80.40437654999998!3d7.655267499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae334e74e5c0d99%3A0xe0ecd6b32a0d8d32!2sArankele!5e0!3m2!1sen!2slk!4v1696996194802!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			<ul >
+				<li>
+					<strong>Arankele</strong> - Arankele Monastery is a forest monastery that dates back to the 6th Century. The densely wooded terrain crowded with substantial hardwood trees is interspersed by the openings and clearings created by the on-going process of clearing scattered debris to unearth the ruins and re-erecting the fallen ruins.
+					<br>
+					<a href="https://www.google.com/maps?q=7.65741,80.39495" target="_blank">View on Google Map</a>
+				</li>
+				<li>
+					<strong>Galgiriya Mountain</strong> - Galgiriya Mountain is an isolated mountain located in Kurunegala District in Sri Lanka. The mountain is 478 meters (1,568 ft) high and ranks as the 7th highest mountain in the North Western province and the 212th highest mountain in Sri Lanka.
+					Galgiriya Mountain is noted for its unique length about 7 km, which is different from other isolated mountains in the area. At present, the mountain is a forest reserve as it consists of many types of valuable flora and fauna.
+					<br>
+					<a href="https://www.google.com/maps?q=W9MH+QM, Hiddewa" target="_blank">View on Google Map</a>
+				</li>
+				<li>
+					<strong>Thampana Forest</strong> - Tampana lake located on Kuruneegala Kandy main road. It's the main supply water to Mallawapitiya and Teliyagonna area. A nice place to visit for a holiday outing, beautiful and calm, also has an ancient temple on the upper side of the lake around 1 km walking distance with a nice natural environment.
+					<br>
+					<a href="https://www.google.com/maps?q=CCW3+GW, Kurunegala" target="_blank">View on Google Map</a>
+				</li>
+				<li>
+					<strong>Badagamuwa Forest</strong> - Located 4 km away from the capital city of Kurunegala, bordering the Dambulla – Kurunegala highway adjoining the Badagamuwa forest.
+					<br>
+					<a href="https://www.google.com/maps?q=W9MH+QM" target="_blank">View on Google Map</a>
+				</li>
+				<li>
+					<strong>Kurunegala Forest</strong> - Topographically, Kurunegala town is based on a plain area with the exception of the surrounding rock outcrops. The northern part of the town is slightly higher than the south. Kurunegala Lake is the primary geographical feature of Kurunegala and adorns the town.
+					<br>
+					<a href="https://www.google.com/maps?q=F9MC+PQ8, Kurunegala, Kurunegala" target="_blank">View on Google Map</a>
+				</li>
+			</ul>
+
+	  
+    </section>
+
+    <section class="inner-page pt-4">
+      <div class="container"  style="height: 500px;">
+        <iframe src="https://www.google.com.qa/maps/d/u/0/embed?mid=1NN9hm57BEtFDsN82bpDI15L13D6qsW0&ehbc=2E312F&noprof=1" width="100%" height="100%"></iframe>
+		
+	  </div>
+	  
+    </section>
+
+    <!-- ======= Footer ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">Forest Department,<br>Melsiripura.</a>
+            <p> HF4C+JG4, Ibbagamuwa, <br> Melsiripura.<br>
+            forestmel102@gmail.com<br>
+                0372259591</p>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 col-lg-4">
+          <div class="list-menu">
+
+            <h4>About Us</h4>
+
+         <p>In our island's forests, we enjoy nature's gifts: fresh air, pure water,diverse life, and vital ecosystem services. The Forest Department diligently safeguards these invaluable landscapes. It also serves the public at headquarters and in the field. Together, we nurture our natural treasures for all to cherish.</p>
+          </div>
+        
+        </div>
+
+
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Quick Links</h4>
+        
+            <ul class="list-unstyled">
+              <li><a href="faq">faq</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Sign in</a></li>
+              <li><a href="#features">Services</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      
+        
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Follow Us</h4>
+        
+            <ul class="list-unstyled">
+              <li><a href="#" class="twitter"><i class="bi bi-twitter"></i></a></li>
+              <li> <a href="#" class="facebook"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#" class="instagram"><i class="bi bi-instagram"></i></a></li>
+              <li><a href="forestmel102@gmail.com" class="gmail"><i class="bi bi-google"></i></a></li>
+            </ul>
+
+          </div>
+        </div>
+
 
       </div>
-    </section>
+    </div>
+
+    
+
+  </footer><!-- End  Footer -->
+	
+	 
 
   </main><!-- End #main -->
 
