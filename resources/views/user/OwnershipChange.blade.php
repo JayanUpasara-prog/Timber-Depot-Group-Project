@@ -102,58 +102,12 @@
                     <label for="Email">Email : </label>
                     <input type="email" class="form-control" placeholder="Enter Email" name="Email" required>
                   </div>
-                </div>                                                                            
-              </div>
-              <br>
-
-              <!-- <h5 class="text-black-50" title="Details of old owner!">Registered Owner</h5>
-
-              <div class="mb-3 mt-3">
-                <div class="row">
-                  <div class="col">
-                    <label for="user_id">User ID : </label>
-                    <input type="text" class="form-control" placeholder="Enter Full Name" name="ro_fullName">
-                  </div>
-                  <div class="col">
-                    <label for="reg_no.">Timber Depot Registration No. : </label>
-                    <input type="text" class="form-control" placeholder="Enter Registration No." name="td_regNo" required>
-                  </div>                  
                 </div>
               </div>
-              </br>
-              
-              <div class="row">
-                <div class="col">
-                  <h5 class="text-black-50">Prospective Owner's Statement about StockBook Records : </h5>
-                </div>
-                <div class="col">
-                  <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-success" disabled>View Stock Book : </button>
-                    <a href="StockBookUpdate" class="btn btn-outline-success">&#128065; StockBook</a>
-                  </div>
-                </div>  
-              </div>
-              </br>
+              <br>          
 
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
-                <label class="form-check-label" for="radio1">I checked StockBook and there is no issues on it.</label>            
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2" data-bs-toggle="collapse" data-bs-target="#demo" checked>
-                <label class="form-check-label" for="radio2">I checked StockBook and there are some issues on it.</label>                
-              </div>
-
-              <div id="collapse">
-                <div class="input-group mb-3 mt-3">                
-                  <label for="statement">Statement of Prospective Owner about : </label>                  
-                  <textarea name="text" id="comment" cols="120" rows="4"></textarea>
-                </div>
-              </div>
-              </br> -->
-
-              <input type="submit" class="btn btn-outline-success" value="Send Request">
-              </br>
+              <input type="submit" class="btn btn-success" value="Send Request">
+              </br><br>
 
             </form>
 

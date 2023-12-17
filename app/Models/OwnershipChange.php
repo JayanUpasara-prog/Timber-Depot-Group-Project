@@ -11,5 +11,5 @@ class OwnershipChange extends Model
 
     // protected $fillable = [
         
-    // ];
+    // ];        
 }
