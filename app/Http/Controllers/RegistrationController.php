@@ -430,6 +430,17 @@ public function CriminalView(){
     return view('admin.CriminalView', ['criminals' => $criminals]);
 }
 
+public function Support(){
+    
+    $user = array();
+    if(Session::has('loginId')){
+        $user = User::where('id','=', Session::get('loginId'))->first();
+
+        }
+    return view('admin.Support', compact('user'));
+}
+
+
  //delete part
 
  public function destroyCriminal(WildCriminal $criminal) 

@@ -46,28 +46,22 @@
       <span class="text-success">Forest Department,</span>
       Melsiripura
     </a> 
-    <form class="d-flex mx-auto text-right"role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-    <div class="col-1">
-
-    <button type="button" class="btn btn-primary">
-                                        <a href="{{ url('/#####') }}"
-                                            style="color: white; text-decoration: none;">Home</a>
-                                    </button>
-</div>
+   
     <div class="btn-group">
     @auth
         @php
             $user = auth()->user();
         @endphp
+        <button type="button" class="btn btn-success">
+                                        <a href="{{ url('/#####') }}"
+                                            style="color: white; text-decoration: none;">Home</a>
+                                    </button>
         <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="{{ Storage::url($user->profile_picture) }}" alt="Profile Photo" class="rounded-circle" width="20" height="20">
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
-            <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
         </ul>
     @else
         <!-- Handle case when user is not authenticated -->
@@ -207,7 +201,7 @@
           <h4>Quick Links</h4>
       
           <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url('/#####') }}">Home</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Sign in</a></li>
             <li><a href="#">My Account</a></li>

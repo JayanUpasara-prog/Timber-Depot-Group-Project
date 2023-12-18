@@ -40,17 +40,19 @@
       <span class="text-success">Forest Department,</span>
       Melsiripura
     </a>
-    <form class="d-flex mx-auto text-right" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    
+    <form class="d-flex mx-auto text-right" method="GET" action="{{ route('search4') }}">
+    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
     <div class="btn-group">
       <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{{ Storage::url($user->profile_picture) }}" alt="Profile Photo" class="rounded-circle" width="20" height="20">
+          <img src="{{ asset('storage/default.jpg') }}" alt="Profile Photo" class="rounded-circle" width="20" height="20">
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">My Profile</a></li>
-          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>      </ul>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
+        </ul>
   </div>
 </nav>
 </br>

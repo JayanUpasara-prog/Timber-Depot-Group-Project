@@ -41,11 +41,7 @@
                         Review
                     </a>
                  </li>
-                 <li class="nav-item">
-                  <a class="nav-link {{ Request::is('UserLogout') ? 'bg-success active' : '' }}" href="UserLogout">
-                       Logout
-                  </a>
-               </li>
+                 
               </ul>
           </div>
       </nav>

@@ -107,7 +107,7 @@ A firewood shed is a structure designed to store and protect firewood from the e
         
             <ul class="list-unstyled">
               <li><a href="faq">faq</a></li>
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ url('/#####') }}">Home</a></li>
               <li><a href="#">Sign in</a></li>
               <li><a href="#features">Services</a></li>
             </ul>

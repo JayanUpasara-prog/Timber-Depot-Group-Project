@@ -24,11 +24,7 @@
                           View Registered Users
                       </a>
                   </li>  
-                  <li class="nav-item">
-                      <a class="nav-link {{ Request::is('CheckRenew') ? 'bg-success active' : '' }}" href="CheckRenew">
-                          Check Renew
-                      </a>
-                  </li>
+                 
                   <li class="nav-item">
                     <a class="nav-link {{ Request::is('CheckOwnershipChange') ? 'bg-success active' : '' }}" href="CheckOwnershipChange">
                         Check Ownership Change
@@ -61,7 +57,7 @@
                  </li>
                  
                  <li class="nav-item">
-                  <a class="nav-link {{ Request::is('Logout') ? 'bg-success active' : '' }}" href="Logout">
+                  <a class="nav-link {{ Request::is('Support') ? 'bg-success active' : '' }}" href="Support">
                        Supported Website (Payment & LiveChat)
                   </a>
                </li>

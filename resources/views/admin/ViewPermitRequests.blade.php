@@ -29,19 +29,19 @@
       <span class="text-success">Forest Department,</span>
       Melsiripura
     </a>
-    <form class="d-flex mx-auto text-right" role="search" method="GET" action="{{ route('search1') }}">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <form class="d-flex mx-auto text-right" method="GET" action="">
+    <!-- {{ route('admin.search5') }} -->
+    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
-
     <div class="btn-group">
       <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="assets/images/dashboardImg/face.jpg" alt="Profile Photo" class="rounded-circle" width="20" height="20">
+          <img src="{{ asset('storage/default.jpg') }}" alt="Profile Photo" class="rounded-circle" width="20" height="20">
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">My Profile</a></li>
-          <li><a class="dropdown-item" href="#">Log Out</a></li>
-      </ul>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
+        </ul>
   </div>
 </nav>
 
@@ -180,7 +180,7 @@
           <h4>Quick Links</h4>
       
           <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url('/#####') }}">Home</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Sign in</a></li>
             <li><a href="#">My Account</a></li>
