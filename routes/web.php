@@ -12,10 +12,13 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\RegisteredUserController;
 
+
+
 //chariya
 use App\Http\Controllers\PermitRequestController;
 
-
+//ownership change by HarshanatH
+use App\Http\Controllers\OwnershipChangeController;
 
 // Rest of your code...
 
@@ -214,7 +217,7 @@ Route::post('/WildCriminalsPost', [RegistrationController::class, 'WildCriminals
 Route::get('/CriminalView', [RegistrationController::class, 'CriminalView'])->name('admin.CriminalView');
 Route::delete('/destroyCriminal/{criminal}', [RegistrationController::class, 'destroyCriminal'])->name('admin.destroyCriminal');
 
-Route::get('/Logout', [RegistrationController::class, 'Logoutnew'])->name('admin.Logout');
+Route::get('/Support', [RegistrationController::class, 'Support'])->name('admin.Support');
 
 });
 
@@ -269,8 +272,19 @@ Route::get('/search',[Registration::class, 'showCheckRegistration'])->name('chec
 Route::get('/search1',[RegisteredUserController::class, 'search'])->name('search1');
 // index blade search function
 Route::get('/search2', [RegistrationController::class, 'search'])->name('search2');
+// Check Ownership blade search function
+
+Route::get('/admin/CheckOwnershipChange', [OwnershipChangeController::class, 'getOwnershipChangeRequests'])->name('search4');
+
 // view_record search and highlight
 Route::get('/searchUsers', [Registration::class, 'searchUsers'])->name('searchUsers');
+//View Permit request search 
+Route::get('/admin/ViewPermitRequests', [PermitRequestController::class, 'getViewPermitRequests'])->name('admin.search5');
+
+
+
+
+Route::get('/admin/AdminViewRating',  [RatingController::class, 'search'])->name('admin.AdminViewRating');
 
 // Route::get('/pay', function () {
 //     return view('user.checkout');
@@ -288,8 +302,6 @@ Route::get('/user/checkout', [Registration::class, 'registrationSuccess'])->name
 Route::get('/edit-profile-picture', [RegistrationController::class, 'editProfilePicture'])->name('edit.profile.picture');
 Route::post('/update-profile-picture', [RegistrationController::class, 'updateProfilePicture'])->name('update.profile.picture');
 
-//ownership change by HarshanatH
-use App\Http\Controllers\OwnershipChangeController;
 
 // Route::put('/CheckRegistration', [OwnershipChangeController::class, 'update']);
 // Route::post('/update-registeruser', 'OwnershipChangeController@updateregisteruser')->name('update.registeruser');

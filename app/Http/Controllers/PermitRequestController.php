@@ -136,7 +136,18 @@ class PermitRequestController extends Controller
     }
 
 
+   
+    // public function getViewPermitRequests(Request $request)
+    // {
+    //     $search = $request->input('search');
 
+    //     $viewPermit = ViewPermit::when($search, function ($query, $search) {
+    //         return $query->where('national_id_number', 'like', '%' . $search . '%')
+    //                      ->orWhere('email', 'like', '%' . $search . '%');
+    //     })->get();
+
+    //     return view('admin.ViewPermitRequests', compact('viewPermit'));
+    // }
       
     
 }

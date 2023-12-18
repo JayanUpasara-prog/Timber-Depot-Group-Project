@@ -41,10 +41,10 @@
         <span class="text-success">Forest Department,</span>
         Melsiripura
       </a>
-      <form class="d-flex mx-auto text-right" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <form class="d-flex mx-auto text-right" action="{{ route('admin.AdminViewRating') }}" method="GET">
+    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
       <div class="btn-group">
         <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown"
           aria-expanded="false">
@@ -52,7 +52,7 @@
             height="20">
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
           <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
         </ul>
       </div>

@@ -92,4 +92,20 @@ class OwnershipChangeController extends Controller
         }
     }
 
+    public function getOwnershipChangeRequests(Request $request)
+    {
+        $search = $request->input('search');
+
+        $CheckOwnershipChange = OwnershipChange::when($search, function ($query, $search) {
+            return $query->where('fname', 'like', '%' . $search . '%')
+                         ->orWhere('address', 'like', '%' . $search . '%')
+                         ->orWhere('idno', 'like', '%' . $search . '%')
+                         ->orWhere('contact', 'like', '%' . $search . '%')
+                         ->orWhere('Email', 'like', '%' . $search . '%');
+        })->get();
+
+        return view('admin.CheckOwnershipChange', compact('CheckOwnershipChange'));
+    }
+
+
 }

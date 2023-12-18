@@ -108,7 +108,7 @@ A carpentry shed is a facility where woodworking and carpentry activities take p
         
             <ul class="list-unstyled">
               <li><a href="faq">faq</a></li>
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ url('/#####') }}">Home</a></li>
               <li><a href="#">Sign in</a></li>
               <li><a href="#features">Services</a></li>
             </ul>

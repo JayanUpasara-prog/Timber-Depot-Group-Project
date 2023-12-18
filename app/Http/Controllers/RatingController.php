@@ -59,7 +59,17 @@ public function deleteRating($id)
     return redirect()->route('admin.AdminViewRating')->with('success', 'Rating deleted successfully');
 }
 
+public function getUserReviews(Request $request)
+{
+    $search = $request->input('search'); // Get the search term from the request
 
+    $ratings = Rating::when($search, function ($query, $search) {
+        return $query->where('user_name', 'like', '%' . $search . '%')
+                      ->orWhere('comment', 'like', '%' . $search . '%');
+    })->orderBy('created_at', 'desc')->get();
+
+    return view('admin.AdminViewRating', compact('ratings'));
+}
 
     
 }

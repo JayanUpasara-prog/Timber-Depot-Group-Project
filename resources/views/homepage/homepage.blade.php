@@ -47,7 +47,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#features">Services</a></li>
-          <li><a class="nav-link scrollto" href="#Reviews">Reviews</a></li>
+          <li><a class="nav-link scrollto" href="#ratings">Reviews</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link scrollto" href="login">Sign In</a></li>
           <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down"></i></a>

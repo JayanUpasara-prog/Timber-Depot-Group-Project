@@ -68,8 +68,9 @@
           <img src="{{ Storage::url($user->profile_picture) }}" alt="Profile Photo" class="rounded-circle" width="20" height="20">
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">My Profile</a></li>
-          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>      </ul>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
+        </ul>
   </div>
 </nav>
 

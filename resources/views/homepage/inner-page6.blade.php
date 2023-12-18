@@ -31,7 +31,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="homepage">Home</a></li>
+          <li><a class="nav-link scrollto " href="{{ url('/#####') }}">Home</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -106,7 +106,7 @@
         
             <ul class="list-unstyled">
               <li><a href="faq">faq</a></li>
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ url('/#####') }}">Home</a></li>
               <li><a href="#">Sign in</a></li>
               <li><a href="#features">Services</a></li>
             </ul>

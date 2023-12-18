@@ -167,9 +167,9 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div id="logo" class="logo-container" >
-        <a href="homepage"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
+        <a href="{{ url('/#####') }}"><img src="assets/img/favicon.jpg" alt="" title="" class="image-size"  /></a>
 
-        <h1><a href="homepage"><span>Forest Department,</span> Melsiripura.</a></h1>
+        <h1><a href="{{ url('/#####') }}"><span>Forest Department,</span> Melsiripura.</a></h1>
   
       </div>
 
@@ -421,7 +421,7 @@
             <h4>Quick Links</h4>
         
             <ul class="list-unstyled">
-              <li><a href="#">Home</a></li>
+              <li><a href="{{ url('/#####') }}">Home</a></li>
               <li><a href="#">Services</a></li>
               <li><a href="#">Sign in</a></li>
               <li><a href="#">My Account</a></li>

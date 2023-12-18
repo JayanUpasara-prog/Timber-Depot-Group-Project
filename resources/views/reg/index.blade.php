@@ -11,18 +11,18 @@
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
+     
+      background-image: url('assets/img/4907157.jpg');     
+    
+      background-size: cover;
       
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
       
-      /* Other background properties, if needed */
+      background-color: #f0f0f0; 
+      
+    
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+   
     }
     </style>
 </head>
@@ -41,10 +41,10 @@
 
     <div class="btn-group">
       <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{{ Storage::url($user->profile_picture) }}" alt="User Profile" class="rounded-circle" width="20" height="20">
+          <img src="{{ asset('storage/default.jpg') }}" alt="User Profile" class="rounded-circle" width="20" height="20">
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
           <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>      </ul>
   </div>
 </nav>
@@ -66,7 +66,7 @@
         @endif
 
         <div class="mb-3">
-            <a href="{{ route('AdminDashboard') }}" class="btn btn-primary">Back</a>
+            <a href="{{ route('AdminDashboard') }}" class="btn btn-success">Back</a>
         </div>
 
         <div class="card">

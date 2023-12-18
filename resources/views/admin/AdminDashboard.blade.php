@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  @include('livechat')
+ 
   <style>
     body {
 
@@ -40,24 +40,19 @@
         <span class="text-success">Forest Department,</span>
         Melsiripura
       </a>
-      <form class="d-flex mx-auto text-right" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      <div class="col-1">
-
-        <button type="button" class="btn btn-primary">
+      
+      
+      <div class="btn-group">
+      <button type="button" class="btn btn-success">
           <a href="{{ url('/#####') }}" style="color: white; text-decoration: none;">Home</a>
         </button>
-      </div>
-      <div class="btn-group">
         <button type="button" class="btn btn-light dropdown-toggle btn-outline-success" data-bs-toggle="dropdown"
           aria-expanded="false">
           <img src="{{ Storage::url($user->profile_picture) }}" alt="User Profile" class="rounded-circle" width="20"
             height="20">
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">My Profile</a></li>
+          <li><a class="dropdown-item" href="{{ url('/AdminDashboard') }}">My Profile</a></li>
           <li><a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a></li>
         </ul>
       </div>
