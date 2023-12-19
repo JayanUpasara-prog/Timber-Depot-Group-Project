@@ -33,26 +33,21 @@
 
 <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
+    
+      background-image: url('assets/img/4907157.jpg');       
       
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
+      background-size: cover; 
       
-      /* Other background properties, if needed */
+     
+      background-color: #f0f0f0; 
+      
+     
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+      
     }
     </style>
-  <!-- <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  </style> -->
+  
   
   
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
@@ -67,10 +62,10 @@
 
 <div class="container-fluid">
   <div class="row">
-      <!-- Side Navigation Bar -->
+     
       @include('userSideNav')
 
-      <!-- Main Content -->
+    
 
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

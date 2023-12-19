@@ -53,7 +53,7 @@
 
 <div class="container-fluid">
   <div class="row">
-      <!-- Side Navigation Bar -->
+      
       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
       @include('adminSideNav')
       </nav>
@@ -62,7 +62,7 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="container mt-4">
         <div class="row">
-            <!-- Stripe Account Box -->
+           
             <div class="col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-            <!-- Intercom Account Box -->
+            
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">

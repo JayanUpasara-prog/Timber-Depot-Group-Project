@@ -24,7 +24,7 @@
 
         
         }
-        /* Style for the login card */
+
         .card {
             background-color: rgba(255, 255, 255, 0.8);
         }

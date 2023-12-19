@@ -6,22 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  </style> -->
+  
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   @include('livechat')
 </head>
 <body>
 
-<!-- <div class="p-2 bg-light text-black text-center">
-  <img src="Srilanka.jpg" class="float-start img-fluid" alt="Srilanka" width="100" height="100">
-  <h1 class="text-success text-start">Forest Department,</h1>
-  <p class="text-dark text-start">Melsiripura</p> 
-</div> -->
+
 
 <nav class="navbar bg-light">
   <div class="container-fluid">
@@ -45,24 +36,7 @@
   </div>
 </nav>
 
-<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <div class="container-fluid">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav> -->
+
 </br>
 <h5>Welcome To User Profile</h5>
 <div class="container-fluid">

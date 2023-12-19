@@ -8,28 +8,28 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <style>
-    /* Style for the login card */
+  
     .card {
       background-color: rgba(255, 255, 255, 0.8);
-      /* Add a semi-transparent white background to the card */
+    
     }
   </style>
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
-  <!-- *** must include livechat...... *** -->
+ 
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
+    
+      background-image: url('assets/img/4907157.jpg'); 
+    
+      background-size: cover; 
       
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
+     
+      background-color: #f0f0f0; 
       
-      /* Other background properties, if needed */
+    
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+     
     }
     </style>
 </head>
@@ -54,15 +54,7 @@
 
                 <div class="col-md-6">
 
-                  <!-- @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                 @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif -->
+                 
 
 
                   <div class="card" style="background-color: rgba(255, 255, 255, 0.9);">

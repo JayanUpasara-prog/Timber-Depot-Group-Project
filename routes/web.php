@@ -182,10 +182,9 @@ Route::post('/send', [RegisteredUserController::class, 'send'])->name('reject.se
 Route::get('ViewRegisteredRecords', [RegisteredUserController::class, 'ViewRegisteredRecords']);
 Route::get('ViewRecords/{id}', [RegisteredUserController::class, 'ViewRecords']);
 Route::post('acceptance/{id}', [RegisteredUserController::class, 'handleAcceptance'])->name('acceptance.handle');
+
 //Route::post('acceptance/{id}', [RegisteredUserController::class, 'saveUsers'])->name('CheckRegistration');
-
 //Route::get('CriminalView/{id}', [Registration::class, 'CheckUser']);
-
 //Route::get('CheckUser/{idno}', [Registration::class, 'CheckUser']);
 //Route::get('CheckUser/{id}', [Registration::class, 'CheckUser']);
 // Route::get('admin/CriminalView/{userId}/{idno}', [Registration::class, 'CriminalView'])->name('admin.CriminalView');

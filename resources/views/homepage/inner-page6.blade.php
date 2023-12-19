@@ -3,7 +3,6 @@
 
 
 
-  <!-- Vendor CSS Files -->
 
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +11,6 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     
 
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
@@ -41,7 +39,6 @@
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -54,7 +51,7 @@
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section>
 
     @include('backtotop')
 
