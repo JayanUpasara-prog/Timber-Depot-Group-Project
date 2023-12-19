@@ -197,7 +197,7 @@ public function index()
             $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
         }
         if (!$RegisteredUser) {
-            return redirect('/UserDashboard')->with('fail', 'No data found for renewal. You have to fill the regitration form first.');
+            return redirect('/UserDashboard')->with('fail', 'No data found for Ownership Change. You have to fill the regitration form first.');
         }
 
         if(Session::has('loginId')){
@@ -214,7 +214,7 @@ public function index()
             $RegisteredUser = RegisteredUser::where('Email', auth()->user()->email)->first();
         }
         if (!$RegisteredUser) {
-            return redirect('/UserDashboard')->with('fail', 'No data found for renewal. You have to fill the regitration form first.');
+            return redirect('/UserDashboard')->with('fail', 'No data found for Permit Request. You have to fill the regitration form first.');
         }
         if(Session::has('loginId')){
             $user = User::where('id','=', Session::get('loginId'))->first();

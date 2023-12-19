@@ -24,18 +24,14 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
-         /* body {
-            padding-top: 50px; /* Add space for fixed navbar */
-        } */
-
+         
         .faq-container {
             max-width: 600px;
             margin: auto;
         }
 
         .search-bar {
-  /* Remove background color */
-  padding: 10px 0; /* Reduce padding for a smaller bar */
+  padding: 10px 0; 
 }
 
 .search-container {
@@ -49,18 +45,17 @@
 }
 
 .search-container input {
-  padding: 8px; /* Reduce padding for a smaller input */
+  padding: 8px; 
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 40%; /* Adjust the width as needed */
-}
+  width: 40%; 
 
 .search-container button {
   background-color: #4285f4;
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 8px 12px; /* Reduce padding for a smaller button */
+  padding: 8px 12px; 
   margin-left: 8px;
   cursor: pointer;
 }
@@ -74,10 +69,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px; 
 }
 
-/* Optional: Center the button in the header */
+
 #header .center-button {
   margin-top: 0;
 }
@@ -93,13 +88,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Swiper JS -->
+    
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-    <!-- GLightbox JS -->
+    
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-    <!-- Your main.js file -->
+    
     <script src="assets/js/main.js"></script>
 
     <script>
@@ -108,16 +103,15 @@
                 e.preventDefault();
                 var searchText = $('#searchInput').val().toLowerCase();
 
-                // Loop through all FAQ items
+                
                 $('.card').each(function () {
                     var questionText = $(this).find('.btn-link');
                     var answerText = $(this).find('.card-body');
 
-                    // Reset previous highlighting
+                    
                     questionText.html(questionText.text());
                     answerText.html(answerText.text());
 
-                    // Check if the search text is present in either the question or the answer
                     if (questionText.text().toLowerCase().includes(searchText)) {
                         highlightText(questionText, searchText);
                     }
@@ -142,12 +136,10 @@
                 e.preventDefault();
                 var searchText = $('#searchInput').val().toLowerCase();
 
-                // Loop through all FAQ items
                 $('.card').each(function () {
                     var questionText = $(this).find('.btn-link').text().toLowerCase();
                     var answerText = $(this).find('.card-body').text().toLowerCase();
 
-                    // Check if the search text is present in either the question or the answer
                     if (questionText.includes(searchText) || answerText.includes(searchText)) {
                         $(this).show();
                     } else {
@@ -215,7 +207,6 @@
 
 
     <div id="accordion">
-        <!-- FAQ Item 1 -->
         <div class="card" id="faqItem1">
             <div class="card-header" id="heading1">
                 <h5 class="mb-0">
@@ -232,7 +223,6 @@
             </div>
         </div>
 
-        <!-- FAQ Item 2 -->
         <div class="card" id="faqItem2">
             <div class="card-header" id="heading2">
                 <h5 class="mb-0">
@@ -379,11 +369,10 @@
             </div>
         </div>
 
-        <!-- Add more FAQ items following the same structure -->
 
     </div>
 </div>
-        </section><!-- End Contact Section -->
+        </section>
 
     </main><!-- End #main -->
 
@@ -461,12 +450,11 @@
     e.preventDefault();
     var searchText = $('#searchInput').val().toLowerCase();
 
-    // Loop through all FAQ items
+   
     $('.card').each(function () {
         var questionText = $(this).find('.btn-link').text().toLowerCase();
         var answerText = $(this).find('.card-body').text().toLowerCase();
 
-        // Check if the search text is present in either the question or the answer
         if (questionText.includes(searchText) || answerText.includes(searchText)) {
             $(this).show();
         } else {

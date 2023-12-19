@@ -8,24 +8,19 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.jpg" rel="icon">
   <link href="assets/img/apple-touch-icon.jpg" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- Add jQuery CDN link (if not added already) -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
@@ -64,7 +59,6 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-in">
     <h1 style="margin-top: 20px;">Welcome</h1>
@@ -72,7 +66,7 @@
      
       <a href="#get-started" class="btn-get-started scrollto">Get Started</a>
     </div>
-  </section><!-- End Hero Section -->
+  </section>
 
   <main id="main">
 
@@ -120,7 +114,6 @@
 
     </section><!-- End Get Started Section -->
 
-    <!-- ======= services Section ======= -->
     <section id="features" class="padd-section text-center">
 
 <div class="container" data-aos="fade-up">
@@ -198,7 +191,6 @@
     <div class="container" data-aos="fade-up">
         <div class="section-title text-center">
             <h2>User Reviews</h2>
-            <!-- Add a separator or description if needed -->
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -212,13 +204,12 @@
                             <p>
                             @for($i = 1; $i <= 5; $i++)
                                 @if($i <= $rating->rating)
-                                    <span class="star">&#9733;</span> <!-- Filled star -->
+                                    <span class="star">&#9733;</span> 
                                 @else
-                                    <span class="star">&#9734;</span> <!-- Empty star -->
+                                    <span class="star">&#9734;</span> 
                                 @endif
                             @endfor
                             </p>
-                            <!-- {{ $rating->rating }}-->
                             <p>{{ $rating->comment }}</p>
                         </div>
                     </div>
@@ -238,7 +229,6 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title text-center">
           <h2>Contact</h2>
-        <!--     <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
         </div>
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -303,7 +293,6 @@
               </form>
             </div>
 
-              <!-- Add this element where you want to display the loading message -->
               <div id="loadingMessage" style="display: none;">Sending message...</div>
               <div id="successMessage" style="display: none;"></div>
 
@@ -405,14 +394,12 @@
 
   </main><!-- End #main -->
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
   @include('backtotop')

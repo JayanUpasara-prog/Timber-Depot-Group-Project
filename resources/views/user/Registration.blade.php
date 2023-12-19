@@ -15,18 +15,18 @@
   @include('livechat')
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
       
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
+      background-image: url('assets/img/4907157.jpg');       
+     
+      background-size: cover; 
       
-      /* Other background properties, if needed */
+     
+      background-color: #f0f0f0; 
+      
+     
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+     
     }
     </style>
 
@@ -39,20 +39,14 @@
 
 <div class="container-fluid">
   <div class="row">
-      <!-- Side Navigation Bar -->
+   
       @include('userSideNav')
 
-      <!-- Main Content -->
+     
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="container mt-3">
         
-  <!--{{$errors}}-->
-
-  <!--@if($errors->any())
-    @foreach($errors->all() as $err)
-      <li>{{$err}}</li>
-    @endforeach
-  @endif-->
+ 
 
   <form id="myForm" action="/CheckReg" method="POST" enctype="multipart/form-data" class="was-validated ">
   @if(Session::has('success'))
@@ -65,7 +59,7 @@
                                     @method("post")
 
 
-  <!-- {{csrf_field()}} -->
+ 
   <div id="reg1" class="row g-3">
 
   <div class="mb-2 bg-success text-white text-center "> <h2>Personal Details</h2>
@@ -93,14 +87,14 @@
         <input type="file" name="fnic" id="fnic" required>
         <span style="color:red">@error('fnic'){{$message}}@enderror</span>
     </div>
-          <!--<input type="submit" value="Upload Front image File" >-->
+          
 
     <div class="col-md-2">
         Back Image Of NIC<br>
         <input type="file" name="bnic" id="bnic" required>
         <span style="color:red">@error('bnic'){{$message}}@enderror</span>
     </div>
-          <!--<input type="submit" value="Upload Back image File">-->
+         
     
 
     <div class="col-md-6">
@@ -213,20 +207,20 @@
               <input type="file" name="deed" id="deed" >
               <span style="color:red">@error('deed'){{$message}}@enderror</span>
         </div>
-              <!--<input type="submit" value="Upload File" >-->
+           
 
         <div class="col-md-3">   
             Image of plan(පිඹුර)<b>(Allowed type:pdf)</b><br>
               <input type="file" name="plan" id="plan" >
               <span style="color:red">@error('plan'){{$message}}@enderror</span>
         </div>
-              <!--<input type="submit" value="Upload File" >-->
+             
 
         <div class="col-md-5">    
             Affidavit taken to confirm authority if the land is not owned by you<b>(Allowed type:pdf)</b><br>
               <input type="file" name="Confirm" id="Confirm" >
               <span style="color:red">@error('Confirm'){{$message}}@enderror</span>
-              <!--<input type="submit" value="Upload File" >-->
+             
         </div>
 
         <div class="col-md-4">
@@ -253,7 +247,7 @@
             Recommendation of Divisional Secretary<b>(Allowed type:pdf)</b><br>
             <input type="file" name="recom" id="recom" >
             <span style="color:red">@error('recom'){{$message}}@enderror</span>
-            <!--<input type="submit" value="Upload File" >--><br><br>
+            <br><br>
         </div>  
       </div>
 </div>   
@@ -278,7 +272,7 @@
     <label for="CopyReg">Copy of the Certificate of Registration and Revenue License should be Uploaded<b>(Allowed type:pdf)</b>:</label><br><br>
         <input type="file" name="CopyReg" id="CopyReg" >
         <span style="color:red">@error('CopyReg'){{$message}}@enderror</span>
-        <!--<input type="submit" value="Upload image File" >-->
+       
     </div>
 
     <div class="col-md-6">
@@ -300,14 +294,14 @@
         Please Upload a copy of Protection License<b>(Allowed type:pdf)</b>:<br>
         <input type="file" name="license" id="license" >
         <span style="color:red">@error('license'){{$message}}@enderror</span>
-        <!--<input type="submit" value="Upload image File" >-->
+      
     </div>
 
     <div class="col-md-3">
         Recommendation of Divisional Secretary<b>(Allowed type:pdf)</b>:<br>
         <input type="file" name="recomd" id="recomd" >
         <span style="color:red">@error('recomd'){{$message}}@enderror</span>
-        <!--<input type="submit" value="Upload File" >-->
+       
     </div>
   </div>
 </div><br> 
@@ -340,7 +334,7 @@
         <input type="date" id="registration_date" name="registration_date" required>
 
         <script>
-            // Auto-fill the date field with the current date
+         
             document.getElementById('registration_date').valueAsDate = new Date();
         </script>
     
@@ -387,39 +381,12 @@
   const totalAmountElement = document.getElementById('totalAmount');
   const selectedItemsTableBody = document.querySelector('#selectedItemsTable tbody');
 
-    // function handleCheckboxChange(checkbox) {
-    //   // Check which checkboxes are selected
-    //   const checkbox1 = document.querySelector('.checkbox-group1');
-    //   const otherCheckboxes = document.querySelectorAll('.checkbox-group:checked');
-
-    //   // Hide all divs initially
-    //   document.querySelector('.div3').style.display = 'none';
-    //   document.querySelector('.div4').style.display = 'none';
-    //   document.querySelector('.div5').style.display = 'none';
-
-    //   // Check the conditions and show the corresponding divs
-    //   if (checkbox1.checked && otherCheckboxes.length > 0) {
-    //     // 1st checkbox and any other checkbox are checked
-    //     document.querySelector('.div4').style.display = 'block';
-    //     document.querySelector('.div3').style.display = 'block';
-    //   } else if (checkbox1.checked) {
-    //     // 1st checkbox is checked
-    //     document.querySelector('.div4').style.display = 'block';
-    //   } else if (otherCheckboxes.length > 0) {
-    //     // Any other checkbox is checked
-    //     document.querySelector('.div3').style.display = 'block';
-    //   }
-
-    //   // Show Div 3 if any checkbox is checked
-    //   if (checkbox1.checked || otherCheckboxes.length > 0) {
-    //     document.querySelector('.div5').style.display = 'block';
-    //   }
-    // }
+   
 
 
 
     document.addEventListener('DOMContentLoaded', function () {
-  // Add event listeners to checkboxes
+  
   const checkboxes1 = document.querySelectorAll('.checkbox-group, .checkbox-group1');
   checkboxes1.forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
@@ -428,36 +395,36 @@
     });
   });
 
-  // Call the function to check the initial state on page load
+  
   checkboxes1.forEach(function (checkbox) {
     handleCheckboxChange(checkbox);
   });
 });
 
 function handleCheckboxChange(checkbox) {
-  // Check which checkboxes are selected
+ 
   const checkbox1 = document.querySelector('.checkbox-group1');
   const otherCheckboxes = document.querySelectorAll('.checkbox-group:checked');
 
-  // Hide all divs initially
+ 
   document.querySelector('.div3').style.display = 'none';
   document.querySelector('.div4').style.display = 'none';
   document.querySelector('.div5').style.display = 'none';
 
-  // Check the conditions and show the corresponding divs
+ 
   if (checkbox1.checked && otherCheckboxes.length > 0) {
-    // 1st checkbox and any other checkbox are checked
+   
     document.querySelector('.div4').style.display = 'block';
     document.querySelector('.div3').style.display = 'block';
   } else if (checkbox1.checked) {
-    // 1st checkbox is checked
+   
     document.querySelector('.div4').style.display = 'block';
   } else if (otherCheckboxes.length > 0) {
-    // Any other checkbox is checked
+   
     document.querySelector('.div3').style.display = 'block';
   }
 
-  // Show Div 3 if any checkbox is checked
+ 
   if (checkbox1.checked || otherCheckboxes.length > 0) {
     document.querySelector('.div5').style.display = 'block';
   }
@@ -468,7 +435,7 @@ function handleCheckboxChange(checkbox) {
 
 
 
-    // Function to calculate individual amounts based on checked checkboxes
+   
     function calculateAmount() {
       let amount = 0;
       selectedItemsTableBody.innerHTML = '';
@@ -479,7 +446,7 @@ function handleCheckboxChange(checkbox) {
           const itemAmount = parseInt(checkbox.value);
           amount += itemAmount;
 
-          // Add the selected item to the table
+        
           const newRow = selectedItemsTableBody.insertRow();
           const cell1 = newRow.insertCell(0);
           const cell2 = newRow.insertCell(1);
@@ -491,13 +458,12 @@ function handleCheckboxChange(checkbox) {
       return amount;
     }
 
-    // Function to update the total amount element
-    // Function to update the total amount element
+   
 function updateTotalAmount() {
   const totalAmount = calculateAmount();
   totalAmountElement.textContent = totalAmount;
 
-  // Set the value of the input field with id 'totalAmountInput'
+ 
   const totalAmountInput = document.getElementById('totalAmountInput');
   if (totalAmountInput) {
     totalAmountInput.value = totalAmount;
@@ -505,14 +471,14 @@ function updateTotalAmount() {
 }
 
 
-    // Add event listeners to checkboxes
+    
     checkboxes1.forEach(function(checkbox) {
       checkbox.addEventListener('change', function() {
         updateTotalAmount();
       });
     });
 
-    //relavant field must be only block letters
+   
     function convertToUppercase() {
             var inputFields = document.querySelectorAll(".form-control");
             inputFields.forEach(function(input) {
@@ -523,7 +489,7 @@ function updateTotalAmount() {
 
         
         function showConfirmation() {
-    // Show a confirmation message using SweetAlert
+  
     Swal.fire({
         title: "Are you sure to submit this?",
         text: "You won't be able to revert this submission",
@@ -533,15 +499,15 @@ function updateTotalAmount() {
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, submit it!"
     }).then((result) => {
-        // If the user clicks "Yes," proceed with form submission
+     
         if (result.isConfirmed) {
-            // Trigger your form submission logic here
+           
             document.getElementById('myForm').submit();
         } else if (result.dismiss === Swal.DismissReason.cancel) {
-            // Handle the case where the user clicks "Cancel" or closes the dialog
+           
             Swal.fire("Submission Cancelled", "Your form submission has been cancelled.", "info");
         } else {
-            // If the user neither clicked "Yes" nor "Cancel," show the confirmation again
+          
             showConfirmation();
         }
     });

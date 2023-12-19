@@ -8,10 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   
   <style>
-  /* .fakeimg {
-    height: 200px;
-    background: #aaa;
-  } */
+ 
   #dlabel{padding:5px;}
   #d1{border:2px solid white; border-radius:12px; padding:5px;}
   </style>
@@ -20,18 +17,18 @@
   <!-- include add live chat part -->
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
+    
+      background-image: url('assets/img/4907157.jpg');     
+   
+      background-size: cover; 
       
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
+     
+      background-color: #f0f0f0;
       
-      /* Other background properties, if needed */
+     
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+    
     }
     </style>
 </head>
@@ -74,11 +71,7 @@
                 <div class="mb-3 mt-3">
 
                   <div class="row">
-                    <!-- <div class="col bg-light" style="border:2px solid white; border-radius:12px; padding:5px;">
-                      <div class="btn-group d-flex justify-content-between" style="">
-                        
-                      </div>
-                    </div> -->
+                    
                     <div class="col-sm-3 bg-light" id="d1">
                       <div class="row">
                         <div class="col">
@@ -188,38 +181,7 @@
               </form>
             </div>          
 
-            <!-- <div class="table-responsive"> 
-                <table class="table table-bordered" style="text-align:center; ">
-                <thead class="table-success" style="border:1px solid white;">
-                    <tr>
-                        <th rowspan="2">Date</th>
-                        <th colspan="3">Opening Stock (logs)</th>
-                        <th colspan="3">Volume of Logs Received</th>
-                        <th rowspan="2">The Source of logs</th>
-                        <th colspan="3">The volume of logs sold</th>
-                        <th colspan="3">Closing stock (logs)</th>
-                    </tr>
-                    <tr>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>No. of logs</th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>No. of logs</th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>No. of</th>
-                        <th>Species</th>
-                        <th>Volume dm<sup>3</sup>/ft<sup>3</sup></th>
-                        <th>No. of</th>
-                    </tr>
-                </thead>
-                
-                </table>
-            </div> -->
-
-          <!-- ====== logs of timber Update section ***END*** ====== -->
-
+            
       </main>
   </div>
 </div>

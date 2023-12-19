@@ -4,7 +4,7 @@
     app_id: "elolgtd6",
     name: <?php echo json_encode($user->name) ?>, // Full name
     email: <?php echo json_encode($user->Email) ?>, // Email address
-    created_at: "<?php echo strtotime($user->created_at) ?>" // Signup date as a Unix timestamp // an Identity Verification user hash for your user
+    created_at: "<?php echo strtotime($user->created_at) ?>" 
   };
 </script>
 

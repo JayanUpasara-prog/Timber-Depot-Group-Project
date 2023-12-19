@@ -6,28 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-  </style> -->
+ 
   <link href="assets/css/DashboardStyle.css" rel="stylesheet">
   @include('livechat')
   <style>
   body {
-      /* Set the background image */
-      background-image: url('assets/img/4907157.jpg'); /* Adjust the path accordingly */      
-      /* Set background image size */
-      background-size: cover; /* or contain, or specific dimensions */
+    
+      background-image: url('assets/img/4907157.jpg');  
+    
+      background-size: cover; 
       
-      /* Specify background color in case the image is not available or doesn't cover the whole body */
-      background-color: #f0f0f0; /* Choose a suitable background color */
+   
+      background-color: #f0f0f0; 
       
-      /* Other background properties, if needed */
+    
       background-repeat: no-repeat;
       background-position: center center;
-      /* Add more styles as necessary */
+     
     }
     </style>
 </head>
@@ -59,7 +54,7 @@
                     <div class="card-body" style="text-align:center;">
                       <h4 class="card-title">Logs of Timber</h4>
                       <a href="SB_LogsTimber" class="btn btn-outline-success">View</a>
-                      <!-- <a href="SB_LogsTimber" class="btn btn-outline-success">Update Status</a> -->
+                 
                     </div>
                   </div>
                 </div>
@@ -69,15 +64,15 @@
                     <div class="card-body" style="text-align:center;">
                       <h4 class="card-title">Sawn Timber</h4>
                       <a href="SB_SawnTimber" class="btn btn-outline-success">View</a>
-                      <!-- <a href="SB_SawnTimber" class="btn btn-outline-success">Update Status</a> -->
+                
                     </div>
                   </div>
                 </div>              
               </div>            
-            </div><!-- === === === end of button section === === ===  -->
+            </div>
 
           </div>
-          <!-- ====== container logs of timber & sawn timber buttons ***END*** ====== -->
+    
 
       </main>
   </div>
